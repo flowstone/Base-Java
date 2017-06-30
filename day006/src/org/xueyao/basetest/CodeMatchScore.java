@@ -1,6 +1,5 @@
 package org.xueyao.basetest;
 
-import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -38,9 +37,9 @@ public class CodeMatchScore {
     
     public static void MatchScore(int[] arr) {
         Scanner sc = new Scanner(System.in);
-        Random r = new Random();
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = r.nextInt(101);
+            System.out.println("请输入第"+(i+1)+"个评委给出的分数(1-100)");
+            arr[i] = sc.nextInt();
         }
         
         
