@@ -1,4 +1,7 @@
 package org.xueyao.homework;
+
+import java.util.Scanner;
+
 /**
  * @author Yao Xue
  * @date Jun 29, 2017 11:49:04 PM
@@ -14,9 +17,33 @@ public class HomeWork_04 {
             (1)演示一:
                                     请输入一个整数:1234
                                     控制台输出:1234是4位数字
+                                    
             (2)演示二:
                                     请输入一个整数:-34567
                                     控制台输出:-34567是5位数字
+                                    
+            1234 /10 123/10  12/10  1/10    
          */
+        Scanner sc = new Scanner(System.in);
+        System.out.println("请输入一个整数");
+        int number = sc.nextInt();
+        int countDigit = numberDigit(number);
+        System.out.println(number+"是"+countDigit+"位数字");
+    }
+    /**
+     * @Description: TODO 计算数字是几位数字
+     * @return: int
+     */
+    public static int  numberDigit(int number) {
+         
+         int count = 0;
+         while (number != 0) {
+             number = number / 10;
+             count++;
+             //System.out.println(number+"---------"+count);
+        }
+         return count;
+         
+         
     }
 }

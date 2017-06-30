@@ -44,9 +44,9 @@ public class HomeWork_02_02 {
         int groupNumber = sc.nextInt();
         
         System.out.print("请输入班级中每组的人数:");
-        int groupStudenNumber = sc.nextInt();
+        int groupStudentNumber = sc.nextInt();
         
-        int[][] studentScore = createStudentScore(groupNumber, groupStudenNumber);
+        int[][] studentScore = createStudentScore(groupNumber, groupStudentNumber);
         studentScore = StudentScoreAssignment(studentScore);
         //每组的不及格人数
         int[] groupNoPassNumber = createGroupNoPassNumber(groupNumber);
@@ -58,7 +58,7 @@ public class HomeWork_02_02 {
         
         int classNoPassNumber = classNoPassNumber(groupNoPassNumber);
         
-        int classAverage = classAverage(studentScore, groupNumber, groupStudenNumber);
+        int classAverage = classAverage(studentScore, groupNumber, groupStudentNumber);
         /*
          *  控制台输出:
                                     第1组不及格人数为: 6 人
@@ -75,12 +75,19 @@ public class HomeWork_02_02 {
         
     }
     
-    public static int[][] createStudentScore(int groupNumber, int groupStudenNumber ) {
-        int[][] studentScore = new int[groupNumber][groupStudenNumber];
+    /**
+     * @Description: TODO  创建学生成绩数组
+     * @return: int[][]
+     */
+    public static int[][] createStudentScore(int groupNumber, int groupStudentNumber ) {
+        int[][] studentScore = new int[groupNumber][groupStudentNumber];
         return studentScore;
     }
     
-    
+    /**
+     * @Description: TODO  初始化各组学生成绩
+     * @return: int[][]
+     */
     public static int[][] StudentScoreAssignment(int[][] studentScore) {
         Random r = new Random();
         for (int i = 0; i < studentScore.length; i++) {
@@ -93,18 +100,29 @@ public class HomeWork_02_02 {
         System.out.println("----------");
         return studentScore;
     }
-    
+    /**
+     * @Description: TODO  创建各组内不及格人数数组
+     * @return: int[]
+     */
     public static int[] createGroupNoPassNumber(int groupNumber) {
         int[] groupNoPassNumber = new int[groupNumber];
         return groupNoPassNumber;
     }
     
+    /**
+     * @Description: TODO  创建各组的平均分
+     * @return: int[]
+     */
     public static int[] creategroupAverage(int groupNumber) {
         int[] groupAverage = new int[groupNumber];
         return groupAverage;
     }
     
-  //每组的不及格人数
+
+    /**
+     * @Description: TODO  每组内不及格的总数
+     * @return: int[]
+     */
     public static int[]  groupNoPassNumber(int[] groupNoPassNumber, int[][] studentScore) {
         for (int i = 0; i < studentScore.length; i++) {
             int temp = 0;
@@ -118,7 +136,10 @@ public class HomeWork_02_02 {
         return groupNoPassNumber;
     }
     
-    //每组平均分
+    /**
+     * @Description: TODO  每组平均分
+     * @return: int[]
+     */
     public static int[] groupAverage(int[] groupAverage, int[][] studentScore) {
         for (int i = 0; i < studentScore.length; i++) {
             int temp = 0;
@@ -130,7 +151,11 @@ public class HomeWork_02_02 {
         }
         return groupAverage;
     }
-  //组的最高平均分
+
+    /**
+     * @Description: TODO 组的最高平均分
+     * @return: int
+     */
     public static int groupAverageMax(int[] groupAverage) {
         
         int groupAverageMax = groupAverage[0];
@@ -141,7 +166,10 @@ public class HomeWork_02_02 {
         }
         return groupAverageMax;
     }
-  //班级中的不及格人数
+    /**
+     * @Description: TODO 班级中的不及格人数
+     * @return: int
+     */
     public static int classNoPassNumber(int[] groupNoPassNumber) {
         int classNoPassNumber = 0;
         for (int i = 0; i < groupNoPassNumber.length; i++) {
@@ -149,7 +177,11 @@ public class HomeWork_02_02 {
         }
         return classNoPassNumber;
     }
-  //班级平均分
+    
+    /**
+     * @Description: TODO 班级平均分
+     * @return: int
+     */
     public static int classAverage(int[][] studentScore, int groupNumber, int groupStudenNumber) {
         int classAverage = 0;
         for (int i = 0; i < studentScore.length; i++) {
@@ -164,7 +196,10 @@ public class HomeWork_02_02 {
         return classAverage;
     }
     
-    //输出信息
+    /**
+     * @Description: TODO 输出信息
+     * @return: void
+     */
     public static void printInfo(int[] groupNoPassNumber, int[] groupAverage, int groupAverageMax, int classNoPassNumber, int classAverage) {
         for (int i = 0; i < groupNoPassNumber.length; i++) {
             System.out.println("第"+(i+1)+"组不及格人数为: "+groupNoPassNumber[i]+" 人");

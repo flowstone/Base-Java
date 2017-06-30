@@ -40,13 +40,19 @@ public class HomeWork_02_01 {
         System.out.println("不及格人数:"+noPassCount(number));
         System.out.println("班级平均分:"+classAvg(number));
     }
-    
+    /**
+     * @Description: TODO  创建班级人数数组
+     * @return: int[]
+     */
     public static int[] createNumber(int classNumber){
       //根据获得班级人数创建数组
         int[] number = new int[classNumber];
         return number;
     }
-    
+    /**
+     * @Description: TODO  数组初始化
+     * @return: void
+     */
     public static void numberAssignment(int[] number) {
         Random r = new Random();
         for (int i = 0; i < number.length; i++) {
@@ -54,6 +60,10 @@ public class HomeWork_02_01 {
         }
     }
     
+    /**
+     * @Description: TODO  不及格的人数
+     * @return: int
+     */
     public static int noPassCount(int[] number) {
         int noPassCount =0;
         for (int i = 0; i < number.length; i++) {
@@ -64,6 +74,10 @@ public class HomeWork_02_01 {
         return noPassCount;
     }
     
+    /**
+     * @Description: TODO  班级人数
+     * @return: int
+     */
     public static int classAvg(int[] number) {
         int sum =0;
         for (int i = 0; i < number.length; i++) {

@@ -32,35 +32,66 @@ public class HomeWork_01 {
         float floatNumberMin = numberMin(8.9F, 10.8F);
     }
     
-    
+    /**
+     * @Description: TODO 两个数据的和(整数)
+     * @return: int
+     */
     public static int sum(int num1, int num2) {
         return num1 + num2;
     }
-    
+
+    /**
+     * @Description: TODO 两个数据的和(小数)
+     * @return float
+     */
     public static float sum(float num1, float num2) {
         return num1 + num2;
     }
     
+    /**
+     * @Description: TODO 两个数据是否相等(整数)
+     * @return boolean
+     */
     public static boolean numberEqual(int num1, int num2) {
         return num1 == num2;
     }
     
+    /**
+     * @Description: TODO 两个数据是否相等(小数)
+     * @return: boolean
+     */
     public static boolean numberEqual(float num1, float num2) {
         return num1 == num2;
     }
     
+    /**
+     * @Description: TODO 两个数据中最大的数(整数)
+     * @return: int
+     */
     public static int numberMax(int num1, int num2) {
         return num1 > num2 ? num1 : num2;
     }
     
+    /**
+     * @Description: TODO 两个数据中最大的数(小数)
+     * @return: float
+     */
     public static float numberMax(float num1, float num2) {
         return num1 > num2 ? num1 : num2;
     }
     
+    /**
+     * @Description: TODO 两个数据中最小的数(整数)
+     * @return: int
+     */
     public static int numberMin(int num1, int num2) {
         return num1 < num2 ? num1 : num2;
     }
     
+    /**
+     * @Description: TODO 两个数据中最小的数(小数)
+     * @return: float
+     */
     public static float numberMin(float num1, float num2) {
         return num1 < num2 ? num1 : num2;
     }
