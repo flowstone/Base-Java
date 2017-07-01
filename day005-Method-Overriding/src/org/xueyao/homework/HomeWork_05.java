@@ -1,4 +1,7 @@
 package org.xueyao.homework;
+
+import java.io.File;
+
 /**
  * @author Yao Xue
  * @date Jun 29, 2017 11:49:56 PM
@@ -15,6 +18,37 @@ public class HomeWork_05 {
             5.定义一个方法copyOfRange(int[] arr,int from, int to),功能:将数组arr中从索引from(包含from)开始到索引to结束(不包含to)的元素复制到新数组中
                 ,并将新数组返回
          */
+        int[] arr1 = {1,2,3,4,5,6};
+        int[] arr2 = arr1;
+        boolean equal = equals(arr1, arr2);
+        System.out.println(equal);
+        int[] arr = {1,2,3,4,5,6};
+        fill(arr, 7);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+"  ");
+        }
+        System.out.println();
+        System.out.println("----------");
+        
+        fill(arr, 1,4,10);
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i]+"  ");
+        }
+        System.out.println();
+        System.out.println("----------");
+        
+        int[] copy = copyOf(arr, 4);
+        for (int i = 0; i < copy.length; i++) {
+            System.out.print(copy[i]+"  ");
+        }
+        System.out.println();
+        System.out.println("----------");
+        
+        int[] copyOfRange = copyOfRange(arr, 0, 3);
+        for (int i = 0; i < copyOfRange.length; i++) {
+            System.out.print(copyOfRange[i]+"  ");
+        }
+        System.out.println();
     }
     
     public static boolean equals(int[] arr1,int[] arr2) {
@@ -33,11 +67,10 @@ public class HomeWork_05 {
         return bool;
     }
     
-    public static int[]  fill(int[] arr,int value) {
+    public static void  fill(int[] arr,int value) {
         for (int i = 0; i < arr.length; i++) {
             arr[i] = value;
         }
-        return arr;
     }
     
     public static int[] fill(int[] arr,int fromIndex,int toIndex,int value) {
