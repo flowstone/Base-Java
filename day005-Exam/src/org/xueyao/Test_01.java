@@ -3,6 +3,13 @@ package org.xueyao;
 import java.util.Random;
 
 /**
+ * 获取10个随机数的累加和，具体要求如下：
+        定义 int[] getArr(int n)静态方法，方法内完成：随机生成n个100~999（包含100和999）之间的奇数并存放在整数数组arr中并返回
+        定义main方法，在main方法中完成：
+        1．传递10作为参数调用getArr方法并获取返回值arr；
+        2．计算arr中所有元素的总和；
+        3．在控制台中打印总和
+
  * @author Yao Xue
  * @date Jul 1, 2017 6:58:33 PM
  */
