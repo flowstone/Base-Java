@@ -7,6 +7,8 @@ public class ArraySum {
     public static void main(String[] args) {
         int[] arr1 = {1,2,3,4,5};
         int[] arr2 = {6,7,8,9,10};
+//        int sum = getSum(arr1, arr2);
+//        int sum = getSum(arr1) + getSum(arr2);
         int sum = getSum(arr1, arr2);
         System.out.println("sum:"+sum);
     }
@@ -15,6 +17,7 @@ public class ArraySum {
      * @Description: TODO  两个数组的和
      * @return: int
      */
+    /*
     public static int getSum(int[] arr1, int[] arr2) {
         int sum = 0;
         for (int i = 0; i < arr1.length; i++) {
@@ -24,6 +27,31 @@ public class ArraySum {
             sum += arr2[i];
         }
         
+        return sum;
+    }
+    */
+    /**
+     * @Description: TODO  两个数组的和，提高利用性
+     * @return: int
+     */
+    public static int getSum(int[] arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i];
+        }
+        return sum;
+    }
+    /**
+     * @Description: TODO  两个数组的和,优化
+     * @return: int
+     */
+    public static int getSum(int[]... arr) {
+        int sum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr[i].length; j++) {
+                sum += arr[i][j];
+            }
+        }
         return sum;
     }
 }
