@@ -55,7 +55,7 @@ public class HomeWork_05 {
         boolean bool = false;
         if (arr1.length == arr2.length) {
             for (int i = 0; i < arr1.length; i++) {
-                if (arr1[i] == arr2[i]) {
+                if (arr1[i] == arr2[i]) { //TODO  ´Ë´¦ÓÐ´íÎó
                     bool = true;
                 }else{
                     bool = false;
