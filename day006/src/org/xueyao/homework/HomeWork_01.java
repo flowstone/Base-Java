@@ -21,22 +21,9 @@ public class HomeWork_01 {
             System.out.println("请输入第"+(i+1)+"个数据");
             arr[i] = sc.nextInt();
         }
-        //将arr数组中的内容反转
-        for (int i = 0, j = arr.length-1; i <= j; i++, j--) {
-            int temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+        reverseArray(arr);
         
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            if (i == arr.length-1) {
-                System.out.print(arr[i]+"]");
-            } else {
-                System.out.print(arr[i]+", ");
-            }
-            
-        }
+        printArray(arr);
         //将翻转后的数组角标为奇数的互相交换 1和3换, 3和5换,以此类推
         for (int i = 1, j = 3; j <= arr.length; i=i+2, j=j+2) {
             int temp = arr[i];
@@ -44,15 +31,7 @@ public class HomeWork_01 {
             arr[j] = temp;
         }
         
-        System.out.print("[");
-        for (int i = 0; i < arr.length; i++) {
-            if (i == arr.length-1) {
-                System.out.print(arr[i]+"]");
-            } else {
-                System.out.print(arr[i]+", ");
-            }
-            
-        }
+        printArray(arr);
         //最后将数组最后一个角标为奇数的元素 和数组中第一个角标为奇数的元素交换
         for (int i = 1, j = arr.length-1; i <= j; j--) {
             if (j % 2 != 0) {
@@ -64,6 +43,14 @@ public class HomeWork_01 {
             
         }
         
+        printArray(arr);
+        
+    }
+    /**
+     * @Description: TODO 遍历数组
+     * @return: void
+     */
+    public static void printArray(int[] arr) {
         System.out.print("[");
         for (int i = 0; i < arr.length; i++) {
             if (i == arr.length-1) {
@@ -73,6 +60,18 @@ public class HomeWork_01 {
             }
             
         }
-        
+        System.out.println();
+    }
+    /**
+     * @Description: TODO 数组反转
+     * @return: void
+     */
+    public static void reverseArray(int[] arr) {
+        //将arr数组中的内容反转
+        for (int i = 0, j = arr.length-1; i <= j; i++, j--) {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
     }
 }
