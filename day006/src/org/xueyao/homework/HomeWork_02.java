@@ -32,7 +32,10 @@ public class HomeWork_02 {
             
         }
     }
-    
+    /**
+     * @Description: TODO 100以内能被3整除的数加上能被5整除的数的和
+     * @return: int
+     */
     public static int zhengChu(int n, int divisor) {
         int sum = 0;
         for (int i = 1; i < n; i++) {
