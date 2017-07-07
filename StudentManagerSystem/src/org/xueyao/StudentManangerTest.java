@@ -49,6 +49,11 @@ public class StudentManangerTest {
     }
     //修改学生
     private static void updateStuent(ArrayList<Student> array) {
+        if (array.size() == 0) {
+            System.out.println("不好意思，目前没有学生信息");
+            return;
+        }
+        
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入您要修改的学生的学号：");
         String id = sc.nextLine();
@@ -84,6 +89,10 @@ public class StudentManangerTest {
     }
     //删除学生
     private static void deleteStudent(ArrayList<Student> array) {
+        if (array.size() == 0) {
+            System.out.println("不好意思，目前没有学生信息");
+            return;
+        }
         Scanner sc = new Scanner(System.in);
         System.out.println("请输入您 要删除的学生的学号：");
         String id = sc.nextLine().trim();
