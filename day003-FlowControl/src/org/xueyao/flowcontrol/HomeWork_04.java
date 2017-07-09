@@ -18,6 +18,7 @@ public class HomeWork_04 {
         int number2 = sc.nextInt();
         System.out.println("请输入第三个数");
         int number3 = sc.nextInt();
+        /* 方法一
         int temp =number1 > number2 ? number1 : number2;
         int max = temp > number3 ? temp : number3;
         
@@ -25,5 +26,24 @@ public class HomeWork_04 {
         int min = temp < number3 ? temp : number3;
         int sum = number1 + number2 + number3;
         System.out.println("按照从小到大排序后的顺序为："+min+" "+(sum-max-min)+" "+max);
+        */
+        if (number1 > number2) {
+            int temp = number1;
+            number1 = number2;
+            number2 = temp;
+        }
+        if (number1 > number3) {
+            int temp = number1;
+            number1 = number3;
+            number3 = temp;
+        }
+        if (number2 > number3) {
+            int temp = number2;
+            number2 = number3;
+            number3 = temp;
+        }
+       
+        System.out.println("按照从小到大排序后的顺序为："+number1+", "+number2+", "+number3);
+        
     }
 }
