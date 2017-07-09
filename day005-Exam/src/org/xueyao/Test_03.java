@@ -24,11 +24,9 @@ public class Test_03 {
         while (true) {
            System.out.println("请输入一个正整数：");
            int score = sc.nextInt();
-           if (score > 100 || score < 0) {
-               System.out.println("录入成绩结束");
-               break;
-           } else {
-               if (score >= 90 && score <= 100) {
+               if (score > 100 || score < 0) {
+                   System.out.println("录入成绩结束");
+               }else if (score >= 90 && score <= 100) {
                    System.out.println("A等");
                } else if (score >= 80 && score <= 89) {
                    System.out.println("B等");
@@ -39,7 +37,6 @@ public class Test_03 {
                } else {
                    System.out.println("E等");
                }
-           }
-        }
+         }
     }
 }
