@@ -1,7 +1,7 @@
 package org.xueyao;
 /**
  * @author Yao Xue
- * @date Jul 6, 2017 12:33:30 PM
+ * @date Jul 9, 2017 8:55:02 AM
  */
 public class Student {
     private String id;
