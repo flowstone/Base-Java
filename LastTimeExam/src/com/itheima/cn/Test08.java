@@ -27,5 +27,6 @@ public class Test08 {
             }
         }
         System.out.println("count:"+count);
+        bufferedReader.close();
     }
 }
