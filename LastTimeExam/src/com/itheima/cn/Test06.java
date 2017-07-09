@@ -11,7 +11,7 @@ public class Test06 {
         for (int i = 0; i < arr.length; i++) {
             char[] chs = arr[i].toCharArray();
             if ((chs[0] >= 46 && chs[0] <= 57) ||(chs[chs.length-1] >= 46 && chs[chs.length-1] <= 57)) {
-                arr[i].toUpperCase();
+                //arr[i].toUpperCase();
                 System.out.println(arr[i].toUpperCase());
             }
         }
