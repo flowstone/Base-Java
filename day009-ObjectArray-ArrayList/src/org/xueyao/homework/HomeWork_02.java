@@ -1,6 +1,7 @@
 package org.xueyao.homework;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * 第二题：分析以下需求，并用代码实现    
@@ -33,7 +34,9 @@ public class HomeWork_02 {
             }
         }
         // 3.使用迭代器遍历集合,打印所有的元素
-        
+        for (int i = 0; i < array.size(); i++) {
+            System.out.println(array.get(i));
+        }
         //.使用增强for循环遍历集合并打印所有的元素
         for (int i = 0; i < array.size(); i++) {
             String s = array.get(i);
@@ -55,6 +58,7 @@ public class HomeWork_02 {
         String[] strings = new String[array.size()];
         for (int i = 0; i < array.size(); i++) {
             strings[i] = array.get(i);
+            System.out.println(strings[i]);
         }
     }
 }

@@ -23,26 +23,13 @@ public class HomeWork_04 {
         arrayList.add("你好啊");
         arrayList.add("我来啦");
         arrayList.add("别跑啊");
-        System.out.println(arrayList);
-        for (int i = 0; i < arrayList.size(); i++) {
-
-            
-           /* String string = arrayList.get(i);
-            boolean flag = false;
-            if (string.length() >5) {
-                flag = true;
-            }
-            if (flag) {
+       // System.out.println(arrayList);
+        for (int i = arrayList.size()-1; i >= 0; i--) {
+            String s = arrayList.get(i);
+            if (s.length() > 5) {
                 arrayList.remove(i);
             }
-            
-            for (int j = 48; j <= 57; j++) {
-                if (string.indexOf(j) != -1) {
-                    //arrayList.remove(i);
-                    break;
-                }
-            }*/
-            
+           
         }
         
         
