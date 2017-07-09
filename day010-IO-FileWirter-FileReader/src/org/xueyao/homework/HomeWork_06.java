@@ -22,17 +22,14 @@ public class HomeWork_06 {
        /* char ch = 'уе';
         System.out.println(ch);*/
         String line;
+        String[] str = new String[2];
         while ((line=bufferedReader.readLine())!=null) {
-            
-            char[] chs = line.toCharArray();
-            for (int i = 0,j=chs.length-1; i <= j; i++,j--) {
-                char temp = chs[i];
-                chs[i] = chs[j];
-                chs[j] = temp;
-              
-            }
-            
-            System.out.println(line);
+            int i = 0;
+            String s = line.trim();
+            StringBuffer stringBuffer = new StringBuffer(s);
+            stringBuffer.reverse().toString();
+           
+            System.out.println(stringBuffer);
         }
       //BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("text.txt"));
     //bufferedWriter.write(line);
