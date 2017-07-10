@@ -12,6 +12,7 @@ public class Test18 {
         String[] strings = new String[str.length];
         for (int i = 0; i < str.length; i++) {
             strings[i]  = str[i];
+            //如果使用StringBuilder中的反转方法，它会把原字符的数据改变，为了比较，我们要把原来的数据保存到一个新的字符中，以便比较
             StringBuilder stringBuilder = new StringBuilder(str[i]);
             
             if (strings[i].contentEquals(stringBuilder.reverse())) {
