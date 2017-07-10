@@ -23,6 +23,7 @@ public class Test04 {
             str[i] = sc.nextLine();
             bufferedWriter.write(str[i]);
             bufferedWriter.newLine();
+            bufferedWriter.flush();
         }
         bufferedWriter.close();
         
