@@ -9,9 +9,13 @@ public class Test06 {
     public static void main(String[] args) {
         String[] arr = {"12ab","java","45Cd","Server78"};
         for (int i = 0; i < arr.length; i++) {
-            char[] chs = arr[i].toCharArray();
+            /*char[] chs = arr[i].toCharArray();
             if ((chs[0] >= 46 && chs[0] <= 57) ||(chs[chs.length-1] >= 46 && chs[chs.length-1] <= 57)) {
                 //arr[i].toUpperCase();
+                System.out.println(arr[i].toUpperCase());
+            }*/
+            //·½·¨¶þ
+            if (arr[i].charAt(0)>='0' && arr[i].charAt(0)<='9'|| arr[i].charAt(arr[i].length()-1)>='0' && arr[i].charAt(arr[i].length()-1)<='9') {
                 System.out.println(arr[i].toUpperCase());
             }
         }
