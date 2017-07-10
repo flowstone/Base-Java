@@ -48,7 +48,7 @@ public class StudentManager {
             
         }
     }
-
+    
    //查看所有学生
     private static void findAllStudent(ArrayList<Student> arrayList) {
         // TODO Auto-generated method stub

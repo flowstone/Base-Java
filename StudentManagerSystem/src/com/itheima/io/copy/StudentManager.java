@@ -1,14 +1,13 @@
-package org.xueyao.io;
+package com.itheima.io.copy;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import com.itheima.io.Student;
 
 /**
  * @author Yao Xue
@@ -16,8 +15,7 @@ import com.itheima.io.Student;
  */
 public class StudentManager {
     public static void main(String[] args) throws IOException {
-        //定义文件路径
-        String fileName = "student_data.txt";
+        String fileName = "student_list.txt";
         Scanner sc = new Scanner(System.in);
         
         while (true) {
@@ -57,48 +55,46 @@ public class StudentManager {
         }
     }
     
-    //从文件中读数据到集合
-    public static void readData(String fileName, ArrayList<Student> arrayList) throws IOException {
+    
+    private static void readData(String fileName,ArrayList<Student> arrayList) throws IOException {
         BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName));
-        
         String line;
         while ((line=bufferedReader.readLine())!=null) {
-            String[] datas = line.split(",");
+            String[] split = line.split(",");
             Student student = new Student();
-            student.setId(datas[0]);
-            student.setName(datas[1]);
-            student.setAge(datas[2]);
-            student.setAddress(datas[3]);
+            student.setId(split[0]);
+            student.setName(split[1]);
+            student.setAge(split[2]);
+            student.setAddress(split[3]);
             
             arrayList.add(student);
         }
         bufferedReader.close();
     }
     
-    //把集合中的数据写入文件
-    public static void writeData(String fileName, ArrayList<Student> arrayList) throws IOException {
+    private static void writeData(String fileName,ArrayList<Student> arrayList) throws IOException {
         BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(fileName));
-        
         for (int i = 0; i < arrayList.size(); i++) {
             Student student = arrayList.get(i);
-            StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.append(student.getId()).append(",").append(student.getName())
-            .append(",").append(student.getAge()).append(",").append(student.getAddress());
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(student.getId());
+            stringBuffer.append(",");
+            stringBuffer.append(student.getName());
+            stringBuffer.append(",");
+            stringBuffer.append(student.getAge());
+            stringBuffer.append(",");
+            stringBuffer.append(student.getAddress());
             
-            bufferedWriter.write(stringBuilder.toString());
+            bufferedWriter.write(stringBuffer.toString());
             bufferedWriter.newLine();
             bufferedWriter.flush();
         }
-        
         bufferedWriter.close();
     }
    //查看所有学生
     private static void findAllStudent(String fileName) throws IOException {
-        // TODO Auto-generated method stub
-        //创建集合对象
         ArrayList<Student> arrayList = new ArrayList<Student>();
         readData(fileName, arrayList);
-        
         if (arrayList.size() == 0) {
             System.out.println("不好意思，目前没有学生信息");
             return;
@@ -148,8 +144,6 @@ public class StudentManager {
         student.setAddress(address);
         
         arrayList.add(student);
-        
-        //把集合中的数据重新写回到文件
         writeData(fileName, arrayList);
         System.out.println("添加学生信息成功");
         
@@ -157,32 +151,34 @@ public class StudentManager {
     
     //删除学生
     private static void deleteStudent(String fileName) throws IOException {
-        ArrayList<Student> array = new ArrayList<Student>();
-        readData(fileName, array);
-        if (array.size() == 0) {
+        ArrayList<Student> arrayList = new ArrayList<Student>();
+        readData(fileName, arrayList);
+        if (arrayList.size() == 0) {
             System.out.println("不好意思，目前没有学生信息");
             return;
         }
+
         Scanner sc = new Scanner(System.in);
-        System.out.println("请输入您 要删除的学生的学号：");
-        String id = sc.nextLine().trim();
-        
-        int index = -1;
-        for (int i = 0; i < array.size(); i++) {
-            Student s = array.get(i);
-            if (s.getId().equals(id)) {
-                index = i;
+        while (true) {
+            System.out.println("请输入你要删除学生的学号");
+            String id = sc.nextLine();
+            boolean flag = false;
+            for (int i = 0; i < arrayList.size(); i++) {
+                Student s = arrayList.get(i);
+                if (id.equals(s.getId())) {
+                    flag = true;
+                    arrayList.remove(i);
+                    break;
+                }
+            }
+            if (!flag) {
+                System.out.println("没有该学号学生的信息");
+            } else {
                 break;
             }
         }
-        
-        if (index == -1) {
-            System.out.println("不好意思，你要删除的学号对应的学生信息不存在，请重新选择");
-        } else {
-            array.remove(index);
-            writeData(fileName, array);
-            System.out.println("删除学生成功");
-        }
+        writeData(fileName, arrayList);
+        System.out.println("删除学生信息成功");
     }
     
     //更新学生
