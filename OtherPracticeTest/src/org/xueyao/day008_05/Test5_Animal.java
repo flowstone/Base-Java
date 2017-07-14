@@ -9,6 +9,11 @@ public class Test5_Animal {
         System.out.println(cat.getColor()+"----"+cat.getLeg());
         cat.eat();
         cat.catchMouse();
+        
+        Dog dog = new Dog("ºÚ", 2);
+        System.out.println(dog.getColor()+"----"+dog.getLeg());
+        dog.eat();
+        dog.lookHome();
     }
 }
 
