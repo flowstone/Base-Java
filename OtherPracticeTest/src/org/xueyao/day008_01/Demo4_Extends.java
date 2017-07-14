@@ -29,8 +29,9 @@ class Son extends Father {
     int num2 = 20;
     
     public void print() {
-        System.out.println(num1);
+        System.out.println(this.num1);
         System.out.println(num2); //就近原则，子类有就不用父类
+        System.out.println(super.num2); 
     }
 }
 
