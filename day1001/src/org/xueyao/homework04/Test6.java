@@ -38,7 +38,7 @@ public class Test6 {
         Person yuFan = new Person();
         yuFan.setName("羽凡");
         
-        Person baiBaiHe = new Person("白百合", 38, phone.getBrand());
+        Person baiBaiHe = new Person("白百合", 38, phone);
         baiBaiHe.callTo(yuFan);
     }
 }
@@ -80,7 +80,7 @@ class Phone {
     }
     
     public void call(String name) {
-        
+        System.out.println("给"+name+"打电话");
     }
 }
 /*
@@ -98,44 +98,48 @@ c)要求:
 class Person {
     private String name;
     private int age;
-    private String Phone;
+    private Phone Phone;
+    
     public Person() {
-        super();
         // TODO Auto-generated constructor stub
     }
-    public Person(String name, int age, String phone) {
-        super();
+    
+    public Person(String name, int age, org.xueyao.homework04.Phone phone) {
         this.name = name;
         this.age = age;
         Phone = phone;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public int getAge() {
         return age;
     }
+
     public void setAge(int age) {
         this.age = age;
     }
-    public String getPhone() {
+
+    public Phone getPhone() {
         return Phone;
     }
-    public void setPhone(String phone) {
+
+    public void setPhone(Phone phone) {
         Phone = phone;
     }
-    
+
     //b)成员方法: 打电话: public void callTo(Person p)  使用自己的手机给指定的人打电话
+  //38岁的白百合使用8000元的iPhone的手机,她在使用者部手机给羽凡打电话
     public void callTo(Person p) {
-        call(p.getName());
+        System.out.println(age+"岁的"+name+"使用"+Phone.getPrice()+"元的"+Phone.getBrand()+"的手机");
+        Phone.call(p.name);
     }
     
-    //i.在方法内部调用手机的call(String name) 方法,给传入的人打电话
-    public void call(String name) {
-        //38岁的白百合使用8000元的iPhone的手机,她在使用者部手机给羽凡打电话
-        //System.out.println(age+"岁的"+name+"使用"+);
-    }
+        
 }
