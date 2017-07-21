@@ -11,4 +11,9 @@ public class Barber extends Person{
         System.out.println(getName()+"正在给顾客认真细致的剪发");
         
     }
+    
+    //边工作边泡妞
+    public void chasingGirls() {
+        System.out.println(getName()+"正在边工作边泡妞");
+    }
 }

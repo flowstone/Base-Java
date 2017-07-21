@@ -10,4 +10,8 @@ public class Actress extends Person{
     public void doSomething() {
         System.out.println(getName()+"立即停止的表演.");
     }
+    
+    public void beFamous() {
+        System.out.println(getName()+"正走在成名的潜规则道路上");
+    }
 }
