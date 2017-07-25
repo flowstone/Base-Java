@@ -12,7 +12,7 @@ public class FinallyReturnDemo {
         System.out.println(m2);  //1
         
         Person m3 = method3();
-        System.out.println(m3.age);
+        System.out.println(m3.age);  //3
     }
 
     private static Person method3() {
