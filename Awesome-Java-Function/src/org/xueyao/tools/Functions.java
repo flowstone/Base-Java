@@ -3,7 +3,8 @@ package org.xueyao.tools;
 import java.io.Closeable;
 import java.io.IOException;
 
-/**
+/** 
+ * @description 常用工具类
  * @author Yao Xue
  * @date Jul 26, 2017 8:16:39 AM
  */
