@@ -33,7 +33,7 @@ public class Poker {
         
     }
 
-    private static void dealPokers(ArrayList<String> pokers) {
+    public static void dealPokers(ArrayList<String> pokers) {
         ArrayList<String> player01 = new ArrayList<String>();
         ArrayList<String> player02 = new ArrayList<String>();
         ArrayList<String> player03 = new ArrayList<String>();
