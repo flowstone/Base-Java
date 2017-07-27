@@ -2,6 +2,8 @@ package org.xueyao.tools;
 
 import java.io.Closeable;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /** 
  * @description 常用工具类
@@ -14,7 +16,6 @@ public class Functions {
     }
     /**
      * @description: 关闭输入输入流对象
-     * @date 2017-07-26
      * @param ios 输入输出流对象 
      * 
      */
@@ -28,6 +29,30 @@ public class Functions {
                     e.printStackTrace();
                 }
             }
+        }
+    }
+    
+    /**
+     * @description 遍历任意类型的ArrayList
+     * @param list  任意类型的ArrayList
+     */
+    public static void printArrayList(ArrayList<?> list) {
+        Iterator<?> it = list.iterator();
+        while (it.hasNext()) {
+            Object next = it.next();
+            System.out.println(next);
+        }
+    }
+    
+    /**
+     * @description 反转任意类型数组
+     * @param arr  任意类型的数组
+     */
+    public static <E> void reverse(E[] arr) {
+        for (int start  = 0, end = arr.length-1; start < end; start++, end--) {
+            E temp = arr[start];
+            arr[start] = arr[end];
+            arr[end] = temp;
         }
     }
 }
