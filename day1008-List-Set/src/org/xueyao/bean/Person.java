@@ -37,7 +37,7 @@ public class Person {
         return "Person [name=" + name + ", age=" + age + "]";
     }
     /**
-     * 跟每
+     * 跟每个属性相关的31算法
      */
     @Override
     public int hashCode() {

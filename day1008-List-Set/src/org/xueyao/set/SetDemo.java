@@ -6,6 +6,14 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
+ * 三. 集合Collection接口的子接口：Set集合
+    1. Set集合特点
+        1. 不包含重复元素,不保证集合中的元素顺序
+        2. 无索引
+        3. Set接口的方法和Collection父接口中一样
+    2. HashSet实现类演示set特点
+        1. 遍历集合：迭代器和增强for循环遍历，结果都是乱序的
+        2. 添加元素：相同元素不能重复添加（add方法返回false）
  * @author Yao Xue
  * @date Jul 27, 2017 4:30:30 PM
  */

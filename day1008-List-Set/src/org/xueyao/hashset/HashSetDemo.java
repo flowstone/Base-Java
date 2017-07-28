@@ -5,7 +5,14 @@ import java.util.HashSet;
 import org.xueyao.bean.Person;
 
 /**
- * 
+ * 3. Hashset本质上是HashMap
+    
+    4. 对象的哈希值
+        1. hashcode：Object的方法，本地方法，返回值int类型
+
+        2. 哈希值：JVM根据底层的哈希算法(不可逆,一对一)，为对象计算的一个十进制的整数
+            1. MD5 不可逆   明文 ->密文  无法根据 密文 ->明文    3　＋ 4 = 7
+        3. String的重写了hashcode方法
  * @author Yao Xue
  * @date Jul 27, 2017 4:58:46 PM
  */
