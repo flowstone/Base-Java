@@ -20,8 +20,7 @@ public class Functions {
      * 
      */
     public static void closeTo(Closeable ... ios) {
-        for (int i = 0; i < ios.length; i++) {
-            Closeable io = ios[i];
+        for (Closeable io : ios) {
             if (io != null) {
                 try {
                     io.close();
