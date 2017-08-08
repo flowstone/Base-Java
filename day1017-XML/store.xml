@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 这是xml文件的注释 -->
+<!-- xml文件应该只要一个根标签 -->
+<store>
+	<product category="手机数码">
+		<pid>001</pid>
+		<pname>华为手机</pname>
+		<price>1999</price>
+		<desc it="itcast001" value="110"/>
+	</product>
+	<product category="电脑办公">
+		<pid>002</pid>
+		<pname>联想 </pname>
+		<price>3999</price>
+	</product>
+	<product category="大型家电">
+		<pid>003</pid>
+		<pname>海尔洗衣机</pname>
+		<price>999</price>
+	</product>
+</store>
