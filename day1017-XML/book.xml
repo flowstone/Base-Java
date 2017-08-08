@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<books>
+	<book id = "1">
+		<title>JavaEE从入门到精通</title>
+		<publishDate>2017-01-20</publishDate>
+		<price>88</price>
+	</book>
+	<book id = "2">
+		<title>Oracle管理员手册</title>
+		<publishDate>2017-05-01</publishDate>
+		<price>65</price>
+	</book>
+	<book id = "3">
+		<title>JavaSE开发手册</title>
+		<publishDate>2016-12-10</publishDate>
+		<price>35</price>
+	</book>
+</books>

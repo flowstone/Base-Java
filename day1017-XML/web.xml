@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<servlets>
+	<servlet>
+		<servlet-name>servlet1</servlet-name>
+		<servlet-class>cn.itheima.servlets.MyServlet1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet1</servlet-name>
+		<url-pattern>/s1</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>servlet2</servlet-name>
+		<servlet-class>cn.itheima.servlets.MyServlet2</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet2</servlet-name>
+		<url-pattern>/s2</url-pattern>
+	</servlet-mapping>
+</servlets>
