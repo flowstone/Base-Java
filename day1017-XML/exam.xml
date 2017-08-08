@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<exams>
+	<exam>
+		<subject>Java基础测试</subject>	
+		<category>判断题</category>
+		<question>&lt;活着&gt;书签是否为Java高级程序员必读书籍</question>
+	</exam>
+	<exam>
+		<subject>Java基础测试</subject>
+		<category>判断题</category>
+		<question>
+			<![CDATA[
+				char c = 'a';
+				if (c >= '0' && c <= '9') {
+					System.out.println("找到:"+c);
+				} else {
+					System.out.println("没找到:"+c);
+				}
+			]]>
+		</question>
+	</exam>
+</exams>
