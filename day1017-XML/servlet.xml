@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE servlets SYSTEM "servlet.dtd">
+<servlets>
+	<servlet>
+		<servlet-name>servlet1</servlet-name>
+		<servlet-class>cn.itcast.MyServlet1</servlet-class>
+	</servlet>
+	<servlet>
+		<servlet-name>servlet2</servlet-name>
+		<servlet-class>cn.itcast.MyServlet1</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>servlet1</servlet-name>
+		<url-pattern>/s1</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>servlet2</servlet-name>
+		<url-pattern>/s2</url-pattern>
+	</servlet-mapping>
+</servlets>
