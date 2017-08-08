@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.example.org/bean-schema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/bean-schema bean-schema.xsd">
+	<bean id="007" className="cn.baidu.User">
+		<property name="username" value="Jack"/>
+		<property name="password" value="123456"/>
+	</bean>
+	<bean id="001" className="cn.baidu.User">
+		<property name="username" value="Peter"/>
+		<property name="password" value="654321" />
+	</bean>
+</beans>

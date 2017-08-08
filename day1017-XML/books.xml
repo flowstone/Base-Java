@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<books xmlns="http://www.baidu.com/books"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.baidu.com/books  books.dtd">
+	<book author="张三丰">
+		<name>Java从入门到放弃</name>
+		<price>998</price>
+	</book>
+	<book author="灭绝师太">
+		<name>Java编程思想</name>
+		<price>98</price>
+	</book>
+</books>

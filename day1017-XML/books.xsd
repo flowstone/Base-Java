@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+	targetNamespace="http://www.example.org/books" 
+	xmlns:tns="http://www.example.org/books" 
+	elementFormDefault="qualified">
+	
+	<!-- 定义元素使用 element -->
+	<element name="books">
+		<!-- 如果一个标签中包含属性或子标签,那么该标签就会成为复杂标签,复杂标签需要添加complexType -->
+		<complexType>
+			<!-- books标签之后没有子标签,有,请添加sequence标签,作用:定义子标签出现顺序 -->
+			<sequence>
+				<element name="book" minOccurs="1" maxOccurs="unbounded">
+					<complexType>
+						<sequence>
+							<element name="name" type="string"></element>
+							<element name="price" type="string"></element>
+						</sequence>
+						<attribute name="author" type="string" use="required"></attribute>
+					</complexType>
+				</element>
+			</sequence>
+		</complexType>		
+	</element>
+</schema>
