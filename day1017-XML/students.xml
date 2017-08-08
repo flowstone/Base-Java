@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE students SYSTEM "students.dtd">
+
+<students schoolName="中心小学">
+	<student id="001">
+		<name>小明</name>
+		<sex>男</sex>
+		<age>18</age>
+	</student>
+</students>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE servlets SYSTEM "servlets.dtd">
+<servlets>
+	<servlet>
+		<servlet-name></servlet-name>
+		<servlet-class></servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name></servlet-name>
+		<url-mapping></url-mapping>
+	</servlet-mapping>
+</servlets>

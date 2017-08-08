@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!ELEMENT servlets (servlet*,servlet-mapping*)>
+<!ELEMENT servlet (servlet-name,servlet-class)>
+<!ELEMENT servlet-mapping (servlet-name,url-mapping)>
+<!ELEMENT servlet-name (#PCDATA)>
+<!ELEMENT servlet-class (#PCDATA)>
+<!ELEMENT url-mapping (#PCDATA)>
+<!ATTLIST servlets version CDATA #IMPLIED>
