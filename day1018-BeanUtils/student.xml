@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<students>
+	<student stuNo="it001">
+		<name>章子怡</name>
+		<age>20</age>
+		<gender>女</gender>
+		<score>99</score>
+	</student>
+	<student stuNo="it002">
+		<name>汪峰</name>
+		<age>22</age>
+		<gender>男</gender>
+		<score>100</score>
+	</student>
+	<student stuNo="it003">
+		<name>高圆圆</name>
+		<age>18</age>
+		<gender>女</gender>
+		<score>98</score>
+	</student>
+</students>

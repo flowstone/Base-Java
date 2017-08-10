@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans>
+	<bean className="org.xueyao.beans.Employee">
+		<property name="id" value="1"></property>
+		<property name="name" value="张三"></property>
+		<property name="salary" value="20000.00"></property>
+	</bean>
+	<bean className="org.xueyao.beans.Student">
+		<property name="name" value="翠花"></property>
+		<property name="age" value="18"></property>
+		<property name="gender" value="女"></property>
+		<property name="score" value="99.5f"></property>
+	</bean>
+</beans>

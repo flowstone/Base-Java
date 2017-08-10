@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<bean className = "org.xueyao.beans.task06.Car">
+		<property name = "brand" value = "宝马"/>
+		<property name = "color" value = "红色"/>
+		<property name = "price" value = "280000"/>
+		<property name = "type" value = "CX200"/>
+		<property name = "productDate" value = "2016-10-30"/>
+	</bean>
+	<bean className = "org.xueyao.beans.task06.Book">
+		<property name = "title" value = "Oracle管理员手册"/>
+		<property name = "publishDate" value = "2017-01-28"/>
+		<property name = "price" value = "35"/>
+		<property name = "publishingHouse" value = "小明出版社"/>
+		<property name = "author" value = "小明"/>
+	</bean>
+</beans>
