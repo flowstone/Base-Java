@@ -22,7 +22,7 @@ public class C3P0Test02 {
        //获取连接
         try {
             //首先创建c3p0o数据库连接池对象,  传入项目的名字
-            ComboPooledDataSource basicDataSource = new ComboPooledDataSource("day4023-JDBC-ConnectionPools-DButils");
+            ComboPooledDataSource basicDataSource = new ComboPooledDataSource("day02");
             connection = basicDataSource.getConnection();
             statement = connection.createStatement();
             resultSet = statement.executeQuery("SELECT * FROM dept");
