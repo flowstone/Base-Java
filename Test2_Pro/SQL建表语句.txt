@@ -1,0 +1,28 @@
+-- 创建数据库:Test2（复制以下SQL语句执行）
+	DROP DATABASE IF EXISTS Test2;
+	CREATE DATABASE Test2;
+-- 2). 创建表：account(账户表)，有如下结构及数据：（复制以下SQL语句执行）
+	USE test2;
+	DROP TABLE IF EXISTS account;
+CREATE TABLE account (
+  id int(11) NOT NULL AUTO_INCREMENT,	
+  username varchar(100) DEFAULT NULL,	-- 用户姓名
+  cardid varchar(100) DEFAULT NULL,		-- 卡号
+  balance double(10,2) DEFAULT NULL,	-- 当前余额
+  moneyRate double(4,2) DEFAULT NULL,	-- 应用利率
+  PRIMARY KEY (id)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+      insert  into account(id,username,cardid,balance,moneyRate) 
+  values (1,'Carl','6212888888888',12000000.00,2.50),
+	   (2,'Diana','6212999999999',20000000.00,2.80);
+-- 3). 创建表：Transaction(交易记录表) （复制以下SQL语句执行）
+	USE test2;
+	DROP TABLE IF EXISTS transaction;
+CREATE TABLE transaction (
+  id int(11) NOT NULL AUTO_INCREMENT,
+  cardid varchar(100) DEFAULT NULL,	-- 交易卡号
+  tratype varchar(100) DEFAULT NULL,    -- 交易类型：转入，转出
+  tramoney double(10,2) DEFAULT NULL,	-- 交易金额
+  tradate datetime DEFAULT NULL,	-- 交易日期
+  PRIMARY KEY (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
