@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style type="text/css">
+        div {
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+    
+</head>
+<body>
+    <div id="mydiv" onmouseout="changeGreen()" onmouseover="changeBlue()">我是div</div>
+    密码:<input type="password" id="pwd">
+    重复密码:<input type="password" id="repwd">
+
+    <script type="text/javascript">
+        function changeBlue() {
+            var mydiv = document.getElementById("mydiv");
+            mydiv.style.backgroundColor = "blue";
+            mydiv.style.fontSize = "100px";
+        }
+
+        function changeGreen() {
+            var mydiv = document.getElementById("mydiv");
+            mydiv.style.backgroundColor = "green";
+            mydiv.style.fontSize = "20px";
+        }
+
+        document.getElementById("repwd").onblur = function() {
+            var pwd = document.getElementById("pwd").value;
+            var repwd = document.getElementById("repwd").value;
+
+            if (pwd == repwd) {
+                alert("密码一致");
+            } else {
+                alert("密码不一致")
+            }
+        }
+    </script>
+</body>
+</html>

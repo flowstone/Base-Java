@@ -11,7 +11,7 @@ import java.sql.Statement;
  * @author XueYao
  * @date 2017-08-22
  */
-public class C3P0Test {
+public class C3P0Basic {
     public static void main(String[] args) {
         Connection connection = null;
         Statement statement = null;

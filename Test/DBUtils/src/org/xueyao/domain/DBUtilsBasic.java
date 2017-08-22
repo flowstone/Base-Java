@@ -15,13 +15,13 @@ import java.util.List;
  * @author XueYao
  * @date 2017-08-22
  */
-public class DBUtilsTest {
+public class DBUtilsBasic {
 
     public static void main(String[] args) throws SQLException {
         List<User> allUser = getAllUser();
         System.out.println(allUser);
     }
-    public static List<User> getAllUser() throws SQLException {
+    private static List<User> getAllUser() throws SQLException {
         List<User> users = new ArrayList<>();
         Connection con = JDBCUtils.getConnection();
         Statement statement = con.createStatement();
