@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!--
+
+        <input type="text" />  文本框,用来输入可见的内容
+        <input type="password" />   密码框,用来输入不可见的内容
+        <input type="radio" />    单选按钮，通过name属性，将需要被单选的按钮分为一组。然后就可以
+									针对这一组的标签实现单选。
+        <input type="checkbox" />   复选框,用户可以选择多个
+        <input type="file" />  文件上传组件
+        <input type="button" value="" />   按钮,value属性定义按钮的显示值
+        <input type="reset" />            重置按钮,重新设置表单中所有标签的值
+        <input type="submit" value="" />   提交按钮
+        <input type="hidden" value="需要保存的数据"/>            隐藏域,用户看不到
+        <select>               下拉列表,<option>定义一个下拉选项
+        <textarea cols="" rows="">    文本域,用户可以输入大段的内容
+
+        form标签标签的细节：
+				action:用来指定将用户填写的内容提交服务器的地址。
+				method:用来指定以什么样的方式提交数据。
+						get:提交的数据会显示在浏览器的地址栏上。get提交的数据有长度的限制。（默认的）
+						post:提交的数据不会显示在浏览器的地址栏上。提交的数据没有长度的限制。
+				
+				1.如果不给标签添加name属性，服务器是接受不到用户提交的数据的。
+					如果是用户填写的数据的话，那么提交给服务器的数据的格式:
+						name的属性值 = 用户填写的值。
+					name的属性值起到了key的作用，用于辨别用户提交的数据。
+				2.如果是用户选择的标签，那么必须要给标签添加value属性。
+					如果是用户选择的标签，那么提交给服务器的值的格式是：
+						name的属性值 = value的属性值。
+				3.如果提交给服务器的值有多个的话，那么提交的格式是：(了解)
+						key=value&key=value&key=value....
+				4.如果是下拉列表，那么value值给option标签。提交给服务器的值就是选中的option的value的属性值。
+    -->
+</body>
+</html>
