@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script type="text/javascript">
+        //给用户名增加点击事件对应的函数
+        function func() {
+            var usernameVal = document.getElementById("user").value;
+            //判断
+            if (usernameVal == "请输入用户名") {
+                document.getElementById("user").value = "";
+            }
+        }
+        //给用户标签对象绑定离焦事件对应的函数
+        //判断用户名的格式是否正确,返回值应该是boolean类型
+        function checkuser() {
+            //定义一个标志位,初始值为false,表示不合法
+            var flag = false;
+            //获取用户输入的值
+            var usernameVar = document.getElementById("user");
+
+            //用户名必须是4-12位的字母数字下划线组合
+            if (usernameVar.match("^\\w{4,12}$")) {
+                document.getElementById("userspan").innerHTML = "";
+                flag = true;
+            } else {
+                document.getElementById("userspan").innerHTML = "<font color='red'>用户必须是4-12位的字母数字下划线的组合</font>";
+            }
+            return flag;
+        }
+        //需求:校验性别是必填项,返回值也是boolean类型
+        function checksex() {
+            //定义一个标志位,初始值为false,表示合法
+            var flag = false;
+            //获取性别标签数组
+            var sexArr = document.getElementById("sex");
+            //遍历
+            for (var i=0; i< setArr.length; i++) {
+                if (sexArr[i].checked) {
+                    //选中
+                    flag = true;
+                }
+            }
+            //判断
+            if (!flag) {
+                //如果没有选中性别,提示性别不得为空
+                document.getElementById("sexpan").innerHTML = "<font color='red'>性别是必须项!</font>";
+            } else {
+                //如果选中性别,取消错误提示
+                document.getElementById("sexpan").innerHTML = "";
+
+            }
+            return flag;
+        }
+
+        //需求:校验表单信息
+        function validate() {
+            //初始化标识位为false,不通过
+            var flag = false;
+            //如果通过所有的检验,将标识位修改true
+            if (checkuser() && checksex()) {
+                flag = true;
+            }
+            return flag;
+        }
+    </script>
+</head>
+<body>
+<form action="http://127.0.0.1:9090" method="post" onsubmit="return validate();">
+    <table>
+        <tr>
+            <td>用户名称:</td>
+            <td>
+                <input type="text" id="user" name="user" title="user" value="请输入用户名" onclick="func()" onblur = "checkuser()">
+                <span id="userspan"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>用户密码:</td>
+            <td>
+                <input type="password" id="pwd" name="pwd" title="password">
+                <span id="pwdspan"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>确认密码:</td>
+            <td>
+                <input type="password" id="repwd" name="repwd" title="确认密码" >
+                <span id="repwdspan"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>选择性别:</td>
+            <td>
+                <input type="radio" name="sex" id="1" title="male" onchange="checksex()">男
+                <input type="radio" name="sex" id="2" title="female" onchange="checksex()">女
+                <span id="sexpan"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>选择爱好:</td>
+            <td>
+                <input type="checkbox" title="hobby" name="hobby" value="C">C
+                <input type="checkbox" title="hobby" name="hobby" value="C++">C++
+                <input type="checkbox" title="hobby" name="hobby" value="Java">Java
+                <input type="checkbox" title="hobby" name="hobby" value="PHP">PHP
+                <input type="checkbox" title="hobby" name="hobby" value=".net">.net
+                <span id="hspan"></span>
+            </td>
+        </tr>
+        <tr>
+            <td>选择国家:</td>
+            <td>
+                <select name="country" title="country" id="">
+                    <option>---请选择国家---</option>
+                    <option value="CN">中国</option>
+                    <option value="US">美国</option>
+                    <option value="EN">英国</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td>自我评价:</td>
+            <td>
+                <textarea name="desc" id="desc" cols="30" rows="10" title="desc"></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td><input type="submit" value="注册"></td>
+            <td><input type="reset" value="重置"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

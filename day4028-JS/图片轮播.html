@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="img/1.jpg" alt="" id="myimg" width="700px" onmouseover="stop()" onmouseout="start()">
+    <script type="text/javascript">
+        var i = 1;
+        function change() {
+            //获取img标签对象
+            var myimg = document.getElementById("myimg");
+            if (i < 7) {
+                i++
+            } else {
+                i = 1;
+            }
+            //修改img标签对象src属性值,也是切换图片路径
+            myimg.src = "img/"+i+".jpg";
+        }
+
+        var id = setInterval("change()", 1000);
+        function stop() {
+            clearInterval(id);
+        }
+        function start() {
+            id = setInterval("change()", 1000);
+        }
+    </script>
+</body>
+</html>

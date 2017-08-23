@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv" style="display: none;">
+        <img src="img/1.jpg" alt="">
+    </div>
+    <script type="text/javascript">
+        function show() {
+            //获取div标签对象,修改div标签对象的display为block,使div显示出来
+            document.getElementById("mydiv").style.display = "block";
+            setTimeout("hidden()", 3000);
+        }
+        function hidden() {
+            //获取div标签对象,修改div标签对象的display为none,使div隐藏
+            document.getElementById("mydiv").style.display = "none";
+        }
+        setTimeout("show()", 3000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv">
+
+    </div>
+    <script type="text/javascript">
+        //在页面上动态显示时间
+        function clock() {
+            var date = new Date();
+            //alert(date.toLocaleString());
+            //innnerHTML: 设置或者获取开始标签到结束标签之间的内容
+            mydiv.innerHTML = date.toLocaleString();
+        }
+        clock();
+        var id = setInterval("clock()", 1000);
+        clearInterval(id);
+    </script>
+</body>
+</html>
