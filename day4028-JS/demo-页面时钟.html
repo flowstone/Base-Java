@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv"></div>
+    <input type="button" value="Start" id="start">
+    <input type="button" value="Stop" id="stop">
+</body>
+<script type="text/javascript">
+    function myTime() {
+        var mydiv = document.getElementById("mydiv");
+        mydiv.innerHTML = new Date().toLocaleString();
+    }
+    var setInt;
+    var start = document.getElementById("start");
+    var stop = document.getElementById("stop");
+
+    start.onclick = function() {
+        //每次点击start按钮,清除上一个计数器
+        clearInterval(setInt);
+        setInt = setInterval("myTime()", 1000);
+    }
+
+    stop.onclick = function() {
+        clearInterval(setInt);
+    }
+    
+</script>
+</html>

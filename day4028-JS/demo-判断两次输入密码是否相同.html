@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <input type="password" id="pwd">
+    <input type="password" id="repwd">
+</body>
+    <script type="text/javascript">
+       
+        var repwds = document.getElementById("repwd");
+        repwds.onblur = function () {
+            var pwd = document.getElementById("pwd").value;
+
+            var repwd = document.getElementById("repwd").value;
+            alert(repwd);
+            alert(pwd);
+            if (pwd == repwd) {
+                alert("密码相同");
+            } else {
+                alert("密码不相同");
+            }
+        }
+    </script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <img src="img/1.jpg" alt="" id="myimg" width="500px" height="400px">
+</body>
+<script type="text/javascript">
+    var myimg = document.getElementById("myimg");
+    var i = 1;
+    function myTime() {
+        if (i < 7) {
+            i++;
+        } else {
+            i = 1;
+        }
+        myimg.src = "img/"+i+".jpg";
+    }
+    var setInt = setInterval("myTime()", 1000);
+
+   
+</script>
+</html>
