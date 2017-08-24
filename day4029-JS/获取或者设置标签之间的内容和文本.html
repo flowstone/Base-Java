@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="city">
+        <h1>海马</h1>
+    </div>
+</body>
+<script type="text/javascript">
+    //在div层中插入 <h1>海马</h1>
+    var city = document.getElementById("city");
+    //city.innerHTML = "<h1>河马</h1>";
+    city.innerText = "<h1>河马</h1>";
+
+    alert(city.innerHTML);
+    alert(city.innerText);
+</script>
+</html>

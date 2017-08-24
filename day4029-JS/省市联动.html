@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用户注册</title>
+    <style type="text/css">
+        .register_bg {
+            width: 100%;
+            height: 600px;
+            padding-top: 40px;
+        }
+
+        .register {
+            border: 7px solid #ccc;
+            width: 800px;
+            padding: 40px 0;
+            padding-left: 80px;
+            background-color: #fff;
+            margin-left: 25%;
+        }
+        input[type="submit"] {
+            width: 100px;
+            height: 35px;
+            color: #fff;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="register_bg">
+        <div class="register">
+            <form action="">
+                <table>
+                    <tr>
+                        <td colspan="3">
+                            <font color="#3164af">会员注册</font>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">用户名</td>
+                        <td><input type="text" id="loginNameId" name="loginName" size="60"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">密码</td>
+                        <td colspan="2">
+                            <input type="password" id="loginPwdId" name="loginPwd" size="60">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">确认密码</td>
+                        <td colspan="2">
+                            <input type="password" id="reLoginPwdId" name="reLoginPwd" size="60">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">Email</td>
+                        <td><input type="text" id="emailId" name="email" size="60"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">姓名</td>
+                        <td colspan="2"><input type="text" name="username" size="60"></td>
+                    </tr>
+                    <tr>
+                        <td align="right">性别</td>
+                        <td colspan="2">
+                            <input type="radio" name="gender" value="男">
+                            <input type="radio" name="gender" value="女">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">出生日期</td>
+                        <td colspan="2">
+                            <input type="text" name="birthday" size="60">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="right">所在地</td>
+                        <td colspan="3">
+                            <select name="province" id="provinceId" style="width: 150px;">
+                                <option value="">----请-选-择-省----</option>
+                                <option value="0">北京</option>
+                                <option value="1">吉林省</option>
+                                <option value="2">山东省</option>
+                                <option value="3">河北省</option>
+                                <option value="4">江苏省</option>
+                            </select>
+                            <select  id="cityId" style="width: 150px;">
+                                <option value="">----请-选-择-市----</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width="80" align="right">验证码</td>
+                        <td width="100">
+                            <input type="text" name="verifyCode">
+                        </td>
+                        <td><img src="" alt="没有图片"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td colspan="2">
+                            <input type="submit" value="注册">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var cities = [
+            ["海淀区","朝阳区"],
+            ["长春","吉林","延吉"],
+            ["济南","烟台"],
+            ["熊安","保定","石家庄"],
+            ["苏州","扬州", "淮安"]
+        ];
+        //获得选择的省的对象,获得其中的value值
+        var province = document.getElementById("provinceId");
+        province.onchange = function() {
+            //根据value值 获得所选省的市的数据
+           var proid = this.value;
+           var cityid = document.getElementById("cityId");
+           cityid.innerHTML = "<option value=''>----请-选-择-市----</option>";
+           for (var i=0; i<cities[proid].length; i++) {
+                var option = document.createElement("option");
+                option.innerHTML = cities[proid][i];
+                cityid.appendChild(option);
+           }
+            //创建子标签对象,把市的数据追加到市的select下
+        }
+
+    </script>
+</body>
+</html>

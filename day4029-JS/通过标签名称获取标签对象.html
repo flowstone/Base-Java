@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1" method="post">
+        <input type="text" id="tid_1" name="tname" value="测试内容1"><br>
+        <input type="text" id="tid_2" name="tname" value="测试内容2"><br>
+        <input type="text" id="tid_3" name="tname" value="测试内容3"><br>
+        <input type="button" name="ok" value="保存">
+    </form> 
+    <select name="edu" id="edu">
+        <option value="博士">博士</option>
+        <option value="硕士">硕士</option>
+        <option value="本科">本科</option>
+        <option value="幼儿园">幼儿园</option>
+    </select>  
+    <select name="job" id="job">
+        <option value="美容">美容</option>
+        <option value="IT">IT</option>
+        <option value="程序员">程序员</option>
+        <option value="建筑师">建筑师</option>
+    </select> 
+</body>
+<script type="text/javascript">
+    var inputs = document.getElementsByTagName("input");
+    //alert(inputs);
+    //alert(inputs.length);
+    /*
+    for(var i=0; i<inputs.length; i++) {
+        alert(inputs[i].value);
+    }
+    */
+
+    //需求：输出type="text"中 value属性的值 不包含按钮(button)
+    /*
+    for (var i=0; i<inputs.length; i++) {
+        if (inputs[i].type == "text") {
+            //console.log(inputs[i].value);
+            alert(inputs[i].value);
+        }
+    }
+    */
+
+    //需求：输出所有下拉选 id="edu"中option标签中 value属性的值
+    /*
+    var edu = document.getElementById("edu");
+    var options = edu.getElementsByTagName("option");
+    for (var i = 0; i < options.length; i++) {
+        alert(options[i].value);
+    }
+    */
+
+    //需求：输出所有下拉选select的option标签中value的值
+    /*
+    var options = document.getElementsByTagName("option");
+    for (var i=0; i<options.length; i++) {
+        alert(options[i].value);
+    }
+    */
+   // 输出所有下拉选select的option标签选中的值
+    var options = document.getElementsByTagName("option");
+    for (var i=0; i<options.length; i++) {
+        if (options[i].selected) {
+            alert(options[i].value);
+        }
+    }
+
+</script>
+</html>

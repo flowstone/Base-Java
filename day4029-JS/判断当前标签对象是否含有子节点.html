@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1" method="post">
+        <input type="text" id="tid_1" name="tname" value="测试内容1"><br>
+        <input type="text" id="tid_2" name="tname" value="测试内容2"><br>
+        <input type="text" id="tid_3" name="tname" value="测试内容3"><br>
+        <input type="button" name="ok" value="保存">
+    </form> 
+    <select name="edu" id="edu">
+        <option value="博士">博士</option>
+        <option value="硕士">硕士</option>
+        <option value="本科">本科</option>
+        <option value="幼儿园">幼儿园</option>
+    </select>  
+    <select name="job" id="job">
+        <option value="美容">美容</option>
+        <option value="IT">IT</option>
+        <option value="程序员">程序员</option>
+        <option value="建筑师">建筑师</option>
+    </select> 
+</body>
+<script type="text/javascript">
+    //需求：查看id="edu"的节点是否含有子节点
+    // var edu = document.getElementById("edu");
+    // var node = edu.hasChildNodes();
+    // alert(node);
+    var edu = document.getElementsByName("edu");
+    //alert(edu.length);
+    alert(edu[0].length);
+
+    var tid = document.getElementById("tid_1");
+    var res = tid.hasChildNodes();
+    alert(res);
+</script>
+</html>

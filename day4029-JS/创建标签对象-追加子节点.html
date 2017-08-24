@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    您喜欢的城市:<br>
+    <ul id="city">
+        <li id="bj" name="beijin">北京</li>
+        <li id="sh" name="shanghai">上海</li>
+        <li id="cq" name="chongqing">重庆</li>
+    </ul>
+    您喜欢的游戏:<br>
+    <ul>
+        <li id="fk" name="fankong">反恐精英</li>
+        <li id="ms" name="moshou">魔兽</li>
+        <li id="cq" name="chuanqi">传奇</li>
+    </ul>
+</body>
+<script type="text/javascript">
+    //需求：增加城市节点 <li id="tj" v="tianjin">天津</li>放置到city下
+    var li = document.createElement("li");
+    li.innerHTML = "天津";
+    li.id = "tj";
+    li.setAttribute("v","tianjin");
+
+    var city = document.getElementById("city");
+    city.appendChild(li);
+</script>
+</html>

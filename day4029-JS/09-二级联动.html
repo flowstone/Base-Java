@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>test01.html</title>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"> 
+    
+  </head>
+  <body>
+     <select id="province" name="province">
+       <option value="none">--请选择省--</option>
+       
+     </select>
+     
+	 <select id="city" name="city">
+	 	<option value="none">--请选择市--</option>
+	 </select>
+
+  </body>
+  <script type="text/javascript" src="cities.js"></script>
+  <script type="text/javascript" >
+      var province = document.getElementById("province");
+      for (var i=0; i<china.length; i++) {
+          var option = document.createElement("option");
+          option.value = china[i].p_id;
+          option.innerHTML = china[i].p_name;
+          province.appendChild(option);
+      }
+      province.onchange = function() {
+            var proid = this.value;
+            var cities;
+            for (var i=0; i<china.length; i++) {
+                if (proid == china[i].p_id) {
+                    cities = china[i].cities;
+                }
+            }
+            var city = document.getElementById("city");
+            city.innerHTML = "<option value='none'>--请选择市--</option>";
+            for (var i=0; i<cities.length; i++) {
+                var option = document.createElement("option");
+                option.innerHTML = cities[i].c_name;
+                option.value = cities[i].c_id;
+                city.appendChild(option);
+            }
+      }
+  </script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" name="form1" method="post">
+        <input type="text" name="tname" value="只是看看不说话1" id="tid_1">
+        <input type="text" name="tname" value="只是看看不说话2" id="tid_2">
+        <input type="text" name="tname" value="只是看看不说话3" id="tid_3">
+        <input type="button" name="ok" value="保存">
+    </form>
+</body>
+<script type="text/javascript">
+    //需求：通过元素的name属性获取所有元素的引用  name="tname"
+    /*
+    var names = document.getElementsByName("tname");
+    for (var i=0; i<names.length; i++) {
+        alert(names[i].value);
+    }*/
+
+    ////需求：为每个文本框(<input type="text">)增加chanage事件,当值改变时,输出改变的值
+    var names = document.getElementsByName("tname");
+    for (var i=0; i<names.length; i++) {
+        if (names[i].type == "text") {
+            names[i].onchange = function() {
+                alert(i);
+                alert(this.value);
+            };
+        }
+    }
+</script>
+</html>

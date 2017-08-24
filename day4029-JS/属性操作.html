@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta value="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    您喜欢的城市:<br>
+    <ul id="city">
+        <li id="bj" value="beijin">北京</li>
+        <li id="sh" value="shanghai">上海</li>
+        <li id="cq" value="chongqing">重庆</li>
+    </ul>
+    您喜欢的游戏:<br>
+    <ul>
+        <li id="fk" value="fankong">反恐精英</li>
+        <li id="ms" value="moshou">魔兽</li>
+        <li id="xj" value="xingji">星际争霸</li>
+    </ul>
+</body>
+<script type="text/javascript">
+    	  // 需求：<li id="xj" value="xingji">星际争霸</li>节点的value属性的值
+          var xj = document.getElementById("xj");
+      
+          xj.setAttribute("name","星际争霸");
+          alert(xj.getAttribute("name"));
+</script>
+</html>
