@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" id="myinput" value="小明不在">
+    <script src="js/jquery-1.12.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        var value = document.getElementById("myinput").value;
+        alert(value);
+
+        var value2 = $("#myinput").val();
+        alert(value2);
+    </script>
+</body>
+</html>

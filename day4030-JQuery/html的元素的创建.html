@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内部插入脚本</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <style type="text/css">
+        div,span{
+            width: 140px;
+            height: 140px;
+            margin: 20px;
+            background: #9999CC;
+            border: #000 1px solid;
+            float:left;
+            font-size: 17px;
+            font-family:Roman;
+        }
+
+        div .mini{
+            width: 30px;
+            height: 30px;
+            background: #CC66FF;
+            border: #000 1px solid;
+            font-size: 12px;
+            font-family:Roman;
+        }
+
+        div.visible{
+            display:none;
+        }
+    </style>
+
+</head>
+<body>
+    <ul id="city">
+        <li id="bj" name="beijing">北京</li>
+        <li id="tj" name="tianjin">天津</li>
+        <li id="cq" name="chongqing">重庆</li>
+    </ul>
+    <ul id="love">
+        <li id="fk" name="fankong">反恐</li>
+        <li id="xj" name="xingji">星际</li>
+    </ul>
+
+    <div id="foo1">Hello1</div>
+
+    <script type="text/javascript">
+        /**将反恐放置到city的后面*/
+        //$("#city").append($("#fk"));
+        //$("#fk").appendTo($("#city"));
+
+        /**将反恐放置到city的最前面*/
+        //$("#city").prepend($("#fk"));
+        //$("#fk").prependTo($("#city"));
+
+        /**反恐放到天津前面*/
+        //$("#tj").before($("#fk"));
+        //$("#fk").insertBefore($("#tj"));
+
+        /**反恐放到天津后面*/
+        //$("#tj").after($("#fk"));
+        //$("#fk").insertAfter($("#tj"));
+
+        //创建一个<li id="js" name="jiangsu">江苏</li>节点放到city下面
+        //创建一个li标签，设置属性。  attr()方法返回的还是标签对象
+       // var $js = $("<li></li>").attr("id", "js").attr("name","jiangsu").text("江苏").appendTo($("#city"));
+
+        $("#city").append($("<li id='js' name ='jiangsu'>江苏</li>"));
+    </script>
+</body>
+</html>

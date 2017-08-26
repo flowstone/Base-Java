@@ -18,7 +18,8 @@ public class DBUtilsTest {
         //query();
         //add();
     }
-    private static void update() throws SQLException {
+    @Test
+    public  void testUpdate() throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
         String sql = "UPDATE user SET username = ? WHERE id = ?";
         queryRunner.update(sql, "小明", "333");
@@ -29,7 +30,7 @@ public class DBUtilsTest {
      * @throws SQLException
      */
     @Test
-    private static void add() throws SQLException {
+    public  void testAdd() throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
         String sql = "INSERT INTO user VALUES(?,?,?,?)";
         queryRunner.update(sql, "333", "admin", "123456", 18);
@@ -41,7 +42,7 @@ public class DBUtilsTest {
      * @throws SQLException
      */
     @Test
-    private static void query() throws SQLException {
+    public  void testQuery() throws SQLException {
         QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
         String sql = "SELECT * FROM user";
         List<User> userList = queryRunner.query(sql, new BeanListHandler<User>(User.class));
@@ -49,5 +50,11 @@ public class DBUtilsTest {
         for (User user : userList) {
             System.out.println(user);
         }
+    }
+    @Test
+    public  void testDelete() {
+        //创建QueryRunner对象
+        QueryRunner queryRunner = new QueryRunner(JDBCUtils.getDataSource());
+        String sql = "";
     }
 }

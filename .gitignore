@@ -6,3 +6,5 @@ RemoteSystemsTempFiles/
 */bin/
 .classpath
 .project
+.idea/
+*.class

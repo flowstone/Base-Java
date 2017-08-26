@@ -72,6 +72,51 @@
 			</table>
 		</form>
 	</fieldset>
+    <script type="text/javascript">
 
+        function func() {
+            //清空输入框中的数据
+            var user = document.getElementById("user");
+            user.value = "";
+            //清空提示消息
+            var userspan = document.getElementById("userspan");
+            userspan.innerHTML="<font></font>";
+        }
+        function checkuser() {
+            var user = document.getElementById("user").value;
+            var regExp = new RegExp("^[a-z0-9_-]{3,16}$");
+            var userspan = document.getElementById("userspan");
+            if (user != "") {
+                if (regExp.test(user)) {
+                    userspan.innerHTML = "<font color='green'>用户名合法</font>";
+                } else {
+                    userspan.innerHTML = "<font color='red'>用户名不合法</font>";
+                }
+            } else {
+                userspan.innerHTML = "<font color='red'>用户名不能为空</font>";
+            }
+
+
+        }
+        //验证密码
+        function checkpwd() {
+            var pwd = document.getElementById("pwd").value;
+            var regExp = new RegExp("^[a-z0-9_-]{6,18}$");
+            var pwdspan = document.getElementById("pwdspan");
+            if (pwd != "") {
+                if (regExp.test(pwd)) {
+                    pwdspan.innerHTML = "<font color='green'>密码合法</font>";
+                }else {
+                    pwdspan.innerHTML = "<font color='red'>密码不合法</font>";
+                }
+
+            } else {
+                pwdspan.innerHTML = "<font color='red'>密码不能为空</font>";
+            }
+        }
+        //验证确定密码
+        function checkrepwd() {
+        }
+    </script>
 </body>
 </html>

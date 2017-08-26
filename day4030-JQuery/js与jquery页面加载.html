@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //js页面加载事件
+        /*
+        window.onload = function() {
+            alert("js页面加载事件");
+        }
+        */
+        //jquery页面加载事件
+        //格式： jQuery(document).ready(事件响应的行为)
+        jQuery(document).ready(
+            function() {
+                alert("jquery页面加载事件");
+            }
+        );
+        //当前,jquery的页面加载事件有简写形式
+        //格式 $(事件响应的行为);
+        $(function() {
+            alert("jquery页面加载事件的简写形式");
+        });
+    </script>
+</body>
+</html>

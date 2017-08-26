@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+</head>
+<body>
+    <input id="myinput" type="text" name="username" value="张三" /><br />
+    <div id="mydiv"><p><a href="#">标题标签</a></p></div>
+
+    <script type="text/javascript">
+//        var res = $("#myinput").val();
+//        alert(res);
+        //获取mydiv中的文本值  只会获取文本,不会获取标签
+        //alert($("#mydiv").text());
+
+        //$("#mydiv").text("<a href='http://www.baidu.com'>这是标题</a>");
+        //alert($("#mydiv").html());
+        $("#mydiv").html("<a href='http://www.baidu.com'>这是标题</a>");
+    </script>
+</body>
+</html>

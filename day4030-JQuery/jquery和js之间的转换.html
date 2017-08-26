@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="mydiv"></div>
+    <input type="text" id="myinput">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /**
+         * js和jquery的不同之处
+         *      1.js对象只能使用js对象方法,jquery对象只能使用jquery对象的属性和方法
+         *      2.js对象和jquery对象之间可以相互转换的
+         *      3.js中和jquery中的事件写法不同,功能相同
+         *
+         */
+        var myinput = document.getElementById("myinput");
+        //alert(myinput);   //[object HTMLInputElement]
+
+        var $myinput = $(myinput);
+        //alert($myinput);   //[object Object]
+
+        var $mydiv = $("#myinput");
+        //alert($mydiv);        //[object Object]
+        var mydiv = $mydiv[0];
+        alert(mydiv);       //[object HTMLInputElement]
+    </script>
+</body>
+</html>

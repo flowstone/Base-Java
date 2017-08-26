@@ -29,12 +29,38 @@
 						<td>张三</td>
 						<td>110</td>
 						<td>上海</td>
-						<td><a href="javascript:void(0)" >删除</a></td>
+						<td><a href="javascript:void(0)" onclick="_delete(this)">删除</a></td>
 
 					</tr>
 			</table>
 		</center>
 		<script type="text/javascript">
+			function _delete(object) {
+				var trs = object.parentNode.parentNode;
+				trs.remove();
+            }
+
+			var addUser = document.getElementById("addUser");
+			addUser.onclick = function() {
+			    var usertable = document.getElementById("usertable");
+			    var name = document.getElementById("name").value;
+			    var tel = document.getElementById("tel").value;
+			    var addr = document.getElementById("addr").value;
+			    var tr = document.createElement("tr");
+			    var td1 = document.createElement("td");
+			    var td2 = document.createElement("td");
+			    var td3 = document.createElement("td");
+			    var td4 = document.createElement("td");
+			    td1.innerHTML = name;
+				td2.innerHTML = tel;
+				td3.innerHTML = addr;
+				td4.innerHTML = "<a href='javascript:void(0)' onclick='_delete(this)'>删除</a>";
+			    tr.appendChild(td1);
+			    tr.appendChild(td2);
+			    tr.appendChild(td3);
+				tr.appendChild(td4);
+			    usertable.appendChild(tr);
+			}
 
 		</script>
 	</body>
