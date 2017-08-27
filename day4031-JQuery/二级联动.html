@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <select id="province" onchange="addCity()" name="province">
+        <option value="none">--请选择省--</option>
+    </select>
+
+    <select id="city" name="city">
+        <option value="none">--请选择市--</option>
+    </select>
+    <script src="js/cities.js" type="text/javascript"></script>
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function addProvince() {
+            var $province = $("#province");
+            $.each(china, function (index,element) {
+                var $option = $("<option></option>");
+                $option.html(element.p_name).val(element.p_id);
+                $province.append($option);
+            });
+        }
+        addProvince();
+    </script>
+</body>
+</html>

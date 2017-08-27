@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //使用js给btn绑定事件
+        document.getElementById("btn").onclick = function () {
+            alert("js绑定事件1");
+        };
+
+        //使用js给btn绑定事件
+        document.getElementById("btn").onclick = function () {
+            alert("js绑定事件2");
+        };
+
+        //使用jquery给btn绑定事件
+        $("#btn").click(function () {
+            alert("jquery绑定事件1");
+        });
+
+        //使用jquery给btn绑定事件
+        $("#btn").click(function () {
+            alert("jquery绑定事件2");
+        });
+    </script>
+</body>
+</html>

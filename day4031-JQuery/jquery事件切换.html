@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮">
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        //jquery中事件的切换
+        /**
+         * hover是给标签同时绑定鼠标悬浮和鼠标移出事件
+         * fn1: 鼠标悬浮事件执行的函数, fn2:鼠标移出事件执行的函数
+         * jquery对象.hover(fn1, fn2);
+         */
+        /*
+        $("#btn").hover(function () {
+            alert("鼠标悬浮");
+        },function () {
+            alert("鼠标移出");
+        });
+        */
+
+        /**
+         * toggle(fn1,fn2...);
+         * fn1,鼠标第一次点击,执行的函数,
+         * fn2,鼠标第二次点击,执行的函数
+         * ...
+         * 结束之后再来一次循环.
+         */
+
+        $("#btn").toggle(
+            function () {
+                alert("1");
+            },
+            function () {
+                alert("2");
+            },
+            function () {
+                alert("3");
+            }
+        );
+    </script>
+</body>
+</html>

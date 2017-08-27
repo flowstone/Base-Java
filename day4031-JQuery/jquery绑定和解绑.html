@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <input type="button" id="btn" value="按钮">
+
+    <script src="js/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        /**
+         * jquery事件绑定的第二种方式
+         * 格式: jquery对象.bind(事件名,函数);
+         *
+         * 绑定多个事件的格式:
+         *      jquery对象.bind({
+         *          事件名:函数,
+         *          事件名:函数,
+         *          事件名:函数
+         *      });
+         *
+         * 仔细看绑定多个事件的方法,参数实际上是一个json数据类型
+         *
+         * jquery解绑事件:
+         * jquery对象.unbind(); 解绑所有事件
+         * jquery对象.unbind(事件名); 解绑指定的事件
+         */
+
+        //给btn绑定一个鼠标单击事件
+        /*
+        $("#btn").bind("click", function () {
+            alert("jquery绑定事件的第二种方式1");
+        });
+        */
+
+        //给btn绑定鼠标单击和鼠标悬浮和鼠标移出事件
+        $("#btn").bind({
+            click:function () {
+                alert("鼠标单击");
+            },
+            mouseover:function () {
+                alert("鼠标悬浮");
+            },
+            mouseout:function () {
+                alert("鼠标移出");
+            }
+        });
+
+        //解绑btn的鼠标单击事件
+        //$("#btn").unbind("click");
+        //解绑btn的所有鼠标单击事件
+        $("#btn").unbind();
+    </script>
+</body>
+</html>
