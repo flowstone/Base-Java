@@ -24,6 +24,22 @@
             });
         }
         addProvince();
+
+        function addCity() {
+            var cities;
+                var proValue = $("#province").val();
+                $.each(china, function (index, element) {
+                    if (element.p_id === proValue) {
+                        cities = element.cities;
+                    }
+                });
+                $("#city").html("<option value='none'>--请选择市--</option>");
+                $.each(cities, function (index, element) {
+                    var $option = $("<option></option>");
+                    $option.html(element.c_name);
+                    $("#city").append($option);
+                });
+        }
     </script>
 </body>
 </html>
