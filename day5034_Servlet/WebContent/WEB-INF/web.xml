@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns="http://java.sun.com/xml/ns/javaee" 
-xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>day5034_Servlet</display-name>
-  
   <servlet>
-  	<servlet-name>AA</servlet-name>
-  	<servlet-class>org.xueyao.testServlet.MyFirstServlet</servlet-class>
+    <servlet-name>AA</servlet-name>
+    <servlet-class>org.xueyao.testServlet.MyFirstServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>AA</servlet-name>
-  	<url-pattern>/myFirst</url-pattern>
+    <servlet-name>AA</servlet-name>
+    <url-pattern>/myFirst</url-pattern>
   </servlet-mapping>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -20,4 +17,24 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>TestRequest</display-name>
+    <servlet-name>TestRequest</servlet-name>
+    <servlet-class>org.xueyao.testServlet.TestRequest</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TestRequest</servlet-name>
+    <url-pattern>/TestRequest</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UserServlet</display-name>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>org.xueyao.servlet.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/UserServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
