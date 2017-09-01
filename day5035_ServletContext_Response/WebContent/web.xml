@@ -59,4 +59,44 @@
     <servlet-name>ServletDemo04</servlet-name>
     <url-pattern>/ServletDemo04</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo05</display-name>
+    <servlet-name>ServletDemo05</servlet-name>
+    <servlet-class>org.xueyao.test02.ServletDemo05</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo05</servlet-name>
+    <url-pattern>/ServletDemo05</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo06</display-name>
+    <servlet-name>ServletDemo06</servlet-name>
+    <servlet-class>org.xueyao.test02.ServletDemo06</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo06</servlet-name>
+    <url-pattern>/ServletDemo06</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo07</display-name>
+    <servlet-name>ServletDemo07</servlet-name>
+    <servlet-class>org.xueyao.test02.ServletDemo07</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo07</servlet-name>
+    <url-pattern>/ServletDemo07</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo08</display-name>
+    <servlet-name>ServletDemo08</servlet-name>
+    <servlet-class>org.xueyao.test02.ServletDemo08</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo08</servlet-name>
+    <url-pattern>/ServletDemo08</url-pattern>
+  </servlet-mapping>
 </web-app>
