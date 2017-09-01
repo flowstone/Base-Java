@@ -19,4 +19,44 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo01</display-name>
+    <servlet-name>ServletDemo01</servlet-name>
+    <servlet-class>org.xueyao.test01.ServletDemo01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo01</servlet-name>
+    <url-pattern>/ServletDemo01</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo02</display-name>
+    <servlet-name>ServletDemo02</servlet-name>
+    <servlet-class>org.xueyao.test01.ServletDemo02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo02</servlet-name>
+    <url-pattern>/ServletDemo02</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo03</display-name>
+    <servlet-name>ServletDemo03</servlet-name>
+    <servlet-class>org.xueyao.test01.ServletDemo03</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo03</servlet-name>
+    <url-pattern>/ServletDemo03</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo04</display-name>
+    <servlet-name>ServletDemo04</servlet-name>
+    <servlet-class>org.xueyao.test01.ServletDemo04</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo04</servlet-name>
+    <url-pattern>/ServletDemo04</url-pattern>
+  </servlet-mapping>
 </web-app>
