@@ -19,4 +19,24 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/UserServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo02</display-name>
+    <servlet-name>ServletDemo02</servlet-name>
+    <servlet-class>org.xueyao.test01.ServletDemo02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo02</servlet-name>
+    <url-pattern>/ServletDemo02</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>MsgServlet</display-name>
+    <servlet-name>MsgServlet</servlet-name>
+    <servlet-class>org.xueyao.servlet.MsgServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MsgServlet</servlet-name>
+    <url-pattern>/MsgServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
