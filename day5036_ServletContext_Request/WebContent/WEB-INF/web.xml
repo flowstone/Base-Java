@@ -39,4 +39,24 @@
     <servlet-name>MsgServlet</servlet-name>
     <url-pattern>/MsgServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AAServlet</display-name>
+    <servlet-name>AAServlet</servlet-name>
+    <servlet-class>org.xueyao.test02.AAServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AAServlet</servlet-name>
+    <url-pattern>/AAServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>BBServlet</display-name>
+    <servlet-name>BBServlet</servlet-name>
+    <servlet-class>org.xueyao.test02.BBServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>BBServlet</servlet-name>
+    <url-pattern>/BBServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
