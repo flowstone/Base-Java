@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>登录加验证码</title>
+</head>
+<body>
+	<form>
+		账户<input type="text" name="username"><br/>
+		密码<input type="text" name="userpass"><br/>
+		验证码<input type="text" name="usercode">
+			<img id="myimg" src="/day5035_ServletContext_Response/VerifyCodeServlet" onclick="fn()"/><br/>
+		<button>登录</button>
+	</form>
+	<script type="text/javascript">
+		function fn() {
+			var myimg = document.getElementById("myimg");
+			myimg.src= "/day5035_ServletContext_Response/VerifyCodeServlet?v="+Math.random();
+		}
+		
+	</script>
+</body>
+</html>
