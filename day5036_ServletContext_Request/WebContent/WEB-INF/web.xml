@@ -59,4 +59,24 @@
     <servlet-name>BBServlet</servlet-name>
     <url-pattern>/BBServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo04</display-name>
+    <servlet-name>ServletDemo04</servlet-name>
+    <servlet-class>org.xueyao.test03.ServletDemo04</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo04</servlet-name>
+    <url-pattern>/ServletDemo04</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ServletDemo05</display-name>
+    <servlet-name>ServletDemo05</servlet-name>
+    <servlet-class>org.xueyao.test03.ServletDemo05</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ServletDemo05</servlet-name>
+    <url-pattern>/ServletDemo05</url-pattern>
+  </servlet-mapping>
 </web-app>
