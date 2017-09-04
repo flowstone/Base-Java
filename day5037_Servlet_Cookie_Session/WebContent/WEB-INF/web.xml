@@ -59,4 +59,24 @@
     <servlet-name>VisitServlet</servlet-name>
     <url-pattern>/VisitServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionDemo01</display-name>
+    <servlet-name>SessionDemo01</servlet-name>
+    <servlet-class>org.xueyao.session.SessionDemo01</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionDemo01</servlet-name>
+    <url-pattern>/SessionDemo01</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SessionDemo02</display-name>
+    <servlet-name>SessionDemo02</servlet-name>
+    <servlet-class>org.xueyao.session.SessionDemo02</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SessionDemo02</servlet-name>
+    <url-pattern>/SessionDemo02</url-pattern>
+  </servlet-mapping>
 </web-app>
