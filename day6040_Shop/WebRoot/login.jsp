@@ -65,7 +65,7 @@ font {
 						<div class="form-group">
 							<label for="username" class="col-sm-2 control-label">用户名</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control" id="username" name="email"
+								<input type="text" class="form-control" id="username" name="email" value="${cookie.username.value }"
 									placeholder="请输入用户名">
 							</div>
 						</div>
@@ -92,7 +92,7 @@ font {
 								<div class="checkbox">
 									<label> 
 									</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label> <input
-										type="checkbox"> 记住用户名
+										type="checkbox" name="on" value="on"> 记住用户名
 									</label>
 								</div>
 							</div>

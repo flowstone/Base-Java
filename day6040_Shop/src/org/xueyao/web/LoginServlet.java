@@ -3,6 +3,7 @@ package org.xueyao.web;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -40,17 +41,36 @@ public class LoginServlet extends HttpServlet {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
-			System.out.println(user);
+			//System.out.println(user);
 			
 			UserService userService = new UserServiceImpl();
 			User loginUser = userService.login(user);
 			if (null == loginUser) {
+				//用户名或密码错误,则在request中保存错误信息
 				request.setAttribute("msg", "用户名或密码错误");
+				//并跳转到登录页面
 				request.getRequestDispatcher("/login.jsp").forward(request, response);
 				return;
 			} else {
+				//==================记住用户名start===================
+				String on = request.getParameter("on");
+				if ("on".equals(on)) {
+					Cookie cookie = new Cookie("username", loginUser.getEmail());
+					cookie.setMaxAge(60*60*24);
+					cookie.setPath("/");
+					response.addCookie(cookie);
+				} else {
+					Cookie cookie = new Cookie("username","");
+					cookie.setMaxAge(0);
+					cookie.setPath("/");
+					response.addCookie(cookie);
+				}
+				//==================记住用户名end===================
+				//如果用户名和密码正确,把用户的信息保存到session中
 				request.getSession().setAttribute("loginUser", loginUser);
+				//并重定向到首页
 				response.sendRedirect(request.getContextPath());
+				return ;
 			}
 		}
 	}
