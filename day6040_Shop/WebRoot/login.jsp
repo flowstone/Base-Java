@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>	
+<<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,6 +37,11 @@ font {
 	padding-right: 17px;
 }
 </style>
+<script type="text/javascript">
+	function myCheckCode() {
+		document.getElementById("checkCode").src="${root}/CheckcodeServlet?c="+new Date().getTime();
+	}
+</script>
 </head>
 <body>
 
@@ -58,25 +65,25 @@ font {
 						<div class="form-group">
 							<label for="username" class="col-sm-2 control-label">用户名</label>
 							<div class="col-sm-6">
-								<input type="text" class="form-control" id="username"
+								<input type="text" class="form-control" id="username" name="email"
 									placeholder="请输入用户名">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 							<div class="col-sm-6">
-								<input type="password" class="form-control" id="inputPassword3"
+								<input type="password" class="form-control" id="inputPassword3" name="password"
 									placeholder="请输入密码">
 							</div>
 						</div>
 						<div class="form-group">
 							<label for="inputPassword3" class="col-sm-2 control-label">验证码</label>
 							<div class="col-sm-3">
-								<input type="text" class="form-control" id="inputPassword3"
+								<input type="text" class="form-control" id="inputPassword3" name="inputCheckCode"
 									placeholder="请输入验证码">
 							</div>
 							<div class="col-sm-3">
-								<img src="./image/captcha.jhtml" />
+								<img id="checkCode" src="${root }/CheckcodeServlet" onclick="myCheckCode()"/>
 							</div>
 						</div>
 						<div class="form-group">
