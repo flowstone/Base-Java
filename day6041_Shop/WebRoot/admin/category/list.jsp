@@ -60,7 +60,7 @@
 								</a></td>
 
 								<td align="center" style="HEIGHT: 22px"><a
-									href="">
+									href="${root }/deleteCategory?cid=${category.cid}">
 										<img src="${root}/images/i_del.gif"
 										width="16" height="16" border="0" style="CURSOR: hand">
 								</a></td>

@@ -29,5 +29,11 @@ public interface CategoryDao {
 	 * @param category
 	 */
 	void update(Category category);
+	
+	/**
+	 * 删除分类信息
+	 * @param cid
+	 */
+	void delete(String cid);
 
 }

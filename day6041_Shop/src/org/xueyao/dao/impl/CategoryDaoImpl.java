@@ -54,7 +54,21 @@ public class CategoryDaoImpl implements CategoryDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-			throw new RuntimeException("更新分类信息");
+			throw new RuntimeException("更新分类信息失败");
+		}
+	}
+	
+	//categoryDao===============================
+	private QueryRunner run = new QueryRunner();
+	@Override
+	public void delete(String cid) {
+		String sql = "DELETE FROM category WHERE cid = ?";
+		try {
+			qr.update(JDBCUtils.getConnection(), sql, cid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("删除分类信息失败");
 		}
 	}
 

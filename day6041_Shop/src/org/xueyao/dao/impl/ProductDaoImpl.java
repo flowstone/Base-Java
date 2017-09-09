@@ -23,5 +23,17 @@ public class ProductDaoImpl implements ProductDao {
 			throw new RuntimeException("查询所有商品信息失败");
 		}
 	}
+	
+	private QueryRunner run = new QueryRunner();
+	@Override
+	public void release(String cid) {
+		String sql = "UPDATE product SET cid=null WHERE cid=?";
+		try {
+			run.update(JDBCUtils.getConnection(), sql, cid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 }
