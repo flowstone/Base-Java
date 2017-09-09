@@ -89,4 +89,14 @@
     <servlet-name>DeleteCategoryServlet</servlet-name>
     <url-pattern>/deleteCategory</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AdminFindAllProductsServlet</display-name>
+    <servlet-name>AdminFindAllProductsServlet</servlet-name>
+    <servlet-class>org.xueyao.web.AdminFindAllProductsServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminFindAllProductsServlet</servlet-name>
+    <url-pattern>/adminFindAllProducts</url-pattern>
+  </servlet-mapping>
 </web-app>

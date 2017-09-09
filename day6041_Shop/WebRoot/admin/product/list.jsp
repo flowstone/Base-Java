@@ -1,22 +1,24 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="${pageContext.request.contextPath}/css/Style1.css"
+<link href="${root}/css/Style1.css"
 	rel="stylesheet" type="text/css" />
 <script language="javascript"
-	src="${pageContext.request.contextPath}/js/public.js"></script>
+	src="${root}/js/public.js"></script>
 <script type="text/javascript">
 			function addProduct(){
-				window.location.href = "${pageContext.request.contextPath}/admin/product/add.jsp";
+				window.location.href = "${root}/admin/product/add.jsp";
 			}
 		</script>
 </HEAD>
 <body>
 	<br>
 	<form id="Form1" name="Form1"
-		action="${pageContext.request.contextPath}/user/list.jsp"
+		action="${root}/user/list.jsp"
 		method="post">
 		<table cellSpacing="1" cellPadding="0" width="100%" align="center"
 			bgColor="#f5fafe" border="0">
@@ -49,30 +51,39 @@
 								<td width="7%" align="center">编辑</td>
 								<td width="7%" align="center">删除</td>
 							</tr>
+							<c:forEach items="${prolist }" var="product">
 							<tr onmouseover="this.style.backgroundColor = 'white'"
 								onmouseout="this.style.backgroundColor = '#F5FAFE';">
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="18%">1</td>
+									width="18%">${product.pid }</td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 									width="17%"><img width="40" height="45" src=""></td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="17%">电视机</td>
+									width="17%">${product.pname }</td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="17%">3000</td>
+									width="17%">${product.shop_price }</td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="17%">是</td>
+									width="17%">
+									
+									<c:choose>
+										<c:when test="${product.is_hot==1 }">是</c:when>
+										<c:otherwise>否</c:otherwise>
+									</c:choose>
+									
+									</td>
 								<td align="center" style="HEIGHT: 22px"><a
-									href="${ pageContext.request.contextPath }/admin/product/edit.jsp">
+									href="${root}/admin/product/edit.jsp">
 										<img
-										src="${pageContext.request.contextPath}/images/i_edit.gif"
+										src="${root}/images/i_edit.gif"
 										border="0" style="CURSOR: hand">
 								</a></td>
 
 								<td align="center" style="HEIGHT: 22px"><a href="#"> <img
-										src="${pageContext.request.contextPath}/images/i_del.gif"
+										src="${root}/images/i_del.gif"
 										width="16" height="16" border="0" style="CURSOR: hand">
 								</a></td>
 							</tr>
+							</c:forEach>
 						</table>
 					</td>
 				</tr>

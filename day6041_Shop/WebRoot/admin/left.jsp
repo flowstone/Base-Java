@@ -34,7 +34,7 @@
 		d.add('0102','01','分类管理','','','mainFrame');
 		d.add('010201','0102','分类管理','${root}/findAllCategory','','mainFrame');
 		d.add('0104','01','商品管理');
-		d.add('010401','0104','商品管理','${root}/admin/product/list.jsp','','mainFrame');
+		d.add('010401','0104','商品管理','${root}/adminFindAllProducts','','mainFrame');
 		document.write(d);
 		
 	</script>
