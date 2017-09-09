@@ -72,13 +72,13 @@
 									
 									</td>
 								<td align="center" style="HEIGHT: 22px"><a
-									href="${root}/admin/product/edit.jsp">
+									href="${root}/findProductById?pid=${product.pid}">
 										<img
 										src="${root}/images/i_edit.gif"
 										border="0" style="CURSOR: hand">
 								</a></td>
 
-								<td align="center" style="HEIGHT: 22px"><a href="#"> <img
+								<td align="center" style="HEIGHT: 22px"><a href="${root }/deleteProduct?pid=${product.pid }"> <img
 										src="${root}/images/i_del.gif"
 										width="16" height="16" border="0" style="CURSOR: hand">
 								</a></td>

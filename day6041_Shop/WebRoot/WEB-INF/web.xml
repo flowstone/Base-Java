@@ -99,4 +99,34 @@
     <servlet-name>AdminFindAllProductsServlet</servlet-name>
     <url-pattern>/adminFindAllProducts</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>DeleteProductServlet</display-name>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <servlet-class>org.xueyao.web.DeleteProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeleteProductServlet</servlet-name>
+    <url-pattern>/deleteProduct</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindProductByIdServlet</display-name>
+    <servlet-name>FindProductByIdServlet</servlet-name>
+    <servlet-class>org.xueyao.web.FindProductByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindProductByIdServlet</servlet-name>
+    <url-pattern>/findProductById</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateProductServlet</display-name>
+    <servlet-name>UpdateProductServlet</servlet-name>
+    <servlet-class>org.xueyao.web.UpdateProductServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateProductServlet</servlet-name>
+    <url-pattern>/updateProduct</url-pattern>
+  </servlet-mapping>
 </web-app>

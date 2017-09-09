@@ -14,5 +14,19 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> findAll() {
 		return productDao.findAll();
 	}
+	@Override
+	public void delete(String pid) {
+		productDao.delete(pid);
+	}
+	@Override
+	public Product findProductById(String pid) {
+		
+		return productDao.findProductById(pid);
+	}
+	@Override
+	public void update(Product product) {
+		// TODO Auto-generated method stub
+		productDao.update(product);
+	}
 
 }
