@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.xueyao.service.ProductService;
 import org.xueyao.service.impl.ProductServiceImpl;
-
+/**
+ * 删除商品
+ * @author XueYao
+ *
+ */
 public class DeleteProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

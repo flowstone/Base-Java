@@ -12,6 +12,11 @@ import org.xueyao.domain.Category;
 import org.xueyao.service.CategoryService;
 import org.xueyao.service.impl.CategoryServiceImpl;
 
+/**
+ * 更新分类信息
+ * @author XueYao
+ *
+ */
 public class UpdateCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

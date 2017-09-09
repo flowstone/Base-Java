@@ -11,6 +11,11 @@ import org.xueyao.domain.Category;
 import org.xueyao.service.CategoryService;
 import org.xueyao.service.impl.CategoryServiceImpl;
 
+/**
+ * 查看对应id的分类信息
+ * @author XueYao
+ *
+ */
 public class FindCategoryByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

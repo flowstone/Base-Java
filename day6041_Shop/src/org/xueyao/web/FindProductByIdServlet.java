@@ -15,6 +15,11 @@ import org.xueyao.service.ProductService;
 import org.xueyao.service.impl.CategoryServiceImpl;
 import org.xueyao.service.impl.ProductServiceImpl;
 
+/**
+ * 根据商品id,查看对应的商品信息
+ * @author XueYao
+ *
+ */
 public class FindProductByIdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -26,6 +31,7 @@ public class FindProductByIdServlet extends HttpServlet {
 		Product plist = productService.findProductById(pid);
 		
 		CategoryService categoryService = new CategoryServiceImpl();
+		//获取所有分类信息
 		List<Category> clist = categoryService.findAll();
 		
 		request.setAttribute("plist", plist);

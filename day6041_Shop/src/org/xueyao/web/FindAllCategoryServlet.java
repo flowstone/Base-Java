@@ -12,6 +12,11 @@ import org.xueyao.domain.Category;
 import org.xueyao.service.CategoryService;
 import org.xueyao.service.impl.CategoryServiceImpl;
 
+/**
+ * 查看所有分类
+ * @author XueYao
+ *
+ */
 public class FindAllCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 

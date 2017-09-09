@@ -147,3 +147,13 @@ INSERT INTO `users` (`id`, `email`, `password`, `nickname`) VALUES
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+
+-- 创建 管理员表 admin
+CREATE TABLE IF NOT EXISTS `admin`(
+	`id` int(11) AUTO_INCREMENT COMMENT '主键',
+	`username` varchar(32) NOT NULL DEFAULT '' COMMENT '用户名',
+	`password` varchar(32) NOT NULL DEFAULT '' COMMENT '密码',
+	PRIMARY KEY (`id`)
+)CHARACTER SET utf8 COMMENT '管理员表';
+
+INSERT INTO `admin` VALUES(NULL, 'admin', 'admin');

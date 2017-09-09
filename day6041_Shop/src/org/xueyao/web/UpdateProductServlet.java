@@ -12,6 +12,11 @@ import org.xueyao.domain.Product;
 import org.xueyao.service.ProductService;
 import org.xueyao.service.impl.ProductServiceImpl;
 
+/**
+ * 更新商品信息
+ * @author XueYao
+ *
+ */
 public class UpdateProductServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
