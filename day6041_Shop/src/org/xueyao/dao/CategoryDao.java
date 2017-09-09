@@ -35,5 +35,11 @@ public interface CategoryDao {
 	 * @param cid
 	 */
 	void delete(String cid);
+	
+	/**
+	 * 解除商品和分类的外键关系
+	 * @param cid
+	 */
+	void release(String cid);
 
 }

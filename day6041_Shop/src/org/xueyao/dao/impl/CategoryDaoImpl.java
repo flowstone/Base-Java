@@ -65,11 +65,23 @@ public class CategoryDaoImpl implements CategoryDao {
 	public void delete(String cid) {
 		String sql = "DELETE FROM category WHERE cid = ?";
 		try {
-			qr.update(JDBCUtils.getConnection(), sql, cid);
+			run.update(JDBCUtils.getCurrentConnection(), sql, cid);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("删除分类信息失败");
+		}
+	}
+	@Override
+	public void release(String cid) {
+		// TODO Auto-generated method stub
+		String sql = "update product set cid = null where cid = ?";
+		try {
+			run.update(JDBCUtils.getCurrentConnection(), sql, cid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("解除关系失败");
 		}
 	}
 

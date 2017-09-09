@@ -15,7 +15,7 @@ public interface ProductDao {
 	 * 释放外键
 	 * @param cid
 	 */
-	void release(String cid);
+	//void release(String cid);
 	
 	/**
 	 * 删除商品信息

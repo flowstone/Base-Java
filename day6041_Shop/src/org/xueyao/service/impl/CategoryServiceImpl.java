@@ -38,21 +38,21 @@ public class CategoryServiceImpl implements CategoryService {
 		try {
 			JDBCUtils.startTransaction();
 			//释放外键
-			productDao.release(cid);
+			categoryDao.release(cid);
 			categoryDao.delete(cid);
-			JDBCUtils.commitTransaction();
+			JDBCUtils.commit();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			try {
-				JDBCUtils.rollBack();
+				JDBCUtils.rollback();
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();
 			}
 		} finally {
 			try {
-				JDBCUtils.closeResource();
+				JDBCUtils.close();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();

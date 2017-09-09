@@ -26,8 +26,8 @@ public class ProductDaoImpl implements ProductDao {
 			throw new RuntimeException("查询所有商品信息失败");
 		}
 	}
-	
-	private QueryRunner run = new QueryRunner();
+	//========================================
+	/*private QueryRunner run = new QueryRunner();
 	@Override
 	public void release(String cid) {
 		String sql = "UPDATE product SET cid=null WHERE cid=?";
@@ -37,7 +37,7 @@ public class ProductDaoImpl implements ProductDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	}*/
 	@Override
 	public void delete(String pid) {
 		String sql = "DELETE FROM product WHERE pid = ?";
