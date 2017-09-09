@@ -1,4 +1,6 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <html>
 	<head>
 		<meta http-equiv="Content-Language" content="zh-cn">
@@ -24,22 +26,22 @@ TH {
 	COLOR: #000000
 }
 </style>
-		<link href="${pageContext.request.contextPath}/css/Style1.css" rel="stylesheet" type="text/css">
+		<link href="${root}/css/Style1.css" rel="stylesheet" type="text/css">
 	</HEAD>
 	<body>
 		<table width="100%" height="70%"  border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td>
-					<img width="100%" src="${pageContext.request.contextPath}/images/top_01.jpg">
+					<img width="100%" src="${root}/images/top_01.jpg">
 				</td>
 
-				<td width="100%" background="${pageContext.request.contextPath}/images/top_100.jpg">
+				<td width="100%" background="${root}/images/top_100.jpg">
 				</td>
 			</tr>
 		</table>
 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
-				<td height="30" valign="bottom" background="${pageContext.request.contextPath}/images/mis_01.jpg">
+				<td height="30" valign="bottom" background="${root}/images/mis_01.jpg">
 					<table width="100%" border="0" cellspacing="0" cellpadding="0">
 						<tr>
 							<td width="85%" align="left">
@@ -49,19 +51,19 @@ TH {
 								<table width="100%" border="0" cellspacing="0" cellpadding="0">
 									<tr>
 										<td width="16"
-											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
+											background="${root}/images/mis_05b.jpg">
 											<img
-												src="${pageContext.request.contextPath}/images/mis_05a.jpg"
+												src="${root}/images/mis_05a.jpg"
 												width="6" height="18">
 										</td>
 										<td width="155" valign="bottom"
-											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
+											background="${root}/images/mis_05b.jpg">
 											用户名：
-											<font color="blue">zhangsan</font>
+											<font color="blue">${user}</font>
 										</td>
 										<td width="10" align="right"
-											background="${pageContext.request.contextPath}/images/mis_05b.jpg">
-											<img src="${pageContext.request.contextPath}/images/mis_05c.jpg" width="6" height="18">
+											background="${root}/images/mis_05b.jpg">
+											<img src="${root}/images/mis_05c.jpg" width="6" height="18">
 										</td>
 									</tr>
 								</table>

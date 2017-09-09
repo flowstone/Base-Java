@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <title>网上商城管理中心</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link href="${pageContext.request.contextPath }/css/general.css" rel="stylesheet" type="text/css" />
-<link href="${pageContext.request.contextPath }/css/main.css" rel="stylesheet" type="text/css" />
+<link href="${root}/css/general.css" rel="stylesheet" type="text/css" />
+<link href="${root}/css/main.css" rel="stylesheet" type="text/css" />
 
 <style type="text/css">
 body {
@@ -16,7 +18,7 @@ body {
 </head>
 <body style="background: #278296">
 <center></center>
-<form method="post" action="${pageContext.request.contextPath }/admin/home.jsp" target="_parent" name='theForm' onsubmit="return validate()">
+<form method="post" action="${root}/adminLogin" target="_parent" name='theForm' onsubmit="return validate()">
   <table cellspacing="0" cellpadding="0" style="margin-top: 100px" align="center">
   <tr>
     <td style="padding-left: 50px">
@@ -28,6 +30,7 @@ body {
       <tr>
         <td>管理员密码：</td>
         <td><input type="password" name="password" /></td>
+        <td>${msg }</td>
       </tr>
       <tr><td>&nbsp;</td><td><input type="submit" value="进入管理中心" class="button" /></td></tr>
       </table>
