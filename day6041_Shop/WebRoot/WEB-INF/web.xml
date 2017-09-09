@@ -41,13 +41,13 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>CategoryServlet</display-name>
-    <servlet-name>CategoryServlet</servlet-name>
-    <servlet-class>org.xueyao.web.CategoryServlet</servlet-class>
+    <display-name>AddCategoryServlet</display-name>
+    <servlet-name>AddCategoryServlet</servlet-name>
+    <servlet-class>org.xueyao.web.AddCategoryServlet</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>CategoryServlet</servlet-name>
-    <url-pattern>/CategoryServlet</url-pattern>
+    <servlet-name>AddCategoryServlet</servlet-name>
+    <url-pattern>/addCategory</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>

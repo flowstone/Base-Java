@@ -12,7 +12,7 @@ import org.xueyao.domain.Category;
 import org.xueyao.service.CategoryService;
 import org.xueyao.service.impl.CategoryServiceImpl;
 
-public class CategoryServlet extends HttpServlet {
+public class AddCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	public void doPost(HttpServletRequest request, HttpServletResponse response)

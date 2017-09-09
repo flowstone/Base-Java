@@ -57,7 +57,7 @@
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 									width="18%">${product.pid }</td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="17%"><img width="40" height="45" src=""></td>
+									width="17%"><img width="40" height="45" src="${product.pimage }"></td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
 									width="17%">${product.pname }</td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"

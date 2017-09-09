@@ -7,7 +7,7 @@
 	</HEAD>
 	
 	<body>
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/CategoryServlet" method="post">
+		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/addCategory" method="post">
 			<input type="hidden" name="method" value="save">
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">

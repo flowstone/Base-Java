@@ -22,6 +22,7 @@ public class CategoryDaoImpl implements CategoryDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			throw new RuntimeException("添加分类失败");
 		}
 	}
 	@Override
