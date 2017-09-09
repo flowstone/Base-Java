@@ -39,4 +39,44 @@
     <servlet-name>FindAllProductsServlet</servlet-name>
     <url-pattern>/findAllProducts</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CategoryServlet</display-name>
+    <servlet-name>CategoryServlet</servlet-name>
+    <servlet-class>org.xueyao.web.CategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CategoryServlet</servlet-name>
+    <url-pattern>/CategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindAllCategoryServlet</display-name>
+    <servlet-name>FindAllCategoryServlet</servlet-name>
+    <servlet-class>org.xueyao.web.FindAllCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindAllCategoryServlet</servlet-name>
+    <url-pattern>/findAllCategory</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>FindCategoryByIdServlet</display-name>
+    <servlet-name>FindCategoryByIdServlet</servlet-name>
+    <servlet-class>org.xueyao.web.FindCategoryByIdServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindCategoryByIdServlet</servlet-name>
+    <url-pattern>/findCategoryById</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UpdateCategoryServlet</display-name>
+    <servlet-name>UpdateCategoryServlet</servlet-name>
+    <servlet-class>org.xueyao.web.UpdateCategoryServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UpdateCategoryServlet</servlet-name>
+    <url-pattern>/updateCategory</url-pattern>
+  </servlet-mapping>
 </web-app>

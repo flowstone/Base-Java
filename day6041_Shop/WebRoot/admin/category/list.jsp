@@ -1,15 +1,17 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <HTML>
 <HEAD>
 <meta http-equiv="Content-Language" content="zh-cn">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link href="${pageContext.request.contextPath}/css/Style1.css"
+<link href="${root}/css/Style1.css"
 	rel="stylesheet" type="text/css" />
 <script language="javascript"
-	src="${pageContext.request.contextPath}/js/public.js"></script>
+	src="${root}/js/public.js"></script>
 <script type="text/javascript">
 			function addCategory(){
-				window.location.href = "${pageContext.request.contextPath}/admin/category/add.jsp";
+				window.location.href = "${root}/admin/category/add.jsp";
 			}
 		</script>
 </HEAD>
@@ -43,25 +45,27 @@
 							<td width="7%" align="center">编辑</td>
 							<td width="7%" align="center">删除</td>
 						</tr>
+						<c:forEach items="${list}" var="category">
 							<tr onmouseover="this.style.backgroundColor = 'white'"
 								onmouseout="this.style.backgroundColor = '#F5FAFE';">
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="18%">1</td>
+									width="18%">${category.cid }</td>
 								<td style="CURSOR: hand; HEIGHT: 22px" align="center"
-									width="17%">手机数码</td>
+									width="17%">${category.cname }</td>
 								<td align="center" style="HEIGHT: 22px"><a
-									href="${ pageContext.request.contextPath }/admin/category/edit.jsp">
+									href="${root}/findCategoryById?cid=${category.cid}">
 										<img
-										src="${pageContext.request.contextPath}/images/i_edit.gif"
+										src="${root}/images/i_edit.gif"
 										border="0" style="CURSOR: hand">
 								</a></td>
 
 								<td align="center" style="HEIGHT: 22px"><a
 									href="">
-										<img src="${pageContext.request.contextPath}/images/i_del.gif"
+										<img src="${root}/images/i_del.gif"
 										width="16" height="16" border="0" style="CURSOR: hand">
 								</a></td>
 							</tr>
+						</c:forEach>
 					</table>
 				</td>
 			</tr>

@@ -1,13 +1,15 @@
 <%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <HTML>
 	<HEAD>
 		<meta http-equiv="Content-Language" content="zh-cn">
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<LINK href="${pageContext.request.contextPath}/css/Style1.css" type="text/css" rel="stylesheet">
+		<LINK href="${root}/css/Style1.css" type="text/css" rel="stylesheet">
 	</HEAD>
 	
 	<body>
-		<form id="userAction_save_do" name="Form1" action="${pageContext.request.contextPath}/adminCategory_update.action" method="post">
+		<form id="userAction_save_do" name="Form1" action="${root}/updateCategory" method="post">
 			&nbsp;
 			<table cellSpacing="1" cellPadding="5" width="100%" align="center" bgColor="#eeeeee" style="border: 1px solid #8ba7e3" border="0">
 				<tr>
@@ -23,7 +25,8 @@
 						分类名称：
 					</td>
 					<td class="ta_01" bgColor="#ffffff" colspan="3">
-						<input type="text" name="cname" value="" id="userAction_save_do_logonName" class="bg"/>
+						<input type="text" name="cname" value="${category.cname }" id="userAction_save_do_logonName" class="bg"/>
+						<input type="hidden" name="cid" value="${category.cid }"/>
 					</td>
 				</tr>
 			
