@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html>
 <html>
 <head></head>
@@ -10,7 +12,9 @@
 <script src="js/bootstrap.min.js" type="text/javascript"></script>
 <!-- 引入自定义css文件 style.css -->
 <link rel="stylesheet" href="css/style.css" type="text/css" />
-
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/messages_cn.js"></script>
+<script type="text/javascript" src="js/jquery.metadata.js"></script>
 <style>
 body {
 	margin-top: 20px;
@@ -29,6 +33,15 @@ font {
 	padding: 0 10px;
 }
 </style>
+<script type="text/javascript">
+	function myCheckCode() {
+		document.getElementById("checkCode").src="${root}/CheckcodeServlet?c="+new Date().getTime();
+	}
+	$().ready(function() {
+		 $("#signupForm").validate();
+		
+		});
+</script>
 </head>
 <body>
 
@@ -42,44 +55,44 @@ font {
 			<div class="col-md-8"
 				style="background: #fff; padding: 40px 80px; margin: 30px; border: 7px solid #ccc;">
 				<font>会员注册</font>USER REGISTER
-				<form class="form-horizontal" style="margin-top: 5px;">
+				<form class="form-horizontal" id="signupForm" style="margin-top: 5px;" method="post">
 					<div class="form-group">
 						<label for="username" class="col-sm-2 control-label">用户名</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="username"
-								placeholder="请输入用户名">
+							<input type="text" class="form-control required" id="username"
+								placeholder="请输入用户名" >
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputPassword3" class="col-sm-2 control-label">密码</label>
 						<div class="col-sm-6">
-							<input type="password" class="form-control" id="inputPassword3"
+							<input type="password" class="form-control .0{required:true,minlength:5}" id="inputPassword3"
 								placeholder="请输入密码">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="confirmpwd" class="col-sm-2 control-label">确认密码</label>
 						<div class="col-sm-6">
-							<input type="password" class="form-control" id="confirmpwd"
+							<input type="password" class="form-control  {required:true,minlength:5,equalTo:'#inputPassword3'}" id="confirmpwd"
 								placeholder="请输入确认密码">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="inputEmail3" class="col-sm-2 control-label">Email</label>
 						<div class="col-sm-6">
-							<input type="email" class="form-control" id="inputEmail3"
+							<input type="email" class="form-control required email" id="inputEmail3"
 								placeholder="Email">
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="usercaption" class="col-sm-2 control-label">姓名</label>
 						<div class="col-sm-6">
-							<input type="text" class="form-control" id="usercaption"
+							<input type="text" class="form-control required" id="usercaption"
 								placeholder="请输入姓名">
 						</div>
 					</div>
 					<div class="form-group opt">
-						<label for="inlineRadio1" class="col-sm-2 control-label">性别</label>
+						<label for="inlineRadio1" class="col-sm-2 control-label ">性别</label>
 						<div class="col-sm-6">
 							<label class="radio-inline"> <input type="radio"
 								name="inlineRadioOptions" id="inlineRadio1" value="option1">
@@ -93,18 +106,18 @@ font {
 					<div class="form-group">
 						<label for="date" class="col-sm-2 control-label">出生日期</label>
 						<div class="col-sm-6">
-							<input type="date" class="form-control">
+							<input type="date" class="form-control required">
 						</div>
 					</div>
 
 					<div class="form-group">
 						<label for="date" class="col-sm-2 control-label">验证码</label>
 						<div class="col-sm-3">
-							<input type="text" class="form-control">
+							<input type="text" class="form-control required">
 
 						</div>
 						<div class="col-sm-2">
-							<img src="./image/captcha.jhtml" />
+							<img id="checkCode" src="${root }/CheckcodeServlet" onclick="myCheckCode()"/>
 						</div>
 
 					</div>
