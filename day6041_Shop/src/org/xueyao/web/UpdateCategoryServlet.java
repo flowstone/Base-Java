@@ -21,7 +21,7 @@ public class UpdateCategoryServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		//request.setCharacterEncoding("utf-8");
 		Category category = new Category();
 		try {
 			BeanUtils.populate(category, request.getParameterMap());

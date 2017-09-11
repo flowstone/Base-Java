@@ -21,7 +21,7 @@ public class AdminFindAllProductsServlet extends HttpServlet {
        
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//设置编码
-		request.setCharacterEncoding("utf-8");
+		//request.setCharacterEncoding("utf-8");
 		
 		ProductService productService = new ProductServiceImpl();
 		//获取数据库中的商品信息

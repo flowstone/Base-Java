@@ -26,7 +26,7 @@ public class AddCategoryServlet extends HttpServlet {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		//request.setCharacterEncoding("utf-8");
 		//获取输入框中的分类名
 		String cname = request.getParameter("cname");
 		Category category = new Category();

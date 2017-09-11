@@ -39,7 +39,8 @@ font {
 	}
 	$().ready(function() {
 		 $("#signupForm").validate();
-		
+			//debug,只验证不提交表单
+			debug:true
 		});
 </script>
 </head>
@@ -95,7 +96,7 @@ font {
 						<label for="inlineRadio1" class="col-sm-2 control-label ">性别</label>
 						<div class="col-sm-6">
 							<label class="radio-inline"> <input type="radio"
-								name="inlineRadioOptions" id="inlineRadio1" value="option1">
+								name="inlineRadioOptions" id="inlineRadio1" value="option1" >
 								男
 							</label> <label class="radio-inline"> <input type="radio"
 								name="inlineRadioOptions" id="inlineRadio2" value="option2">
