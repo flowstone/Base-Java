@@ -6,13 +6,17 @@
   	<listener-class>org.xueyao.web.listener.MyServletRequestListener</listener-class>
   </listener>
    -->
-<!--   
+  
   <listener>
   	<listener-class>org.xueyao.web.listener.MyServletContextListener</listener-class>
   </listener>
-   -->
+  
   <listener>
   	<listener-class>org.xueyao.web.listener.MyHttpSessionListener</listener-class>
+  </listener>
+  
+  <listener>
+  	<listener-class>org.xueyao.web.listener.MyHttpSessionAttributelistener</listener-class>
   </listener>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>

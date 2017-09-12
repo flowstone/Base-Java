@@ -1,9 +1,6 @@
 package org.xueyao.web.listener;
 
-import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
-
+import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 
@@ -19,7 +16,7 @@ public class MyServletContextListener implements ServletContextListener{
 		System.out.println("监听ServletContext对象创建...");
 		
 		//获取定时器
-		Timer timer = new Timer();
+		/*Timer timer = new Timer();
 		//调用定时器的设置定时任务的方法
 		timer.schedule(new TimerTask() {
 			
@@ -32,7 +29,12 @@ public class MyServletContextListener implements ServletContextListener{
 				//一般遵循的原则,只要可以控制在服务器的,绝对不给客户端
 				System.out.println(new Date().toLocaleString());
 			}
-		}, 0, 1000);
+		}, 0, 1000);*/
+		
+		//获取ServletContext对象 ,初始化 在线人数为0
+		int onlineNum = 0;
+		ServletContext context = sce.getServletContext();
+		context.setAttribute("onlineNum", onlineNum);
 	}
 
 	@Override
