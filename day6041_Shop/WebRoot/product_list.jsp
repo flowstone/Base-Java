@@ -40,7 +40,7 @@ body {
 				<li><a href="#">首页</a></li>
 			</ol>
 		</div>
-		<c:forEach items="${plist }" var="product">
+		<c:forEach items="${p.data }" var="product">
 		<div class="col-md-2" style="height: 230px">
 			<a href="product_info.htm"> <img src="${product.pimage }"
 				width="170" height="170" style="display: inline-block;">
@@ -57,20 +57,14 @@ body {
 	</div>
 
 	<!--分页 -->
-	<div style="width: 380px; margin: 0 auto; margin-top: 50px;">
+	<div style="width: 410px; margin: 0 auto; margin-top: 50px;">
 		<ul class="pagination" style="text-align: center; margin-top: 10px;">
-			<li class="disabled"><a href="#" aria-label="Previous"><span
+			<li class="disabled"><a href="${root }/page?pageNum=1" aria-label="Previous"><span
 					aria-hidden="true">&laquo;</span></a></li>
-			<li class="active"><a href="#">1</a></li>
-			<li><a href="#">2</a></li>
-			<li><a href="#">3</a></li>
-			<li><a href="#">4</a></li>
-			<li><a href="#">5</a></li>
-			<li><a href="#">6</a></li>
-			<li><a href="#">7</a></li>
-			<li><a href="#">8</a></li>
-			<li><a href="#">9</a></li>
-			<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
+			<c:forEach items="${p.bar }" var="num">
+			<li <c:if test="${p.pageNum == num }">class="active"</c:if>><a href="${root }/page?pageNum=${num}">${num }</a></li>
+			</c:forEach>
+			<li><a href="${root }/page?pageNum=${p.end}" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
 			</a></li>
 		</ul>
 	</div>

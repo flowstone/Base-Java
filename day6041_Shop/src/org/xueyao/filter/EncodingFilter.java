@@ -36,8 +36,8 @@ public class EncodingFilter implements Filter{
 		
 		//在不修改源代码的情况下,针对原来的对象,进行增加
 		MyRequest myRequest = new MyRequest(req);
-		System.out.println("name1:"+myRequest.getParameter("name"));
-		System.out.println("name2:"+myRequest.getParameter("name"));
+		//System.out.println("name1:"+myRequest.getParameter("name"));
+		//System.out.println("name2:"+myRequest.getParameter("name"));
 		//放行
 		chain.doFilter(myRequest, res);
 	}

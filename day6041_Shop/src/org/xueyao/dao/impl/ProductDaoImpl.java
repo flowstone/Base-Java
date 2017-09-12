@@ -8,7 +8,9 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+import org.apache.commons.dbutils.handlers.ScalarHandler;
 import org.xueyao.dao.ProductDao;
+import org.xueyao.domain.PageBean;
 import org.xueyao.domain.Product;
 import org.xueyao.utils.JDBCUtils;
 
@@ -81,6 +83,33 @@ public class ProductDaoImpl implements ProductDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("修改商品信息失败");
+		}
+	}
+	@Override
+	public PageBean page(int pageNum) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public int count() { 
+		String sql = "SELECT COUNT(*) FROM product";
+		try {
+			return qr.query(sql, new ScalarHandler<Long>()).intValue();
+		} catch (SQLException e) {
+			e.printStackTrace();
+			throw new RuntimeException("获取总记录数失败");
+		}
+	}
+	@Override
+	public List<Product> page(int i, int size) {
+		String  sql = "SELECT * FROM product LIMIT ?, ?";
+		
+		try {
+			return qr.query(sql, new BeanListHandler<Product>(Product.class), i, size);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("获取分页数据失败");
 		}
 	}
 

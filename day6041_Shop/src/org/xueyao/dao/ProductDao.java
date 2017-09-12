@@ -2,6 +2,7 @@ package org.xueyao.dao;
 
 import java.util.List;
 
+import org.xueyao.domain.PageBean;
 import org.xueyao.domain.Product;
 
 public interface ProductDao {
@@ -35,5 +36,26 @@ public interface ProductDao {
 	 * @param product
 	 */
 	void update(Product product);
+	
+	/**
+	 * 分页信息
+	 * @param pageNum
+	 * @return
+	 */
+	PageBean page(int pageNum);
+
+	/**
+	 * 获取总记录数据
+	 * @return
+	 */
+	int count();
+	
+	/**
+	 * 获取商品数据
+	 * @param i
+	 * @param size
+	 * @return
+	 */
+	List<Product> page(int i, int size);
 
 }

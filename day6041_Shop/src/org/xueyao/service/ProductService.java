@@ -2,6 +2,7 @@ package org.xueyao.service;
 
 import java.util.List;
 
+import org.xueyao.domain.PageBean;
 import org.xueyao.domain.Product;
 
 public interface ProductService {
@@ -29,5 +30,11 @@ public interface ProductService {
 	 * @param product
 	 */
 	void update(Product product);
+	/**
+	 * 获取分页信息
+	 * @param pageNum
+	 * @return
+	 */
+	PageBean page(int pageNum);
 	
 }
