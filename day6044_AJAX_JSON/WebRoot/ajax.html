@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+	//获取ajax核心对象的方法
+	function getXHR() {
+		var xmlhttp;
+		if (window.XMLHttpRequest) {
+			xmlhttp = new XMLHttpRequest();
+		} else {
+			xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+			
+		}
+		return xmlhttp;
+	}
+	//alert(getXHR());
+
+	//测试使用ajax核心对象,发送请求
+	function test1() {
+		var xhr = getXHR();
+		xhr.open("get","/day6044_AJAX_JSON/ajax?username=张三",true);
+		xhr.send();
+
+		//浏览器端准备接受响应
+		var data = xhr.responseText;
+		alert(data);
+	}
+	//test1();
+
+	//测试设置ajax等待服务器响应
+	function test3() {
+		// 获取核心对象
+		var xhr = getXHR();
+		//设置等待服务器响应
+		xhr.onreadystatechange = function () {
+			// 4.请求已完成,且响应已就绪, 200: "OK"
+			if (xhr.readyState == 4 && xhr.status == 200) {
+				var data = xhr.responseText;
+				alert(data);
+			}
+		}
+
+		//发送请求
+		xhr.open("get","/day6044_AJAX_JSON/ajax?username=小明",true);
+		xhr.send();
+	}
+	//test3();
+
+	//测试ajax发送post请求
+	function test4() {
+		var xhr = getXHR();
+		xhr.onreadstatechange = function () {
+			// body...
+			if (xhr.readyState ==4 && xhr.status == 200) {
+				var data = xhr.responseText;
+				document.getElementById("msg").innerHTML = data;
+			}
+		}
+		//async false 所有的请求和响应,需要排除执行(同步)
+		//async true 所有的请求的响应,不需要排除执行(插队执行)
+		xhr.open("post", "/day6044_AJAX_JSON/ajx",true);
+		//设置请求模拟表单提交数据
+		xhr.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+		xhr.send("username=张三");
+	}
+</script>
+</body>
+</html>
