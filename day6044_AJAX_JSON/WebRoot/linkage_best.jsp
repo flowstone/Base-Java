@@ -13,7 +13,7 @@ function loadData(value, ele){
 	$.get(
 			"${root}/getData?parentid="+value,
 			function(data) {
-				//alert(data);
+				//遍历数据
 				$(data).each(function(){
 					//创建option标签
 					ele.append("<option value='"+this.codeid+"'>"+this.cityName+"</option>");
@@ -22,22 +22,16 @@ function loadData(value, ele){
 }
 $(function() {
 	var $pro = $("#province");
-	var $city = $("#city");
-	var $area = $("#area");
-	
+	//加载省和直辖市数据
 	loadData(0,$pro);
+	//加载市
+	$("#city,#area").change(function () {
+		// 清空原来的数据
+		$(this).nextAll().prop("length",1);
+		loadData(this.value, $(this).next());
+
+	});
 	
-	$pro.change(function(){
-		$city.prop("length",1);
-		$area.prop("length",1);
-		loadData(this.value, $city);
-	});
-
-	$city.change(function(){
-		$area.prop("length",1);
-		loadData(this.value,$area);			
-	});
-
 	
 });
 </script>
