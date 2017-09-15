@@ -23,7 +23,7 @@ public class MailUtils {
 		try {
 		    // create a message
 		    MimeMessage msg = new MimeMessage(session);
-		    msg.setFrom(new InternetAddress("Admin@niubee.com"));
+		    msg.setFrom(new InternetAddress("Admin@xueyao.me"));
 		    InternetAddress[] address = {new InternetAddress(to)};
 		    msg.setRecipients(Message.RecipientType.TO, address);
 		    msg.setSubject(subject);

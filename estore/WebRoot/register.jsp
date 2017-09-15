@@ -22,16 +22,24 @@
 						<li class="active">用户注册</li>
 					</ul>
 				</div>
-				<form id="registForm" action="#" method="post" name="formUser"
-					onsubmit="return register();">
+				<form id="registForm" action="${root}/user?methodName=register" method="post" name="formUser"
+					onsubmit="return register();"><!-- onsubmit="return register();" -->
 					<table width="100%" border="0" align="left" cellpadding="5"
 						cellspacing="3">
-						<tr>
+						<caption>${msg }</caption>
+						<tr><!-- 用户名 	-->
 							<td width="25%" align="right">用户名（邮箱）</td>
 							<td width="65%"><input name="email" type="text"
 								id="username" onblur="is_registered(this.value);"
 								class="inputBg" /> <span id="username_notice"
-								style="color:#FF0000"> *</span></td>
+								style="color:#FF0000"> *</span></td> 
+							
+							<!-- 	
+							<td width="25%" align="right">用户名（邮箱）</td>
+							<td width="65%"><input name="email" type="text"
+								id="username" onblur="checkEmail(this.value);"
+								class="inputBg" /> <span id="email_notice"
+								style="color:#FF0000"> *</span></td>  -->	
 						</tr>
 						<tr>
 							<td align="right">昵称</td>

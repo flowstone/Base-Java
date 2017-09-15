@@ -17,7 +17,7 @@ var home_phone_invalid = "- 家庭电话不是一个有效号码";
 var office_phone_invalid = "- 办公电话不是一个有效号码";
 var mobile_phone_invalid = "- 手机号码不是一个有效号码";
 var msg_un_blank = "* 用户名不能为空";
-var msg_un_length = "* 用户名最长不得超过7个汉字";
+var msg_un_length = "* 用户名最长不得超过20个字符";
 var msg_un_format = "* 用户名含有非法字符";
 var msg_un_registered = "* 用户名已经存在,请重新输入";
 var msg_can_rg = "* 可以注册";
@@ -313,7 +313,7 @@ function is_registered(username) {
 		document.getElementById('username_notice').innerHTML = msg_un_blank;
 	} else if (unlen < 3) {
 		document.getElementById('username_notice').innerHTML = username_shorter;
-	} else if (unlen > 14) {
+	} else if (unlen > 20) {
 		document.getElementById('username_notice').innerHTML = msg_un_length;
 	} else {
 		return true;
