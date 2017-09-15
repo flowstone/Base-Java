@@ -49,5 +49,17 @@ public class UserServiceImpl implements UserService {
 		}
 		
 	}
+	
+	
+	@Override
+	public int active(String code) {
+		User u = userDao.findByCode(code);
+		if (null != u) {
+			userDao.active(u.getId());
+			return 1;
+		} else {
+			return -1;
+		}
+	}
 
 }

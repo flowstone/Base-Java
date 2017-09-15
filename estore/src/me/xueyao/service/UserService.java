@@ -10,5 +10,12 @@ public interface UserService {
 	 * @return
 	 */
 	int register(User user);
+	
+	/**
+	 * 邮件激活
+	 * @param code
+	 * @return
+	 */
+	int active(String code);
 
 }

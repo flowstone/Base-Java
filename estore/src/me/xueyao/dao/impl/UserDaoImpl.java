@@ -38,4 +38,30 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	@Override
+	public User findByCode(String code) {
+		String sql = "SELECT * FROM user WHERE code = ?";
+		
+		try {
+			return qr.query(sql, new BeanHandler<User>(User.class), code);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("激活码不存在 ");
+		}
+	}
+	@Override
+	public void active(int id) {
+		String sql = "UPDATE  user SET state = ? WHERE id = ?";
+		try {
+			qr.update(sql, 1, id);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("激活账号失败");
+		}
+	}
+
+
+
 }

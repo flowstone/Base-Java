@@ -24,6 +24,7 @@
 					onSubmit="return userLogin()">
 					<table width="100%" border="0" align="left" cellpadding="3"
 						cellspacing="5">
+						<caption>${msg }</caption>
 						<tr>
 							<td width="25%" align="right">用户名</td>
 							<td width="65%"><input name="email" type="text" size="25"

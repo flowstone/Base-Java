@@ -19,6 +19,13 @@ import org.apache.commons.lang3.StringUtils;
 
 
 public class UserServlet extends BaseServlet {
+	/**
+	 * 用户注册功能
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void register(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//System.out.println("执行注册");
 		String email = request.getParameter("email");
@@ -105,5 +112,25 @@ public class UserServlet extends BaseServlet {
 			return;
 		}
 	}
-
+	
+	/**
+	 * 邮件激活功能
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public void active(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String code = request.getParameter("code");
+		UserService userService = new UserServiceImpl();
+		int info = userService.active(code);
+		
+		if (1 == info) {
+			request.setAttribute("msg", "激活成功,请登录");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+		} else {
+			request.setAttribute("msg", "激活码失效,请重新注册");
+			request.getRequestDispatcher("/register.jsp").forward(request, response);
+		}
+	}
 }

@@ -15,6 +15,17 @@ public interface UserDao {
 	 * @return
 	 */
 	void register(User user);
+	/**
+	 * 邮件激活
+	 * @param id
+	 */
+	void active(int id);
+	/**
+	 * 查找邮件激活码
+	 * @param code
+	 * @return
+	 */
+	User findByCode(String code);
 
 	
 
