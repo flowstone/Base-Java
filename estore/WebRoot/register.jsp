@@ -7,6 +7,40 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>注册</title>
 <%@include file="inc/common_head.jsp"%>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	var flag = false;
+	function check(value) {
+		//alert("哈哈");
+		//将数据发送给服务器,检验邮箱是否可用
+		$.get(
+			"${root}/user?methodName=check&email="+value,
+			function(data) {
+				var $msg = $("#username_notice");
+				var $form = $("#registForm");
+				
+				if (1 == data) {
+					//可以使用
+					$msg.empty().append("<font color='green'>可以使用</font>")
+					flag = true;
+				} else if (-1 == data) {
+					//重复
+					$msg.text("重复");
+					flag = false;
+				} else if (-3 == data) {
+					//不能为空
+					$msg.text("不能为空");
+					flag = false;
+				} else {
+					//服务器忙
+					$msg.text("服务器忙");
+					flag = false;
+				}
+				
+			},"text"
+		);
+	}
+</script>
 </head>
 <body>
 	<%@include file="inc/header.jsp"%>
@@ -23,14 +57,14 @@
 					</ul>
 				</div>
 				<form id="registForm" action="${root}/user?methodName=register" method="post" name="formUser"
-					onsubmit="return register();"><!-- onsubmit="return register();" -->
+					onsubmit="return (register()&& flag);"><!-- onsubmit="return register();" -->
 					<table width="100%" border="0" align="left" cellpadding="5"
 						cellspacing="3">
 						<caption>${msg }</caption>
 						<tr><!-- 用户名 	-->
 							<td width="25%" align="right">用户名（邮箱）</td>
 							<td width="65%"><input name="email" type="text"
-								id="username" onblur="is_registered(this.value);"
+								id="username" onblur="is_registered(this.value);check(this.value)"
 								class="inputBg" /> <span id="username_notice"
 								style="color:#FF0000"> *</span></td> 
 							

@@ -26,6 +26,13 @@ public interface UserDao {
 	 * @return
 	 */
 	User findByCode(String code);
+	/**
+	 * 用户登录 
+	 * @param email
+	 * @param pwd
+	 * @return
+	 */
+	User login(String email, String pwd);
 
 	
 

@@ -62,6 +62,19 @@ public class UserDaoImpl implements UserDao {
 		}
 	}
 
+	@Override
+	public User login(String email, String pwd) {
+		String sql = "SELECT * FROM user WHERE email = ? AND password = ?";
+		
+		try {
+			return qr.query(sql, new BeanHandler<User>(User.class), email, pwd);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("用户登录失败");
+		}
+	}
+
 
 
 }

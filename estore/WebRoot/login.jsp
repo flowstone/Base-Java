@@ -20,7 +20,7 @@
 						</li>
 					</ul>
 				</div>
-				<form name="formLogin" action="#" method="post"
+				<form name="formLogin" action="${root }/user?methodName=login" method="post"
 					onSubmit="return userLogin()">
 					<table width="100%" border="0" align="left" cellpadding="3"
 						cellspacing="5">

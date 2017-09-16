@@ -62,4 +62,31 @@ public class UserServiceImpl implements UserService {
 		}
 	}
 
+
+	@Override
+	public int check(String email) {
+		try {
+			User user = userDao.findByName(email);
+			
+			if (null == user) {
+				return 1;
+			} else {
+				return -1;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return -2;
+		}
+	}
+
+
+	@Override
+	public User login(String email, String password) {
+		String pwd = MD5Utils.getPassword(password);
+		
+		
+		return userDao.login(email, pwd);
+	}
+
 }

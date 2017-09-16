@@ -3,9 +3,11 @@ package me.xueyao.web;
 
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -131,6 +133,84 @@ public class UserServlet extends BaseServlet {
 		} else {
 			request.setAttribute("msg", "激活码失效,请重新注册");
 			request.getRequestDispatcher("/register.jsp").forward(request, response);
+		}
+	}
+
+	/**
+	 * ajax验证用户名是否存在
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public void check(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String email = request.getParameter("email");
+		PrintWriter writer = response.getWriter();
+		
+		if (StringUtils.isBlank(email)) {
+			//数据为空,发出响应-3
+			writer.write(-3);
+			return;
+		}
+		
+		//调用service方法,校验用户名是否存在
+		UserService userService = new UserServiceImpl();
+		int state = userService.check(email);
+		
+		//直接将数据,发出响应到浏览器
+		writer.write(state+"");
+	}
+	
+	/**
+	 * 用户登录
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public void login(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String email = request.getParameter("email");
+		if (StringUtils.isBlank(email)) {
+			request.setAttribute("msg", "用户名不能为空");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			return;
+		}
+		
+		String password = request.getParameter("password");
+		if (StringUtils.isBlank(password)) {
+			request.setAttribute("msg", "密码不能为空");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			return;
+		}
+		
+		UserService userService = new UserServiceImpl();
+		User loginUser = userService.login(email, password);
+		
+		if (null == loginUser) {
+			request.setAttribute("msg", "用户名、密码错误或者账号未激活");
+			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			return;
+		} else {
+			//用户登录成功
+			//============记住用户start==========
+			String remember = request.getParameter("remember");
+			if ("on".equals(remember)) {
+				//需要记住用户名
+				Cookie cookie = new Cookie("username",email);
+				cookie.setMaxAge(60*60*24);
+				cookie.setPath("/");
+				response.addCookie(cookie);
+			} else {
+				//不需要记住用户名
+				Cookie cookie = new Cookie("username","");
+				cookie.setMaxAge(0);
+				cookie.setPath("/");
+				response.addCookie(cookie);
+			}
+			//============记住用户end============
+			
+			request.getSession().setAttribute("loginUser", loginUser);
+			response.sendRedirect(request.getContextPath());
 		}
 	}
 }
