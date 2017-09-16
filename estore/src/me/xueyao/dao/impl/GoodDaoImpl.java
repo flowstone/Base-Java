@@ -8,6 +8,7 @@ import me.xueyao.domain.Good;
 import me.xueyao.utils.DBUtils;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 public class GoodDaoImpl implements GoodDao {
@@ -25,6 +26,19 @@ public class GoodDaoImpl implements GoodDao {
 			e.printStackTrace();
 			throw new RuntimeException("获取商品列表失败");
 		}
+	}
+
+	@Override
+	public Good findById(int gid) {
+		String sql = "SELECT * FROM goods WHERE id = ?";
+		try {
+			return qr.query(sql, new BeanHandler<Good>(Good.class), gid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("获取指定商品详细失败");
+		}
+		
 	}
 
 }

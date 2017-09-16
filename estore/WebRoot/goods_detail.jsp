@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="root" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -27,34 +29,34 @@
 		<!-- 商品图片信息开始 -->
 		<div class="imgInfo">
 			<!-- 当前显示的大图 -->
-			<a href="images/201410/goods_img/139_P_1413929169416.jpg"
+			<a href="${root }${good.imgurl}"
 				id="zoom1" class="MagicZoom MagicThumb">
-				<img src="images/201410/goods_img/139_P_1413929169416.jpg"
+				<img src="${root }${good.imgurl}"
 				width="360px;" height="360px" />
 			</a>
 			<!-- 下方的图片列表 -->
 			<div class="picture" id="imglist">
-				<a href="images/201410/goods_img/139_P_1413929169416.jpg" rel="zoom1" 
-					rev="images/201410/goods_img/139_P_1413929169416.jpg">
-					<img src="images/201410/thumb_img/139_thumb_P_1413929169547.jpg" class="onbg" />
+				<a href="${root }${good.imgurl}" rel="zoom1" 
+					rev="${root }${good.imgurl}">
+					<img src="${root }${good.imgurl}" class="onbg" />
 				</a>
-				<a href="images/201410/goods_img/139_P_1413929154557.jpg"
-					rel="zoom1" rev="images/201410/goods_img/139_P_1413929154557.jpg">
-					<img src="images/201410/thumb_img/139_thumb_P_1413929154414.jpg" class="autobg" />
+				<a href="${root }${good.imgurl}"
+					rel="zoom1" rev="${root }${good.imgurl}">
+					<img src="${root }${good.imgurl}" class="autobg" />
 				</a>
-				<a href="images/201410/goods_img/139_P_1413929169239.jpg"
-					rel="zoom1" rev="images/201410/goods_img/139_P_1413929169239.jpg">
-					<img src="images/201410/thumb_img/139_thumb_P_1413929169012.jpg"
+				<a href="${root }${good.imgurl}"
+					rel="zoom1" rev="${root }${good.imgurl}">
+					<img src="${root }${good.imgurl}"
 					class="autobg" />
 				</a>
-				<a href="images/201411/goods_img/139_P_1416438939021.jpg"
-					rel="zoom1" rev="images/201411/goods_img/139_P_1416438939021.jpg">
-					<img src="images/201411/thumb_img/139_thumb_P_1416438939077.jpg"
+				<a href="${root }${good.imgurl}"
+					rel="zoom1" rev="${root }${good.imgurl}">
+					<img src="${root }${good.imgurl}"
 					class="autobg" />
 				</a>
-				<a href="images/201501/goods_img/139_P_1420324949546.jpg"
-					rel="zoom1" rev="images/201501/goods_img/139_P_1420324949546.jpg">
-					<img src="images/201501/thumb_img/139_thumb_P_1420324949384.jpg"
+				<a href="${root }${good.imgurl}"
+					rel="zoom1" rev=${root }${good.imgurl}>
+					<img src="${root }${good.imgurl}"
 					class="autobg" />
 				</a>
 			</div>
@@ -62,41 +64,35 @@
 		</div>
 		<!-- 商品文字信息 -->
 		<div class="textInfo">
-			<h1 class="clearfix">珀莱雅(PROYA)新柔皙美白补水套装(洗颜霜120ml+玫瑰水120ml+保湿乳100ml)</h1>
+			<h1 class="clearfix">${good.name }</h1>
 			<ul class="ul2 clearfix">
 				<li class="clearfix">
 					<dd>
 						<strong>市场售价：</strong>
-						<font class="market">199元</font>
+						<font class="market">${good.marketprice }</font>
 					</dd>
 				</li>
 				<li class="clearfix">
 					<dd>
 						<strong>本店售价：</strong>
-						<font class="shop">155元</font>
+						<font class="shop">${good.estoreprice }</font>
 					</dd>
 				</li>
 				<li class="clearfix">
 					<dd>
-						<strong>商品库存：</strong> 99件
+						<strong>商品库存：</strong> ${good.num }件
 					</dd>
 				</li>
 				<li class="clearfix">
 					<dd>
-						<strong>商品分类：</strong> 衣服
+						<strong>商品分类：</strong> ${good.category }
 					</dd>
 				</li>
 				<li class="clearfix" style="width:100%;">
 					<dd>
 						<strong>商品描述：</strong>
 						<div style="text-indent: 2em;">
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
-						这个衣服很漂亮很漂亮，难道不漂亮吗，不漂亮吗？漂亮吗？亮吗？吗？
+						${good.description }
 						</div>
 					</dd>
 				</li>
@@ -112,7 +108,6 @@
 		</div>
 	</div>
 	<!-- 商品信息结束 -->
-	
 	<div class="blank"></div>
 	<div class="box">
 		<div style="padding:0 0px;">
@@ -129,7 +124,7 @@
 					<p>&nbsp;</p>
 					<div class="more_pic"
 						style="margin: 0px 20px; padding: 0px; overflow: hidden; text-align: center; color: rgb(102, 102, 102); font-family: Arial;">
-						<img src="images/a_top.jpg" alt="秋冬黑色天鹅毛衣七分袖休闲套头毛衣蕾丝网纱半身裙蓬蓬裙套装"
+						<img src="${root }${good.imgurl}" alt="秋冬黑色天鹅毛衣七分袖休闲套头毛衣蕾丝网纱半身裙蓬蓬裙套装"
 							class="load_img"
 							style="border: 0px; display: block; margin-left: auto; margin-right: auto; background-image: url(images/loading.gif); height: 710px; width: 640px; background-position: 50% 50%; background-repeat: no-repeat no-repeat;" />
 					</div>

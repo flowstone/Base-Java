@@ -29,12 +29,12 @@
 						<!-- 第1个商品 -->
 						<c:forEach var="good" items="${gList }">
 						<div class="goodsItem" style="padding: 10px 4px 15px 1px;">
-							<a href="${root }/findGoodById?gid=${good.id}">
+							<a href="${root }/good?methodName=findById&gid=${good.id}">
 								<img src="${root}${good.imgurl}"
 								class="goodsimg" />
 							</a><br />
 							<p style=" height:20px; overflow:hidden;">
-								<a href="${root }/findGoodById?gid=${good.id}" title="">${good.name }</a>
+								<a href="${root }/good?methodName=findById&gid=${good.id}" title="">${good.name }</a>
 							</p>
 							市场价：<font class="market">${good.marketprice }元</font><br /> 本店价：<font class="f1">${good.estoreprice }元
 							</font>

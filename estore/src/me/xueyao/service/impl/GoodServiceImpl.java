@@ -14,5 +14,9 @@ public class GoodServiceImpl implements GoodService {
 	public List<Good> findAll() {
 		return goodDao.findAll();
 	}
+	@Override
+	public Good findById(int gid) {
+		return goodDao.findById(gid);
+	}
 
 }

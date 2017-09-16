@@ -27,5 +27,23 @@ public class GoodServlet extends BaseServlet {
 		request.setAttribute("gList", gList);
 		request.getRequestDispatcher("/goods.jsp").forward(request, response);
 	}
+	/**
+	 * 查询指定的id商品
+	 * @param request
+	 * @param response
+	 * @throws IOException 
+	 * @throws ServletException 
+	 */
+	public void findById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int gid = Integer.parseInt(request.getParameter("gid"));
+		
+		//调用service方法,获取数据
+		GoodService goodService = new GoodServiceImpl();
+		Good good = goodService.findById(gid);
+		
+		request.setAttribute("good", good);
+		request.getRequestDispatcher("/goods_detail.jsp").forward(request, response);
+		
+	}
 
 }
