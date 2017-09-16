@@ -100,7 +100,7 @@
 			<ul class="bnt_ul">			
 				<li class="padd">
 				<!-- 购买按钮 -->
-					<a href="buyorcart.jsp">
+					<a href="${root }/cart?methodName=addGoodToCart&gid=${good.id}">
 						<img src="themes/ecmoban_jumei/images/goumai2.gif" />
 					</a>
 				</li>

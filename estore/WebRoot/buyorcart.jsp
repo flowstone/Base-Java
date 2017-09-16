@@ -15,7 +15,7 @@
 	</div>
 	
 	<div>
-		<input onclick="location.href='${root}/goods.jsp';"
+		<input onclick="location.href='${root}/good?methodName=findAll';"
 		type="button" value="继续购物" class="btn2" />&nbsp;&nbsp;&nbsp;
 		
 		<input onclick="location.href='${root}/cart.jsp';" 

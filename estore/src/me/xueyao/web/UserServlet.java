@@ -210,7 +210,8 @@ public class UserServlet extends BaseServlet {
 			//============记住用户end============
 			
 			request.getSession().setAttribute("loginUser", loginUser);
-			response.sendRedirect(request.getContextPath());
+			String url = (String)request.getSession().getAttribute("url");
+			response.sendRedirect(url);
 		}
 	}
 }
