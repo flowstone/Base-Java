@@ -37,4 +37,14 @@
     <servlet-name>UserServlet</servlet-name>
     <url-pattern>/user</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GoodServlet</display-name>
+    <servlet-name>GoodServlet</servlet-name>
+    <servlet-class>me.xueyao.web.GoodServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GoodServlet</servlet-name>
+    <url-pattern>/good</url-pattern>
+  </servlet-mapping>
 </web-app>

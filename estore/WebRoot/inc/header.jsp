@@ -22,8 +22,15 @@
 				<div class="block">
 					<div class="f_l left_login">
 						<script type="text/javascript" src="js/utils.js"></script>
-						<font id="ECS_MEMBERZONE"> 欢迎光临本店，<a href="login.jsp">登录</a>
-							| <a href="register.jsp">注册</a>
+						<font id="ECS_MEMBERZONE"> 欢迎光临本店，
+						<c:if test="${empty loginUser }">
+							<a href="login.jsp">登录</a>
+							<a href="register.jsp">注册</a>
+						</c:if>
+						<c:if test="${not empty loginUser}">
+							${loginUser.nickname }
+							<a href="${root }/loginOut.jsp">注销</a>
+						</c:if>
 						</font>
 					</div>
 					<ul class="top_bav_l">
@@ -53,15 +60,15 @@
 											height="90"></td>
 									</tr>
 									<tr>
-										<td>传智播客官方微信</td>
-										<td>黑马程序员官方微信</td>
+										<td>官方微信</td>
+										<td>XX官方微信</td>
 									</tr>
 								</table>
 							</div></li>
 					</ul>
 					<div class="header_r">
 						<a href="orders.jsp">我的订单</a>
-						<a href="goods.jsp">商品列表</a>
+						<a href="${root }/good?methodName=findAll">商品列表</a>
 					</div>
 				</div>
 			</div>
