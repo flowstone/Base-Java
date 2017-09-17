@@ -21,9 +21,16 @@ public interface CartService {
 	List<Cart> findAll(int uid);
 
 	/**
-	 * 修改购买商品的数量
+	 * 修改购物车商品的数量
 	 * @param c
 	 */
 	void update(Cart c);
+
+	/**
+	 * 删除购物车里的商品
+	 * @param uid
+	 * @param gid
+	 */
+	void delete(int uid, int gid);
 
 }

@@ -114,4 +114,28 @@ public class CartServlet extends BaseServlet {
 		response.sendRedirect(request.getContextPath()+"/cart?methodName=findAll");
 	}
 	
+	/**
+	 * 删除购物车中的商品
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public void delete(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		User loginUser = (User)request.getSession().getAttribute("loginUser");
+		if (null == loginUser) {
+			response.sendRedirect(request.getContextPath()+"/login.jsp");
+			return;
+		}
+		
+		int uid = loginUser.getId();
+		int gid = Integer.parseInt(request.getParameter("gid"));
+		
+		CartService cartService = new CartServiceImpl();
+		cartService.delete(uid, gid);
+		
+		response.sendRedirect(request.getContextPath()+"/cart?methodName=findAll");
+	}
+	
 }

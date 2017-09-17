@@ -70,7 +70,7 @@
 								</td>
 								<td align="center" bgcolor="#ffffff">${cart.good.estoreprice * cart.buynum}元</td>
 								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">删除</a>
+									<a href="${root }/cart?methodName=delete&gid=${cart.gid}" class="f6">删除</a>
 								</td>
 							</tr>
 							<c:set var="totalprice" value="${totalprice + cart.good.estoreprice * cart.buynum }"></c:set>

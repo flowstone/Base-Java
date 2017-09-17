@@ -47,4 +47,9 @@ public class CartServiceImpl implements CartService {
 		cartDao.update(c);
 	}
 
+	@Override
+	public void delete(int uid, int gid) {
+		cartDao.delete(uid,gid);
+	}
+
 }

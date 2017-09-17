@@ -43,5 +43,11 @@ public interface CartDao {
 	 * @return
 	 */
 	Good findById(int gid);
+	/**
+	 * 删除购物车里的商品
+	 * @param uid
+	 * @param gid
+	 */
+	void delete(int uid, int gid);
 
 }
