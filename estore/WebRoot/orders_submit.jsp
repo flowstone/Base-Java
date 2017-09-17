@@ -10,6 +10,35 @@
 <meta name="Description" content="" />
 <title>提交订单</title>
 <%@include file="inc/common_head.jsp"%>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+function loadData(value, ele){
+	$.get(
+			"${root}/pcd?methodName=getData&pid="+value,
+			function(data) {
+				//遍历数据
+				$(data).each(function(){
+					//创建option标签
+					ele.append("<option value='"+this.id+"'>"+this.name+"</option>");
+				}); 
+			},"json");
+}
+$(function() {
+	var $pro = $("#province");
+	//加载省和直辖市数据
+	loadData(0,$pro);
+	//加载市
+	$("#province,#city").change(function () {
+		
+		// 清空原来的数据
+		$(this).nextAll().prop("length",1);
+		loadData(this.value, $(this).next());
+
+	}); 
+	
+	
+});
+</script>
 </head>
 <body>
 	<%@include file="inc/header.jsp"%>
@@ -29,16 +58,16 @@
 				<td bgcolor="#ffffff" align="right" width="120px">区域信息：</td>
 				<td bgcolor="#ffffff">
 					<!-- 省 -->
-					<select id="province">
-						<option value="">-- 请选择省 --</option>
+					<select id="province" name="province">
+						<option value="none">-- 请选择省 --</option>
 					</select>&nbsp;&nbsp;&nbsp;
 					<!-- 市 -->
-					<select id="city">
-						<option value="">-- 请选择市 --</option>
+					<select id="city" name="city">
+						<option value="none">-- 请选择市 --</option>
 					</select>&nbsp;&nbsp;&nbsp;
 					<!-- 县(区) -->
-					<select id="district">
-						<option value="">-- 请选择县(区) --</option>
+					<select id="district" name="district">
+						<option value="none">-- 请选择县(区) --</option>
 					</select>
 				</td>
 			</tr>

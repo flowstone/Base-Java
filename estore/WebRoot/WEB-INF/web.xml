@@ -57,4 +57,14 @@
     <servlet-name>CartServlet</servlet-name>
     <url-pattern>/cart</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>PCDServlet</display-name>
+    <servlet-name>PCDServlet</servlet-name>
+    <servlet-class>me.xueyao.web.PCDServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PCDServlet</servlet-name>
+    <url-pattern>/pcd</url-pattern>
+  </servlet-mapping>
 </web-app>
