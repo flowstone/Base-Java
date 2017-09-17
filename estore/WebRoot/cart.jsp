@@ -7,6 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>我的购物车</title>
 <%@include file="inc/common_head.jsp"%>
+<script type="text/javascript">
+	function updateNum(value, gid) {
+		if (parseInt(value)) {
+			if (value > 0) {
+				if (value % 1 == 0) {
+					location.href='${root}/cart?methodName=updateNum&gid='+gid+'&buynum='+value;
+				} else {
+					alert("当前不是整数");
+				}
+			} else {
+				alert("当前不是正数");
+			}
+		} else {
+			alert("当前不是数字");
+		}
+	}
+</script>
 </head>
 <body>
 	<%@include file="inc/header.jsp"%>
@@ -25,7 +42,7 @@
 						style="_height:1%;">
 						<h5><span>我的购物车</span></h5>
 						<table width="100%" align="center" border="0" cellpadding="5"
-							cellspacing="1" bgcolor="#dddddd">
+							cellspacing="1" bgcolor="#dddddd" >
 							<tr>
 								<th bgcolor="#ffffff">商品名称</th>
 								<th bgcolor="#ffffff">市场价</th>
@@ -49,7 +66,7 @@
 								<td align="center" bgcolor="#ffffff">${cart.good.marketprice }元</td>
 								<td align="center" bgcolor="#ffffff">${cart.good.estoreprice }元</td>
 								<td align="center" bgcolor="#ffffff">
-									<input value="${cart.buynum }" size="4" class="inputBg" style="text-align:center;" />
+									<input value="${cart.buynum }" size="4" class="inputBg" style="text-align:center;" onblur="updateNum(this.value,${cart.gid} )" />
 								</td>
 								<td align="center" bgcolor="#ffffff">${cart.good.estoreprice * cart.buynum}元</td>
 								<td align="center" bgcolor="#ffffff">

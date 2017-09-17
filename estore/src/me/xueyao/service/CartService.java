@@ -20,4 +20,10 @@ public interface CartService {
 	 */
 	List<Cart> findAll(int uid);
 
+	/**
+	 * 修改购买商品的数量
+	 * @param c
+	 */
+	void update(Cart c);
+
 }
