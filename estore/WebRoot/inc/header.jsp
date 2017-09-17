@@ -24,8 +24,8 @@
 						<script type="text/javascript" src="js/utils.js"></script>
 						<font id="ECS_MEMBERZONE"> 欢迎光临本店，
 						<c:if test="${empty loginUser }">
-							<a href="login.jsp">登录</a>
-							<a href="register.jsp">注册</a>
+							<a href="${root }/login.jsp">登录</a>
+							<a href="${root }/register.jsp">注册</a>
 						</c:if>
 						<c:if test="${not empty loginUser}">
 							${loginUser.nickname }
@@ -93,7 +93,7 @@
 				<li id="ECS_CARTINFO">
 					<div class="top_cart">
 						<img src="themes/ecmoban_jumei/images/cart.gif" /> 
-						<a href="cart.jsp" class="shopborder">去购物车结算</a>
+						<a href="${root }/cart?methodName=findAll" class="shopborder">去购物车结算</a>
 					</div>
 				</li>
 			</ul>

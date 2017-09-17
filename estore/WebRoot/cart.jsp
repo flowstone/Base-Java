@@ -34,78 +34,35 @@
 								<th bgcolor="#ffffff">小计</th>
 								<th bgcolor="#ffffff" width="160px">操作</th>
 							</tr>
+							<c:forEach var="cart" items="${cList }">
 							<tr>
 								<td bgcolor="#ffffff" align="center" style="width:300px;">
 									<!-- 商品图片 -->
 									<a href="javascript:;" target="_blank">
 										<img style="width:80px; height:80px;"
-										src="images/201501/thumb_img/136_thumb_G_1420325642852.jpg"
-										border="0" title="佳洁士全优7效牙膏+漱口水装" />
+										src="${root}${cart.good.imgurl}"
+										border="0" title="${cart.good.name }" />
 									</a><br />
 									<!-- 商品名称 -->
-									<a href="javascript:;" target="_blank" class="f6">佳洁士全优7效牙膏+漱口水装</a>
+									<a href="javascript:;" target="_blank" class="f6">${cart.good.name }</a>
 								</td>
-								<td align="center" bgcolor="#ffffff">26.40元</td>
-								<td align="center" bgcolor="#ffffff">22.00元</td>
+								<td align="center" bgcolor="#ffffff">${cart.good.marketprice }元</td>
+								<td align="center" bgcolor="#ffffff">${cart.good.estoreprice }元</td>
 								<td align="center" bgcolor="#ffffff">
-									<input value="1" size="4" class="inputBg" style="text-align:center;" />
+									<input value="${cart.buynum }" size="4" class="inputBg" style="text-align:center;" />
 								</td>
-								<td align="center" bgcolor="#ffffff">22.00元</td>
+								<td align="center" bgcolor="#ffffff">${cart.good.estoreprice * cart.buynum}元</td>
 								<td align="center" bgcolor="#ffffff">
 									<a href="javascript:;" class="f6">删除</a>
 								</td>
 							</tr>
-							<tr>
-								<td bgcolor="#ffffff" align="center" style="width:300px;">
-									<!-- 商品图片 -->
-									<a href="javascript:;" target="_blank">
-										<img style="width:80px; height:80px;"
-										src="images/201501/thumb_img/139_thumb_G_1420324949779.jpg"
-										border="0" title="珀莱雅(PROYA)新柔皙美白补水套装(洗颜霜120ml+玫瑰水120ml+保湿乳100ml)" />
-									</a><br />
-									<!-- 商品名称 -->
-									<a href="javascript:;" target="_blank" class="f6">
-										珀莱雅(PROYA)新柔皙美白补水套装(洗颜霜120ml+玫瑰水120ml+保湿乳100ml)
-									</a>
-								</td>
-								<td align="center" bgcolor="#ffffff">193.00元</td>
-								<td align="center" bgcolor="#ffffff">110.00元</td>
-								<td align="center" bgcolor="#ffffff">
-								<!-- 购物数量 -->
-									<input value="2" size="4" class="inputBg" style="text-align:center;" />
-								</td>
-								<td align="center" bgcolor="#ffffff">220.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">删除</a>
-								</td>
-							</tr>
-							<tr>
-								<td bgcolor="#ffffff" align="center" style="width:300px;">
-									<!-- 商品图片 -->
-									<a href="javascript:;" target="_blank">
-										<img style="width:80px; height:80px;"
-										src="images/201501/thumb_img/141_thumb_G_1420324798329.jpg"
-										border="0" title="兰蔻清滢柔肤水400ml" />
-									</a><br />
-									<!-- 商品名称 -->
-									<a href="javascript:;" target="_blank" class="f6">
-										兰蔻清滢柔肤水400ml
-									</a>
-								</td>
-								<td align="center" bgcolor="#ffffff">420.00元</td>
-								<td align="center" bgcolor="#ffffff">110.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<input value="3" size="4" class="inputBg" style="text-align:center;" />
-								</td>
-								<td align="center" bgcolor="#ffffff">330.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">删除</a>
-								</td>
-							</tr>
+							<c:set var="totalprice" value="${totalprice + cart.good.estoreprice * cart.buynum }"></c:set>
+							<c:set var="save" value="${save+(cart.good.marketprice - cart.good.estoreprice)* cart.buynum }"></c:set>
+							</c:forEach>
 							<tr>
 								<td colspan="6" style="text-align:right;padding-right:10px;font-size:25px;">
-									购物金额小计&nbsp;<font color="red">572.00</font>元，
-									共为您节省了&nbsp;<font color="red">1100.40</font>元
+									购物金额小计&nbsp;<font color="red">${totalprice }</font>元，
+									共为您节省了&nbsp;<font color="red">${save }</font>元
 									<a href="orders_submit.jsp"><input value="去结算" type="button" class="btn" /></a>
 								</td>
 							</tr>

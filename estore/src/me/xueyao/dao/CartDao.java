@@ -1,6 +1,9 @@
 package me.xueyao.dao;
 
+import java.util.List;
+
 import me.xueyao.domain.Cart;
+import me.xueyao.domain.Good;
 
 /**
  * @author XueYao
@@ -27,5 +30,18 @@ public interface CartDao {
 	 * @param cart
 	 */
 	void update(Cart cart);
+	
+	/**
+	 * 查看当前用户购物车中所有商品数据
+	 * @param uid
+	 * @return
+	 */
+	List<Cart> findAll(int uid);
+	/**
+	 * 查询当前gid商品的信息
+	 * @param gid
+	 * @return
+	 */
+	Good findById(int gid);
 
 }

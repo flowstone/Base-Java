@@ -1,7 +1,11 @@
 package me.xueyao.service.impl;
 
+import java.util.List;
+
 import me.xueyao.dao.CartDao;
+import me.xueyao.dao.impl.CartDaoImpl;
 import me.xueyao.domain.Cart;
+import me.xueyao.domain.Good;
 import me.xueyao.service.CartService;
 
 public class CartServiceImpl implements CartService {
@@ -25,6 +29,16 @@ public class CartServiceImpl implements CartService {
 			cart.setBuynum(cart.getBuynum()+1);
 			cartDao.update(cart);
 		}
+	}
+
+	@Override
+	public List<Cart> findAll(int uid) {
+		List<Cart> list = cartDao.findAll(uid);
+		for (Cart cart: list) {
+			Good good = cartDao.findById(cart.getGid());
+			cart.setGood(good);
+		}
+		return list;
 	}
 
 }
