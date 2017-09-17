@@ -211,7 +211,11 @@ public class UserServlet extends BaseServlet {
 			
 			request.getSession().setAttribute("loginUser", loginUser);
 			String url = (String)request.getSession().getAttribute("url");
-			response.sendRedirect(url);
+			if (null != url) {
+				response.sendRedirect(url);
+			} else {
+				response.sendRedirect(request.getContextPath());
+			}
 		}
 	}
 }
