@@ -49,5 +49,10 @@ public interface CartDao {
 	 * @param gid
 	 */
 	void delete(int uid, int gid);
+	/**
+	 * 清空购物车
+	 * @param uid
+	 */
+	void clear(int uid);
 
 }

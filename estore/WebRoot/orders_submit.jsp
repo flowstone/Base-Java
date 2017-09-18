@@ -49,7 +49,7 @@ $(function() {
 		</div>
 	</div><div class="blank"></div><div class="box"><div class="box_1">
 	<div class="userCenterBox boxCenterList clearfix" style="_height:1%;">
-	<form action="${root }/orders.jsp" method="post">
+	<form action="${root }/order?methodName=addOrder" method="post">
 		<!---------收货人信息开始---------->
 		<h5><span>收货人信息</span></h5>
 		<table width="100%" align="center" border="0" cellpadding="5"
@@ -58,19 +58,24 @@ $(function() {
 				<td bgcolor="#ffffff" align="right" width="120px">区域信息：</td>
 				<td bgcolor="#ffffff">
 					<!-- 省 -->
-					<select id="province" name="province">
+					<select id="province" onchange="document.getElementById('ph').value = this.options[this.selectedIndex].innerHTML">
 						<option value="none">-- 请选择省 --</option>
 					</select>&nbsp;&nbsp;&nbsp;
 					<!-- 市 -->
-					<select id="city" name="city">
+					<select id="city" onchange="document.getElementById('ch').value = this.options[this.selectedIndex].innerHTML">
 						<option value="none">-- 请选择市 --</option>
 					</select>&nbsp;&nbsp;&nbsp;
 					<!-- 县(区) -->
-					<select id="district" name="district">
+					<select id="district" onchange="document.getElementById('dh').value = this.options[this.selectedIndex].innerHTML">
 						<option value="none">-- 请选择县(区) --</option>
 					</select>
+					<!-- 隐藏域 start -->
+					<input type="hidden" id="ph" name="province">
+					<input type="hidden" id="ch" name="city">
+					<input type="hidden" name="dh" name="district">
+					<!-- 隐藏域 end -->
 				</td>
-			</tr>
+			</tr> 
 			<tr>
 				<td bgcolor="#ffffff" align="right">详细地址：</td>
 				<td bgcolor="#ffffff">
@@ -104,35 +109,21 @@ $(function() {
 				<th width="15%" align="center">购买数量</th>
 				<th align="center">小计</th>
 			</tr>
+			<c:forEach var="cart" items="${cList }">
 			<tr>
 				<td>
-					<a href="javascript:;" class="f6">佳洁士全优7效牙膏+漱口水装</a>
+					<a href="javascript:;" class="f6">${cart.good.name }</a>
 				</td>
-				<td>26.40元</td>
-				<td>22.00元</td>
-				<td align="center">1</td>
-				<td>22.00元</td>
+				<td>${cart.good.marketprice }元</td>
+				<td>${cart.good.estoreprice }元</td>
+				<td align="center">${cart.buynum }</td>
+				<td>${cart.buynum * cart.good.estoreprice }元</td>
 			</tr>
-			<tr>
-				<td><a href="goods.php?id=139"
-					target="_blank" class="f6">珀莱雅(PROYA)新柔皙美白补水套装(洗颜霜120ml+玫瑰水120ml+保湿乳100ml)</a>
-				</td>
-				<td>193.00元</td>
-				<td>110.00元</td>
-				<td align="center">2</td>
-				<td>220.00元</td>
-			</tr>
-			<tr>
-				<td><a href="goods.php?id=141"
-					target="_blank" class="f6">兰蔻清滢柔肤水400ml</a></td>
-				<td>420.00元</td>
-				<td>110.00元</td>
-				<td align="center">3</td>
-				<td>330.00元</td>
-			</tr>
+			<c:set var="total" value="${total + cart.buynum * cart.good.estoreprice }"></c:set>
+			</c:forEach>
 			<tr>
 				<td colspan="5" style="text-align:right;padding-right:10px;font-size:25px;">
-					商品总价&nbsp;<font color="red">&yen;572.00</font>元
+					商品总价&nbsp;<font color="red">&yen;${total }</font>元
 					<input type="submit" value="提交订单" class="btn" />
 				</td>
 			</tr>

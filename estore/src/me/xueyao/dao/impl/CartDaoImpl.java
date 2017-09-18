@@ -1,5 +1,6 @@
 package me.xueyao.dao.impl;
 
+import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,7 +14,7 @@ import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 public class CartDaoImpl implements CartDao {
-	
+	private QueryRunner run = new QueryRunner();
 	private QueryRunner qr = new QueryRunner(DBUtils.getDataSource());
 	
 	@Override
@@ -87,6 +88,20 @@ public class CartDaoImpl implements CartDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("删除当前商品数据失败");
+		}
+	}
+
+	@Override
+	public void clear(int uid) {
+		String sql = "DELETE FROM cart WHERE uid = ?";
+		Connection con;
+		try {
+			con = DBUtils.getCurrentConnection();
+			run.update(con, sql, uid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("删除指定用户的购物车失败");
 		}
 	}
 

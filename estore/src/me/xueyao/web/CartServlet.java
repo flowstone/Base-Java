@@ -74,7 +74,8 @@ public class CartServlet extends BaseServlet {
 		CartService cartService = new CartServiceImpl();
 		List<Cart> cList = cartService.findAll(uid);
 		
-		request.setAttribute("cList", cList);
+		//request.setAttribute("cList", cList);
+		request.getSession().setAttribute("cList", cList);
 		request.getRequestDispatcher("/cart.jsp").forward(request, response);
 		
 	}
