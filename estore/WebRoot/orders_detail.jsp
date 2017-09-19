@@ -69,7 +69,7 @@
 							<c:forEach items="${order.oiList }" var="oi">
 							<tr>
 								<td>
-									<a href="javascript:;" class="f6">${oi.good.name }</a>
+									<a href="${root }/good?methodName=findById&gid=${oi.good.id}" class="f6">${oi.good.name }</a>
 								</td>
 								<td>${oi.good.marketprice }元</td>
 								<td>${oi.good.estoreprice }元</td>
