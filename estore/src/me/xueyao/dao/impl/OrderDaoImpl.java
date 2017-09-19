@@ -10,6 +10,7 @@ import me.xueyao.domain.OrderItems;
 import me.xueyao.utils.DBUtils;
 
 import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 
@@ -59,6 +60,30 @@ public class OrderDaoImpl implements OrderDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("查询所有订单列表失败");
+		}
+	}
+
+	@Override
+	public Order findById(String oid) {
+		String sql = "SELECT * FROM orders WHERE id = ?";
+		try {
+			return qrr.query(sql, new BeanHandler<Order>(Order.class), oid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("查询指定的id的订单数据失败");
+		}
+	}
+
+	@Override
+	public List<OrderItems> findByOid(String oid) {
+		String sql = "SELECT * FROM orderitems WHERE oid = ?";
+		try {
+			return qrr.query(sql, new BeanListHandler<OrderItems>(OrderItems.class), oid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("查询指定的id的订单明细错误");
 		}
 	}
 

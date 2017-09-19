@@ -4,10 +4,13 @@ import java.sql.SQLException;
 import java.util.List;
 
 import me.xueyao.dao.CartDao;
+import me.xueyao.dao.GoodDao;
 import me.xueyao.dao.OrderDao;
 import me.xueyao.dao.impl.CartDaoImpl;
+import me.xueyao.dao.impl.GoodDaoImpl;
 import me.xueyao.dao.impl.OrderDaoImpl;
 import me.xueyao.domain.Order;
+import me.xueyao.domain.OrderItems;
 import me.xueyao.service.OrderService;
 import me.xueyao.utils.DBUtils;
 
@@ -49,6 +52,22 @@ public class OrderServiceImpl implements OrderService {
 	public List<Order> findAll(int uid) {
 		// TODO Auto-generated method stub
 		return orderDao.findAll(uid);
+	}
+
+	
+	private GoodDao goodDao = new GoodDaoImpl();
+	@Override
+	public Order findById(String oid) {
+		//获取订单
+		Order o = orderDao.findById(oid);
+		//获取订单明细
+		List<OrderItems> oiList = orderDao.findByOid(oid);
+		//获取订单明细相关的商品信息
+		for (OrderItems oi : oiList) {
+			oi.setGood(goodDao.findById(oi.getGid()));
+		}
+		o.setOiList(oiList);
+		return o;
 	}
 
 	

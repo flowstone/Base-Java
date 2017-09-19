@@ -92,7 +92,7 @@ public class OrderServlet extends BaseServlet {
 		OrderService orderService = new OrderServiceImpl();
 		orderService.addOrder(order);
 		
-		response.sendRedirect(request.getContextPath()+"/orders.jsp");
+		response.sendRedirect(request.getContextPath()+"/order?methodName=findAll");
 	}	
 	/**
 	 * 查看订单列表
@@ -108,13 +108,31 @@ public class OrderServlet extends BaseServlet {
 			response.sendRedirect(request.getContextPath()+"/login.jsp");
 			return;
 		}
-		
+		//
 		int uid = loginUser.getId();
 		OrderService orderService = new OrderServiceImpl();
 		List<Order> oList = orderService.findAll(uid);
 		
 		request.setAttribute("oList", oList);
 		request.getRequestDispatcher("/orders.jsp").forward(request, response);
+		
+	}
+	
+	public void findById(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		User loginUser = (User)request.getSession().getAttribute("loginUser");
+		if (null == loginUser) {
+			response.sendRedirect(request.getContextPath()+"/login.jsp");
+			return;
+		}
+		
+		String oid = request.getParameter("oid");
+		
+		OrderService orderService = new OrderServiceImpl();
+		Order order = orderService.findById(oid);
+		
+		request.setAttribute("order", order);
+		request.getRequestDispatcher("/orders_detail.jsp").forward(request, response);
 		
 	}
 }

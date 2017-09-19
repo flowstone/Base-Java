@@ -17,6 +17,12 @@ public interface OrderService {
 	 * @param uid
 	 */
 	List<Order> findAll(int uid);
-	
 
+	/**
+	 * 查看指定的订单信息
+	 * @param oid
+	 * @return
+	 */
+	Order findById(String oid);
+	
 }

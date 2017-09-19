@@ -24,5 +24,18 @@ public interface OrderDao {
 	 * @return
 	 */
 	List<Order> findAll(int uid);
+	
+	/**
+	 * 查询指定id的订单详情
+	 * @param oid
+	 * @return
+	 */
+	Order findById(String oid);
+	/**
+	 * 查询指定id的订单明细
+	 * @param oid
+	 * @return
+	 */
+	List<OrderItems> findByOid(String oid);
 
 }
