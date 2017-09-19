@@ -72,7 +72,7 @@ $(function() {
 					<!-- 隐藏域 start -->
 					<input type="hidden" id="ph" name="province">
 					<input type="hidden" id="ch" name="city">
-					<input type="hidden" name="dh" name="district">
+					<input type="hidden" id="dh" name="district">
 					<!-- 隐藏域 end -->
 				</td>
 			</tr> 
