@@ -67,7 +67,7 @@
 							</div></li>
 					</ul>
 					<div class="header_r">
-						<a href="orders.jsp">我的订单</a>
+						<a href="${root }/order?methodName=findAll">我的订单</a>
 						<a href="${root }/good?methodName=findAll">商品列表</a>
 					</div>
 				</div>

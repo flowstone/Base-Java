@@ -30,46 +30,40 @@
 								<td bgcolor="#ffffff">订单状态</td>
 								<td bgcolor="#ffffff" width="200px">操作</td>
 							</tr>
+							<c:forEach var="order" items="${oList }">
 							<tr>
 								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">2016052674732</a>
+									<a href="javascript:;" class="f6">${order.id }</a>
 								</td>
-								<td align="center" bgcolor="#ffffff">2016-05-26 16:36:11</td>
-								<td align="right" bgcolor="#ffffff">582.00元</td>
+								<td align="center" bgcolor="#ffffff">${order.createtime }</td>
+								<td align="right" bgcolor="#ffffff">${order.totalprice }元</td>
 								<td align="center" bgcolor="#ffffff">
+									<c:if test="${order.status == 1 }">
 									<font color="red">未支付</font>
+									</c:if>
+									<c:if test="${order.status == 2 }">
+									<font color="red">已支付</font>
+									</c:if>
+									<c:if test="${order.status == 3 }">
+									<font color="red">已过期</font>
+									</c:if>
 								</td>
 								<td align="center" bgcolor="#ffffff">
-									<a href="orders_detail.jsp">在线支付</a>&nbsp;
-									<a href="javascript:;">取消订单</a>
+									<c:if test="${order.status == 1 }">
+									<a href="${root }/order?methodName=findById&oid=${order.id}">在线支付</a>&nbsp;
+									<a href="${root }/order?methodName=delete&oid=${order.id}">取消订单</a>
+									</c:if>
+									<c:if test="${order.status == 2 }">
+									<a href="orders_detail.jsp">已支付</a>&nbsp;
+									<a href="${root }/order?methodName=findById&oid=${order.id}">查看详细</a>
+									</c:if>
+									<c:if test="${order.status == 3 }">
+									<a href="orders_detail.jsp">已过期</a>&nbsp;
+									<a href="${root }/order?methodName=findById&oid=${order.id}">查看详细</a>
+									</c:if>
 								</td>
 							</tr>
-							<tr>
-								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">2016052674733</a>
-								</td>
-								<td align="center" bgcolor="#ffffff">2016-05-26 16:36:11</td>
-								<td align="right" bgcolor="#ffffff">999.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<font color="green">已支付</font>
-								</td>
-								<td align="center" bgcolor="#ffffff">
-									<a href="orders_detail.jsp">查看详情</a>
-								</td>
-							</tr>
-							<tr>
-								<td align="center" bgcolor="#ffffff">
-									<a href="javascript:;" class="f6">2016052627261</a>
-								</td>
-								<td align="center" bgcolor="#ffffff">2016-05-26 15:02:32</td>
-								<td align="right" bgcolor="#ffffff">560.00元</td>
-								<td align="center" bgcolor="#ffffff">
-									<font color="gray">已过期</font>
-								</td>
-								<td align="center" bgcolor="#ffffff">
-									<a href="orders_detail.jsp">查看详情</a>
-								</td>
-							</tr>
+							</c:forEach>
 						</table>
 					</div>
 				</div>
