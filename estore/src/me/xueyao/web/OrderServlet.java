@@ -135,4 +135,19 @@ public class OrderServlet extends BaseServlet {
 		request.getRequestDispatcher("/orders_detail.jsp").forward(request, response);
 		
 	}
+	
+	public void delete(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		User loginUser = (User)request.getSession().getAttribute("loginUser");
+		if (null == loginUser) {
+			response.sendRedirect(request.getContextPath()+"/login.jsp");
+			return;
+		}
+		
+		String oid = request.getParameter("oid");
+		
+		OrderService orderService = new OrderServiceImpl();
+		orderService.delete(oid);
+		response.sendRedirect(request.getContextPath()+"/order?methodName=findAll");
+	}
 }

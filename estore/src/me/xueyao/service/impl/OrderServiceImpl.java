@@ -70,6 +70,34 @@ public class OrderServiceImpl implements OrderService {
 		return o;
 	}
 
+	@Override
+	public void delete(String oid) {
+		// TODO Auto-generated method stub
+		try {
+			DBUtils.startTransaction();
+			//删除订单明细
+			orderDao.deleteOrderItems(oid);
+			//删除订单
+			orderDao.delete(oid);
+			//提交事务
+			DBUtils.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			try {
+				DBUtils.rollBack();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		} finally {
+			try {
+				
+				DBUtils.close();
+			} catch (Exception e2) {
+				e2.printStackTrace();
+			}
+		}
+	}
+
 	
 
 }

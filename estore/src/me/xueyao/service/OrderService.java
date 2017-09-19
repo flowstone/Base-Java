@@ -24,5 +24,11 @@ public interface OrderService {
 	 * @return
 	 */
 	Order findById(String oid);
+
+	/**
+	 * 删除指定的订单信息
+	 * @param oid
+	 */
+	void delete(String oid);
 	
 }

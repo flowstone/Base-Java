@@ -37,5 +37,16 @@ public interface OrderDao {
 	 * @return
 	 */
 	List<OrderItems> findByOid(String oid);
+	
+	/**
+	 * 删除订单明细
+	 * @param oid
+	 */
+	void deleteOrderItems(String oid);
+	/**
+	 * 删除订单
+	 * @param oid
+	 */
+	void delete(String oid);
 
 }

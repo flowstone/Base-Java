@@ -87,4 +87,28 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 
+	@Override
+	public void deleteOrderItems(String oid) {
+		String sql = "DELETE FROM orderitems WHERE oid = ?";
+		try {
+			qr.update(DBUtils.getCurrentConnection(), sql, oid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("删除订单明细失败");
+		}
+	}
+
+	@Override
+	public void delete(String oid) {
+		String sql = "DELETE FROM orders WHERE id = ?";
+		try {
+			qr.update(DBUtils.getCurrentConnection(), sql, oid);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("删除订单失败");
+		}
+	}
+
 }
