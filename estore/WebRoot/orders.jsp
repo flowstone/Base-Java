@@ -42,10 +42,10 @@
 									<font color="red">未支付</font>
 									</c:if>
 									<c:if test="${order.status == 2 }">
-									<font color="red">已支付</font>
+									<font color="green">已支付</font>
 									</c:if>
 									<c:if test="${order.status == 3 }">
-									<font color="red">已过期</font>
+									<font color="gray">已过期</font>
 									</c:if>
 								</td>
 								<td align="center" bgcolor="#ffffff">
