@@ -76,6 +76,7 @@ public class CartServlet extends BaseServlet {
 		
 		//request.setAttribute("cList", cList);
 		request.getSession().setAttribute("cList", cList);
+		//转发到购物车内容页
 		request.getRequestDispatcher("/cart.jsp").forward(request, response);
 		
 	}
@@ -107,6 +108,7 @@ public class CartServlet extends BaseServlet {
 		c.setUid(uid);
 		
 		CartService cartService = new CartServiceImpl();
+		//更新购物车
 		cartService.update(c);
 		
 		//重新从数据库中获取数据,展示效果(调用findAllCartsServlet)

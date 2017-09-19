@@ -84,13 +84,14 @@ public class OrderServiceImpl implements OrderService {
 		} catch (Exception e) {
 			e.printStackTrace();
 			try {
+				//回滚事务
 				DBUtils.rollBack();
 			} catch (Exception e2) {
 				e2.printStackTrace();
 			}
 		} finally {
 			try {
-				
+				//释放资源
 				DBUtils.close();
 			} catch (Exception e2) {
 				e2.printStackTrace();

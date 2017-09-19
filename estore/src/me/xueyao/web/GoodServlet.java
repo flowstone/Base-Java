@@ -42,6 +42,7 @@ public class GoodServlet extends BaseServlet {
 		Good good = goodService.findById(gid);
 		
 		request.setAttribute("good", good);
+		//转发到商品信息页
 		request.getRequestDispatcher("/goods_detail.jsp").forward(request, response);
 		
 	}

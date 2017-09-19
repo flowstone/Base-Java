@@ -92,6 +92,7 @@ public class OrderServlet extends BaseServlet {
 		OrderService orderService = new OrderServiceImpl();
 		orderService.addOrder(order);
 		
+		//重定向到订单列表页
 		response.sendRedirect(request.getContextPath()+"/order?methodName=findAll");
 	}	
 	/**
@@ -103,21 +104,30 @@ public class OrderServlet extends BaseServlet {
 	 */
 	public void findAll(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		//获取session中信息
 		User loginUser = (User)request.getSession().getAttribute("loginUser");
 		if (null == loginUser) {
 			response.sendRedirect(request.getContextPath()+"/login.jsp");
 			return;
 		}
-		//
+		//获取用户id
 		int uid = loginUser.getId();
 		OrderService orderService = new OrderServiceImpl();
+		//查询用户所有的订单信息
 		List<Order> oList = orderService.findAll(uid);
 		
 		request.setAttribute("oList", oList);
+		//转发到订单列表页
 		request.getRequestDispatcher("/orders.jsp").forward(request, response);
 		
 	}
-	
+	/**
+	 * 查询指定id的订单信息
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void findById(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		User loginUser = (User)request.getSession().getAttribute("loginUser");
@@ -125,17 +135,26 @@ public class OrderServlet extends BaseServlet {
 			response.sendRedirect(request.getContextPath()+"/login.jsp");
 			return;
 		}
-		
+		//获取订单id
 		String oid = request.getParameter("oid");
 		
 		OrderService orderService = new OrderServiceImpl();
+		//查询指定id的订单信息
 		Order order = orderService.findById(oid);
-		
+		//设置属性
 		request.setAttribute("order", order);
+		//转发到订单详细页
 		request.getRequestDispatcher("/orders_detail.jsp").forward(request, response);
 		
 	}
 	
+	/**
+	 * 删除指定的订单信息(未支付订单)
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
 	public void delete(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		User loginUser = (User)request.getSession().getAttribute("loginUser");
@@ -143,11 +162,13 @@ public class OrderServlet extends BaseServlet {
 			response.sendRedirect(request.getContextPath()+"/login.jsp");
 			return;
 		}
-		
+		//获取要删除的id
 		String oid = request.getParameter("oid");
 		
 		OrderService orderService = new OrderServiceImpl();
+		//删除指定id的订单
 		orderService.delete(oid);
+		//重定向到订单列表页
 		response.sendRedirect(request.getContextPath()+"/order?methodName=findAll");
 	}
 }

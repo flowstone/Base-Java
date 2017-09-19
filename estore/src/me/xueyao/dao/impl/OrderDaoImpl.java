@@ -27,7 +27,6 @@ public class OrderDaoImpl implements OrderDao {
 					order.getAddress(), order.getStatus(), order.getCreatetime()};
 			qr.update(con, sql, params);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("添加订单失败");
 		}
@@ -44,7 +43,6 @@ public class OrderDaoImpl implements OrderDao {
 				qr.update(con, sql, oi.getOid(), oi.getGid(), oi.getBuynum());
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("添加订单明细失败");
 		}
@@ -52,12 +50,10 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public List<Order> findAll(int uid) {
-		// TODO Auto-generated method stub
 		String sql = "SELECT * FROM orders WHERE uid = ?";
 		try {
 			return qrr.query(sql, new BeanListHandler<Order>(Order.class), uid);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("查询所有订单列表失败");
 		}
@@ -69,7 +65,6 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			return qrr.query(sql, new BeanHandler<Order>(Order.class), oid);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("查询指定的id的订单数据失败");
 		}
@@ -81,7 +76,6 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			return qrr.query(sql, new BeanListHandler<OrderItems>(OrderItems.class), oid);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("查询指定的id的订单明细错误");
 		}
@@ -93,7 +87,6 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			qr.update(DBUtils.getCurrentConnection(), sql, oid);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("删除订单明细失败");
 		}
@@ -105,7 +98,6 @@ public class OrderDaoImpl implements OrderDao {
 		try {
 			qr.update(DBUtils.getCurrentConnection(), sql, oid);
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("删除订单失败");
 		}
