@@ -37,4 +37,14 @@
     <servlet-name>UploadServlet</servlet-name>
     <url-pattern>/upload</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>UploadServlet2</display-name>
+    <servlet-name>UploadServlet2</servlet-name>
+    <servlet-class>me.xueyao.web.UploadServlet2</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UploadServlet2</servlet-name>
+    <url-pattern>/upload2</url-pattern>
+  </servlet-mapping>
 </web-app>
