@@ -76,9 +76,9 @@ $(function() {
 			<li>
 				<span>商品管理</span>
 				<ul>
-					<li><a>商品查看</a></li>
-					<li><a>商品上传</a></li>
-					<li><a>热门统计</a></li>
+					<li><span>商品查看</span></li>
+					<li><span>商品上传</span></li>
+					<li><span>热门统计</span></li>
 				</ul>
 			</li>
 			
