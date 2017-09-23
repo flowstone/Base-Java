@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import me.xueyao.base.BaseServlet;
 import me.xueyao.domain.Good;
+import me.xueyao.domain.Hot;
 import me.xueyao.domain.Page;
 import me.xueyao.service.GoodService;
 import me.xueyao.service.impl.GoodServiceImpl;
@@ -177,5 +178,23 @@ public class AdminServlet extends BaseServlet {
 		while ((len = in.read(buf))!= -1) {
 			out.write(buf, 0, len);
 		}
+	}
+	
+	/**
+	 * 热门商品统计
+	 * @param request
+	 * @param response
+	 * @throws ServletException
+	 * @throws IOException
+	 */
+	public  void hot(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		//调用Service方法,统计数据
+		GoodService goodService = new GoodServiceImpl();
+		List<Hot> list = goodService.hot();
+		//将数据转换成json格式字符串
+		String serialize = new JSONSerializer().serialize(list);
+		//将数据发送到浏览器
+		response.getWriter().write(serialize);
 	}
 }

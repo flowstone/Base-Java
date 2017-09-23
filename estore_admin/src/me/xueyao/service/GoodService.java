@@ -3,6 +3,7 @@ package me.xueyao.service;
 import java.util.List;
 
 import me.xueyao.domain.Good;
+import me.xueyao.domain.Hot;
 import me.xueyao.domain.Page;
 
 public interface GoodService {
@@ -31,5 +32,11 @@ public interface GoodService {
 	 * @param g
 	 */
 	void add(Good g);
+	
+	/**
+	 * 热门统计的方法
+	 * @return
+	 */
+	List<Hot> hot();
 
 }

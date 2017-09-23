@@ -6,6 +6,7 @@ import java.util.List;
 
 import me.xueyao.dao.GoodDao;
 import me.xueyao.domain.Good;
+import me.xueyao.domain.Hot;
 import me.xueyao.utils.DBUtils;
 
 import org.apache.commons.dbutils.QueryRunner;
@@ -88,6 +89,21 @@ public class GoodDaoImpl implements GoodDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException("上传商品失败");
+		}
+	}
+
+	@Override
+	public List<Hot> hot() {
+		// TODO Auto-generated method stub
+		String sql = "SELECT g.name, oi.gid, sum(oi.buynum) hot "
+				+ "FROM orderitems oi, goods g WHERE oi.gid=g.id "
+				+ "GROUP BY oi.gid ORDER BY hot DESC";
+		try {
+			return qr.query(sql, new BeanListHandler<Hot>(Hot.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("热门统计失败");
 		}
 	}
 

@@ -48,15 +48,15 @@ $(function() {
 						//修改列的field,和json中的key一致
 						columns:[[
 						          {field:'id',title:'id',width:100},
-						          {field:'name',title:'name',width:100},
-						          {field:'marketprice',title:'marketprice',width:100},
-						          {field:'estoreprice',title:'estoreprice',width:100},
-						          {field:'category',title:'category',width:100},
-						          {field:'num',title:'num',width:100},
-						          {field:'imgurl',title:'imgurl',width:100,formatter:function(value,row,indxe){
+						          {field:'name',title:'商品名称',width:100},
+						          {field:'marketprice',title:'市场价格',width:100},
+						          {field:'estoreprice',title:'商城价格',width:100},
+						          {field:'category',title:'分类',width:100},
+						          {field:'num',title:'库存',width:100},
+						          {field:'imgurl',title:'封面',width:100,formatter:function(value,row,indxe){
 						        	  return "<img src='${root}"+value+"' style='width:50px;'>";
 						          }},
-						          {field:'description',title:'description',width:100},
+						          {field:'description',title:'商品描述',width:200},
 						          
 						          ]]
 					}); 
@@ -67,7 +67,26 @@ $(function() {
 						href: 'addGood.jsp'
 					});
 				} else if(node.text === '热门统计'){
+					//不存在，添加
+					$('#center').tabs('add',{
+					    title:node.text,
+					    content:'<table id="hot"></table>',
+					    closable:true
+					});
 					
+					//添加数据网格
+					$("#hot").datagrid({
+						
+						fit: true, //最大化
+						url: '${root}/admin?methodName=hot',
+						//修改列的field,和json中的key一致
+						columns:[[
+						          {field:'gid',title:'gid',width:100},
+						          {field:'name',title:'商品名称',width:100},
+						          {field:'hot',title:'热门商品',width:100}
+						         
+						          ]]
+					}); 
 				} else {
 					
 				}

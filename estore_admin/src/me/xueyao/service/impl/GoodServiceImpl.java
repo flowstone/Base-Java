@@ -5,6 +5,7 @@ import java.util.List;
 import me.xueyao.dao.GoodDao;
 import me.xueyao.dao.impl.GoodDaoImpl;
 import me.xueyao.domain.Good;
+import me.xueyao.domain.Hot;
 import me.xueyao.domain.Page;
 import me.xueyao.service.GoodService;
 
@@ -43,6 +44,11 @@ public class GoodServiceImpl implements GoodService {
 	public void add(Good g) {
 		// TODO Auto-generated method stub
 		goodDao.add(g);
+	}
+	@Override
+	public List<Hot> hot() {
+		// TODO Auto-generated method stub
+		return goodDao.hot();
 	}
 
 }
