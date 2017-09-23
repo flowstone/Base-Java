@@ -77,4 +77,15 @@
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/order</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <description></description>
+    <display-name>FindAllGoodsAdminServlet</display-name>
+    <servlet-name>FindAllGoodsAdminServlet</servlet-name>
+    <servlet-class>me.xueyao.web.FindAllGoodsAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FindAllGoodsAdminServlet</servlet-name>
+    <url-pattern>/findAllGoodsAdmin</url-pattern>
+  </servlet-mapping>
 </web-app>

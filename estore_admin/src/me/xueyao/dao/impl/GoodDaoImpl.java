@@ -1,6 +1,7 @@
 package me.xueyao.dao.impl;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import me.xueyao.dao.GoodDao;
@@ -65,6 +66,29 @@ public class GoodDaoImpl implements GoodDao {
 			throw new RuntimeException("获取商品分页数据失败");
 		}
 		
+	}
+
+	@Override
+	public void add(Good g) {
+		// TODO Auto-generated method stub
+		String sql = "INSERT INTO goods VALUES(null,?,?,?,?,?,?,?)";
+		List<Object> list = new ArrayList<>();
+		list.add(g.getName());
+		list.add(g.getMarketprice());
+		list.add(g.getEstoreprice());
+		
+		list.add(g.getCategory());
+		list.add(g.getNum());
+		list.add(g.getImgurl());
+		
+		list.add(g.getDescription());
+		try {
+			qr.update(sql, list.toArray());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("上传商品失败");
+		}
 	}
 
 }

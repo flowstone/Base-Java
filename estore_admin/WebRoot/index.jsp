@@ -17,50 +17,65 @@ $(function() {
 	//给菜单树添加点击事件
 	$("#tt").tree({
 		onClick: function(node){
-			//node.text ：树的节点文本
-			//使用js的方式，创建选项卡
-			
-			//问题：不能无限制的创建tabs
-			//解决：如果当前选项卡不存在，创建，如果存在，选中
-			var flag = $('#center').tabs("exists",node.text);
-			console.log(flag);
-			if(flag){
+				//node.text ：树的节点文本
+				//使用js的方式，创建选项卡
 				
-				//存在，选中
-				$('#center').tabs("select",node.text);
-				return;
-			}else{
-				//不存在，添加
-				$('#center').tabs('add',{
-				    title:node.text,
-				    content:'<table id="dg"></table>',
-				    closable:true
-				});
+				//问题：不能无限制的创建tabs
+				//解决：如果当前选项卡不存在，创建，如果存在，选中
+				var flag = $('#center').tabs("exists",node.text);
+				console.log(flag);
+				if(flag){
+					
+					//存在，选中
+					$('#center').tabs("select",node.text);
+					return;
+				}
 				
-				//添加数据网格
-				$("#dg").datagrid({
-					pagination: true, //分页
-					fit: true, //最大化
-					url: '${root}/admin?methodName=pageGood',
-					//修改列的field,和json中的key一致
-					columns:[[
-					          {field:'id',title:'id',width:100},
-					          {field:'name',title:'name',width:100},
-					          {field:'marketprice',title:'marketprice',width:100},
-					          {field:'estoreprice',title:'estoreprice',width:100},
-					          {field:'category',title:'category',width:100},
-					          {field:'num',title:'num',width:100},
-					          {field:'imgurl',title:'imgurl',width:100,formatter:function(value,row,indxe){
-					        	  return "<img src='${root}"+value+"' style='width:50px;'>";
-					          }},
-					          {field:'description',title:'description',width:100},
-					          
-					          ]]
-				}); 
+				if (node.text=== "商品查看") {
+					//不存在，添加
+					$('#center').tabs('add',{
+					    title:node.text,
+					    content:'<table id="'+node.text+'"></table>',
+					    closable:true
+					});
+					
+					//添加数据网格
+					$("#"+node.text).datagrid({
+						pagination: true, //分页
+						rownumbers: true, //显示行号
+						fit: true, //最大化
+						url: '${root}/admin?methodName=pageGood',
+						//修改列的field,和json中的key一致
+						columns:[[
+						          {field:'id',title:'id',width:100},
+						          {field:'name',title:'name',width:100},
+						          {field:'marketprice',title:'marketprice',width:100},
+						          {field:'estoreprice',title:'estoreprice',width:100},
+						          {field:'category',title:'category',width:100},
+						          {field:'num',title:'num',width:100},
+						          {field:'imgurl',title:'imgurl',width:100,formatter:function(value,row,indxe){
+						        	  return "<img src='${root}"+value+"' style='width:50px;'>";
+						          }},
+						          {field:'description',title:'description',width:100},
+						          
+						          ]]
+					}); 
+				} else if(node.text === '商品上传') {
+					$("#center").tabs("add", {
+						title: node.text,
+						closable: true,
+						href: 'addGood.jsp'
+					});
+				} else if(node.text === '热门统计'){
+					
+				} else {
+					
+				}
+					
 			}
 			
-		}
-	});
+		});
+	
 });
 
 </script>

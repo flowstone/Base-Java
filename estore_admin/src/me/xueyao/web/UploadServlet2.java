@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import me.xueyao.utils.DirUtils;
+import me.xueyao.utils.UUIDUtils;
+
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
@@ -38,8 +41,18 @@ public class UploadServlet2 extends HttpServlet {
 					//文件上传数据
 					//上传文件的文件名
 					String fileName = item.getName();
+					//在输出之前,修改文件名=========
+					fileName = UUIDUtils.getUUID()+fileName;
+					//在输出之前,修改文件名=========
+					
+					
 					//保存路径
 					String realPath = getServletContext().getRealPath("/upload");
+					//=========目录打散begin==========
+					String dir = DirUtils.getDir(fileName);
+					//保证数据文件夹存在
+					new File(realPath, dir).mkdirs();
+					//=========目录打散end=======
 					try {
 						//将文件输出到服务器
 						item.write(new File(realPath, fileName));

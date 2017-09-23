@@ -39,5 +39,10 @@ public class GoodServiceImpl implements GoodService {
 		p.setTotal(total);
 		return p;
 	}
+	@Override
+	public void add(Good g) {
+		// TODO Auto-generated method stub
+		goodDao.add(g);
+	}
 
 }

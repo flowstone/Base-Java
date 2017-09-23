@@ -29,5 +29,10 @@ public interface GoodDao {
 	 * @return
 	 */
 	List<Good> page(int i, int rows);
+	/**
+	 * 添加商品的方法
+	 * @param g
+	 */
+	void add(Good g);
 
 }

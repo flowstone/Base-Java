@@ -26,5 +26,10 @@ public interface GoodService {
 	 * @return
 	 */
 	Page page(int page, int rows);
+	/**
+	 * 上传商品的方法
+	 * @param g
+	 */
+	void add(Good g);
 
 }
