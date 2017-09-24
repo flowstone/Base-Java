@@ -1,6 +1,8 @@
 package me.xueyao.domain;
 
-public class Cart {
+import java.io.Serializable;
+
+public class Cart implements Serializable{
 	private int uid;
 	private int gid;
 	private int buynum;
