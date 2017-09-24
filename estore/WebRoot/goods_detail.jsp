@@ -29,34 +29,34 @@
 		<!-- 商品图片信息开始 -->
 		<div class="imgInfo">
 			<!-- 当前显示的大图 -->
-			<a href="${root }${good.imgurl}"
+			<a href="${root}/good?methodName=picture&imgurl=${good.imgurl}"
 				id="zoom1" class="MagicZoom MagicThumb">
-				<img src="${root }${good.imgurl}"
+				<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}"
 				width="360px;" height="360px" />
 			</a>
 			<!-- 下方的图片列表 -->
 			<div class="picture" id="imglist">
-				<a href="${root }${good.imgurl}" rel="zoom1" 
-					rev="${root }${good.imgurl}">
-					<img src="${root }${good.imgurl}" class="onbg" />
+				<a href="${root}/good?methodName=picture&imgurl=${good.imgurl}" rel="zoom1" 
+					rev="${root}/good?methodName=picture&imgurl=${good.imgurl}">
+					<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}" class="onbg" />
 				</a>
-				<a href="${root }${good.imgurl}"
-					rel="zoom1" rev="${root }${good.imgurl}">
-					<img src="${root }${good.imgurl}" class="autobg" />
+				<a href="${root}/good?methodName=picture&imgurl=${good.imgurl}"
+					rel="zoom1" rev="${root}/good?methodName=picture&imgurl=${good.imgurl}">
+					<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}" class="autobg" />
 				</a>
-				<a href="${root }${good.imgurl}"
-					rel="zoom1" rev="${root }${good.imgurl}">
-					<img src="${root }${good.imgurl}"
+				<a href="${root}/good?methodName=picture&imgurl=${good.imgurl}"
+					rel="zoom1" rev="${root}/good?methodName=picture&imgurl=${good.imgurl}">
+					<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}"
 					class="autobg" />
 				</a>
-				<a href="${root }${good.imgurl}"
-					rel="zoom1" rev="${root }${good.imgurl}">
-					<img src="${root }${good.imgurl}"
+				<a href="${root}/good?methodName=picture&imgurl=${good.imgurl}"
+					rel="zoom1" rev="${root}/good?methodName=picture&imgurl=${good.imgurl}">
+					<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}"
 					class="autobg" />
 				</a>
-				<a href="${root }${good.imgurl}"
-					rel="zoom1" rev=${root }${good.imgurl}>
-					<img src="${root }${good.imgurl}"
+				<a href="${root}/good?methodName=picture&imgurl=${good.imgurl}"
+					rel="zoom1" rev="${root}/good?methodName=picture&imgurl=${good.imgurl}">
+					<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}"
 					class="autobg" />
 				</a>
 			</div>
@@ -124,7 +124,7 @@
 					<p>&nbsp;</p>
 					<div class="more_pic"
 						style="margin: 0px 20px; padding: 0px; overflow: hidden; text-align: center; color: rgb(102, 102, 102); font-family: Arial;">
-						<img src="${root }${good.imgurl}" alt="秋冬黑色天鹅毛衣七分袖休闲套头毛衣蕾丝网纱半身裙蓬蓬裙套装"
+						<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}" alt="${good.name }"
 							class="load_img"
 							style="border: 0px; display: block; margin-left: auto; margin-right: auto; background-image: url(images/loading.gif); height: 710px; width: 640px; background-position: 50% 50%; background-repeat: no-repeat no-repeat;" />
 					</div>

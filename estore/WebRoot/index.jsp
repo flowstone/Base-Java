@@ -1,4 +1,6 @@
 <%@ page contentType="text/html; charset=UTF-8"%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<c:set var="root" value="${pageContext.request.contextPath }"></c:set>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -6,6 +8,42 @@
 <title>Estore商城首页</title>
 <%@include file="inc/common_head.jsp"%>
 <link href="data/index.css" rel="stylesheet" type="text/css" />
+<script src="js/jquery.min.js" type="text/javascript" charset="utf-8" ></script>
+<script type="text/javascript">
+	
+	$(function(){
+		//新品上架
+		var $sna = $("#show_new_area");
+		$.get("${root}/good?methodName=newGood",function(data){
+			var arr = $sna.find(".goodsItem");
+			$(data).each(function(i){
+				var $temp = $(arr.get(i));
+				$temp.find('.goodsimg').prop("src","${root}/good?methodName=picture&imgurl="+data[i].imgurl);
+				$temp.find('.goodsimg').prop("alt",data[i].name);
+				$temp.find('.market').text(data[i].marketprice+"元");
+				$temp.find('.f1').text(data[i].estoreprice+"元");
+				$temp.find('p a').text(data[i].name);
+				$temp.find('p a').prop("title",data[i].name);
+				$temp.find('p a').prop("href", "${root }/good?methodName=findById&gid="+data[i].id);
+			});
+		},"json");
+
+		//热卖商品
+		var $sha = $("#show_hot_area");
+		$.get("${root}/good?methodName=hotGood",function(data){
+			var arr = $sha.find(".goodsItem");
+			$(data).each(function(i){
+				var $temp = $(arr.get(i));
+				$temp.find('.goodsimg').prop("src","${root}/good?methodName=picture&imgurl="+data[i].imgurl);
+				$temp.find('.market').text(data[i].marketprice+"元");
+				$temp.find('.f1').text(data[i].estoreprice+"元");
+				$temp.find('p a').text(data[i].name);
+				$temp.find('p a').prop("title",data[i].name);
+				$temp.find('p a').prop("href", "${root }/good?methodName=findById&gid="+data[i].id);
+			});
+		},"json");
+	});
+</script>
 </head>
 <body class="index_page" style="min-width:1200px;">
 	<%@include file="inc/header.jsp"%>

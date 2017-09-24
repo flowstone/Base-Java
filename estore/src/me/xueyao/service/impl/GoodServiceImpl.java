@@ -31,5 +31,15 @@ public class GoodServiceImpl implements GoodService {
 	public Good findById(int gid) {
 		return goodDao.findById(gid);
 	}
+	@Override
+	public List<Good> newGood() {
+		// TODO Auto-generated method stub
+		return goodDao.newGood();
+	}
+	@Override
+	public List<Good> hotGood() {
+		// TODO Auto-generated method stub
+		return goodDao.hotGood();
+	}
 
 }

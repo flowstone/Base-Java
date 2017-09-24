@@ -57,7 +57,7 @@
 									<!-- 商品图片 -->
 									<a href="javascript:;" target="_blank">
 										<img style="width:80px; height:80px;"
-										src="${root}${cart.good.imgurl}"
+										src="${root}/good?methodName=picture&imgurl=${cart.good.imgurl}"
 										border="0" title="${cart.good.name }" />
 									</a><br />
 									<!-- 商品名称 -->

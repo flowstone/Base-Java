@@ -41,4 +41,32 @@ public class GoodDaoImpl implements GoodDao {
 		
 	}
 
+	@Override
+	public List<Good> newGood() {
+		String sql = "SELECT * FROM goods ORDER BY id DESC LIMIT 0,5";
+		try {
+			return qr.query(sql, new BeanListHandler<Good>(Good.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("查看最新上架列表失败");
+		}
+	}
+
+	@Override
+	public List<Good> hotGood() {
+		String sql = "SELECT g.*,sum(oi.buynum) hot "
+				+ "FROM orderitems oi, goods g "
+				+ "WHERE oi.gid=g.id "
+				+ "GROUP BY oi.gid "
+				+ "ORDER BY hot DESC LIMIT 0,5";
+		try {
+			return qr.query(sql, new BeanListHandler<Good>(Good.class));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("查看热卖商品列表失败");
+		}
+	}
+
 }

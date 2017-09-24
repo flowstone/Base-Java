@@ -18,5 +18,17 @@ public interface GoodService {
 	 * @return 商品对象
 	 */
 	Good findById(int gid);
+	
+	/**
+	 * 新品上架
+	 * @return
+	 */
+	List<Good> newGood();
+	
+	/**
+	 * 热卖商品
+	 * @return
+	 */
+	List<Good> hotGood();
 
 }

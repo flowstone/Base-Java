@@ -30,7 +30,7 @@
 						<c:forEach var="good" items="${gList }">
 						<div class="goodsItem" style="padding: 10px 4px 15px 1px;">
 							<a href="${root }/good?methodName=findById&gid=${good.id}">
-								<img src="${root}${good.imgurl}"
+								<img src="${root}/good?methodName=picture&imgurl=${good.imgurl}"
 								class="goodsimg" />
 							</a><br />
 							<p style=" height:20px; overflow:hidden;">
