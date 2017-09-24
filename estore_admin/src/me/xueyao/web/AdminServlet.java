@@ -124,7 +124,7 @@ public class AdminServlet extends BaseServlet {
 						e.printStackTrace();
 					}
 					
-					map.put("imgurl", "/picture/"+dir+"/"+fileName);
+					map.put("imgurl", "/picture"+dir+"/"+fileName);
 				}
 			}
 		} catch (FileUploadException e) {
