@@ -65,4 +65,13 @@
     <servlet-name>UploadServlet2</servlet-name>
     <url-pattern>/upload2</url-pattern>
   </servlet-mapping>
+  <!-- 配置全部错误页面 -->
+  <error-page>
+  	<error-code>404</error-code>
+  	<location>/404.jsp</location>
+  </error-page>
+  <error-page>
+  	<error-code>500</error-code>
+  	<location>/500.jsp</location>
+  </error-page>
 </web-app>
