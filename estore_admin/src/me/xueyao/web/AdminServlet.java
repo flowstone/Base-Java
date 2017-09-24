@@ -197,4 +197,6 @@ public class AdminServlet extends BaseServlet {
 		//将数据发送到浏览器
 		response.getWriter().write(serialize);
 	}
+	
+	
 }

@@ -42,7 +42,6 @@ $(function() {
 					//添加数据网格
 					$("#"+node.text).datagrid({
 						pagination: true, //分页
-						rownumbers: true, //显示行号
 						fit: true, //最大化
 						url: '${root}/admin?methodName=pageGood',
 						//修改列的field,和json中的key一致
@@ -76,7 +75,6 @@ $(function() {
 					
 					//添加数据网格
 					$("#hot").datagrid({
-						
 						fit: true, //最大化
 						url: '${root}/admin?methodName=hot',
 						//修改列的field,和json中的key一致
