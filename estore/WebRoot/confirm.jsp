@@ -14,12 +14,12 @@
 <table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
 	<tr>
 		<td align="right">订单编号：</td>
-		<td>C4CA4238A0B923820DCC509A6F75849B</td>
+		<td>${p2_Order }</td>
 	</tr>
 	<tr>
 		<td align="right">订单金额：</td>
 		<td>
-			<font style="color:red;font-weight:bold;">&yen;1999元</font>
+			<font style="color:red;font-weight:bold;">&yen;${p3_Amt }元</font>
 		</td>
 	</tr>
 	<tr>

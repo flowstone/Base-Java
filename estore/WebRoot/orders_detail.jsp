@@ -81,7 +81,7 @@
 								<td colspan="5" style="text-align:right;padding-right:10px;font-size:25px;">
 									商品总价&nbsp;<font color="red">&yen;${order.totalprice }</font>元
 									<c:if test="${order.status == 1 }">
-									<a href="pay.jsp"><input value="确认支付" type="button" class="btn" /></a>
+									<a href="${root }/pay.jsp?oid=${order.id}&totalprice=${order.totalprice}"><input value="确认支付" type="button" class="btn" /></a>
 									</c:if>
 								</td>
 							</tr>

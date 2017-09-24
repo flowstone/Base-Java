@@ -25,21 +25,21 @@
 			<div class="blank"></div>
 			<div class="box">
 				<div class="box_1">
-					<form action="confirm.jsp" method="post">
+					<form action="${root }/pay" method="post">
 						<div class="userCenterBox boxCenterList clearfix" style="_height:1%;">
 							<h5><span>订单信息</span></h5>
 							<!-- 订单编号和订单金额放在隐藏域中 -->
-							<input type="hidden" name="orderid" value="123" />
-							<input type="hidden" name="money" value="99" />
+							<input type="hidden" name="orderid" value="${param.oid }" />
+							<input type="hidden" name="money" value="${param.totalprice }" />
 							<!-- 订单信息 -->
 							<table width="100%" border="0" cellpadding="5" cellspacing="1" bgcolor="#dddddd">
 								<tr>
 									<td width="15%" align="right">订单编号：</td>
-									<td align="left">2016052674732</td>
+									<td align="left">${param.oid }</td>
 								</tr>
 								<tr>
 									<td align="right">订单金额：</td>
-									<td align="left">99元</td>
+									<td align="left">${param.totalprice }元</td>
 								</tr>
 							</table>
 							<!-- 选择在线支付银行 -->

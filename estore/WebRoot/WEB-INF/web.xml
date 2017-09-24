@@ -82,7 +82,16 @@
     <servlet-name>OrderServlet</servlet-name>
     <url-pattern>/order</url-pattern>
   </servlet-mapping>
-
+  <servlet>
+    <description></description>
+    <display-name>PayServlet</display-name>
+    <servlet-name>PayServlet</servlet-name>
+    <servlet-class>me.xueyao.web.PayServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PayServlet</servlet-name>
+    <url-pattern>/pay</url-pattern>
+  </servlet-mapping>
   <servlet>
     <description></description>
     <display-name>FindAllGoodsAdminServlet</display-name>
