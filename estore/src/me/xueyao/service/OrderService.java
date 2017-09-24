@@ -31,4 +31,9 @@ public interface OrderService {
 	 */
 	void delete(String oid);
 	
+	/**
+	 * 扫描过期订单的方法
+	 */
+	void scan();
+	
 }

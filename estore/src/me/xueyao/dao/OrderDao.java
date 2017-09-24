@@ -48,5 +48,16 @@ public interface OrderDao {
 	 * @param oid
 	 */
 	void delete(String oid);
+	/**
+	 * 根据指定的状态获取订单数据
+	 * @param i
+	 * @return
+	 */
+	List<Order> findByStatus(int i);
+	/**
+	 * 修改订单状态的方法
+	 * @param order
+	 */
+	void update(Order order);
 
 }

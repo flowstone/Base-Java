@@ -1,6 +1,7 @@
 package me.xueyao.service.impl;
 
 import java.sql.SQLException;
+import java.util.Date;
 import java.util.List;
 
 import me.xueyao.dao.CartDao;
@@ -97,6 +98,21 @@ public class OrderServiceImpl implements OrderService {
 				e2.printStackTrace();
 			}
 		}
+	}
+
+	@Override
+	public void scan() {
+		// 获取订单表中状态为1的订单(待付款)
+		List<Order> oList = orderDao.findByStatus(1);
+		//遍历循环,将超过两个小时的订单,设置为过期
+		for (Order order: oList) {
+			if (new Date().getTime() - order.getCreatetime().getTime() >= 1000*60*60*2) {
+				//修改状态为3,过期
+				order.setStatus(3);
+				orderDao.update(order);
+			}
+		}
+		
 	}
 
 	

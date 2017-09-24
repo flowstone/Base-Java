@@ -103,4 +103,30 @@ public class OrderDaoImpl implements OrderDao {
 		}
 	}
 
+	@Override
+	public List<Order> findByStatus(int i) {
+		String sql = "SELECT * FROM orders WHERE status = ?";
+		try {
+			return qrr.query(sql, new BeanListHandler<Order>(Order.class), i);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("根据指定的状态查询订单失败");
+			
+		}
+	}
+
+	@Override
+	public void update(Order order) {
+		String sql = "UPDATE orders SET status = ? WHERE id = ?";
+		try {
+			qrr.update(sql, order.getStatus(), order.getId());
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			throw new RuntimeException("修改指定订单的状态失败");
+		}
+		
+	}
+
 }
