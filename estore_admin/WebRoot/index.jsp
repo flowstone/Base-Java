@@ -53,7 +53,7 @@ $(function() {
 						          {field:'category',title:'分类',width:100},
 						          {field:'num',title:'库存',width:100},
 						          {field:'imgurl',title:'封面',width:100,formatter:function(value,row,indxe){
-						        	  return "<img src='${root}"+value+"' style='width:50px;'>";
+						        	  return "<img src='${root}/admin?methodName=picture&imgurl="+value+"' style='width:50px;'>";
 						          }},
 						          {field:'description',title:'商品描述',width:200},
 						          
