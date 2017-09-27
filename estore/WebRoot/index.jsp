@@ -20,6 +20,7 @@
 				var $temp = $(arr.get(i));
 				$temp.find('.goodsimg').prop("src","${root}/good?methodName=picture&imgurl="+data[i].imgurl);
 				$temp.find('.goodsimg').prop("alt",data[i].name);
+				
 				$temp.find('.market').text(data[i].marketprice+"元");
 				$temp.find('.f1').text(data[i].estoreprice+"元");
 				$temp.find('p a').text(data[i].name);
@@ -35,6 +36,8 @@
 			$(data).each(function(i){
 				var $temp = $(arr.get(i));
 				$temp.find('.goodsimg').prop("src","${root}/good?methodName=picture&imgurl="+data[i].imgurl);
+				$temp.find('.goodsimg').prop("alt",data[i].name);
+
 				$temp.find('.market').text(data[i].marketprice+"元");
 				$temp.find('.f1').text(data[i].estoreprice+"元");
 				$temp.find('p a').text(data[i].name);
