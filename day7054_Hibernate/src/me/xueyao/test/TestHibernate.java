@@ -94,4 +94,20 @@ public class TestHibernate {
 		session.close();
 		
 	}
+	
+	/**
+	 * 根据id查询客户 
+	 */
+	@Test
+	public void test4() {
+		Session session = HibernateUtils.openSession();
+		session.beginTransaction();
+		//根据id查询客户
+		Customer customer = session.get(Customer.class, 1L);
+		System.out.println(customer);
+		
+		session.getTransaction().commit();
+		session.close();
+		
+	}
 }
