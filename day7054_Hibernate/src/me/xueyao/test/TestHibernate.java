@@ -1,6 +1,7 @@
 package me.xueyao.test;
 
 import me.xueyao.domain.Customer;
+import me.xueyao.utils.HibernateUtils;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -40,6 +41,9 @@ public class TestHibernate {
 		sf.close();
 	}
 	
+	/**
+	 * 第二种读取核心配置文件
+	 */
 	@Test
 	public void test2() {
 		//要保存的对象 
@@ -69,5 +73,25 @@ public class TestHibernate {
 		//释放资源
 		session.close();
 		sf.close();
+	}
+	
+	/**
+	 * HibernateUtils工具类的用法
+	 */
+	@Test
+	public void test3() {
+		Customer customer = new Customer();
+		customer.setCust_name("乐视");
+		
+		Session session = HibernateUtils.openSession();
+		session.beginTransaction();
+		
+		session.save(customer);
+		
+		session.getTransaction().commit();
+		
+		
+		session.close();
+		
 	}
 }
