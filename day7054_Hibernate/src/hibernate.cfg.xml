@@ -19,6 +19,21 @@
 		<property name="hibernate.show_sql">true</property>
 		<!-- 格式化sql语句 -->
 		<property name="hibernate.format_sql">true</property>
+		
+		<!-- C3P0连接池  start -->
+		<!-- 指定采用C3P0数据库连接池 -->
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<!-- 在数据库连接池中可用的数据库连接的最大数目 -->
+		<property name="hibernate.c3p0.max_size">20</property>
+		<!-- 在数据库连接池中所有连接的最大数目 -->
+		<property name="hibernate.c3p0.min_size">5</property>
+		<!-- 设定数据库连接的过期时间,以秒为单位,如果连接池中某个数据库连接空闲时间超过timeout时间,就会从连接池中清除 -->
+		<property name="hibernate.c3p0.timeout">5000</property>
+		<!-- 每3000秒检查所有连接池中的空闲连接,以秒为单位 -->
+		<property name="hibernate.c3p0.idle_test_period">5000</property>
+		<!-- C3P0连接池  end -->
+		
+		
 		<!-- 指定映射文件路径 -->
 		<mapping resource="me/xueyao/domain/Customer.hbm.xml"/>
 	</session-factory>
