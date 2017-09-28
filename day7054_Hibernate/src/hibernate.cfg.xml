@@ -33,6 +33,13 @@
 		<property name="hibernate.c3p0.idle_test_period">5000</property>
 		<!-- C3P0连接池  end -->
 		
+		<!-- 指定如何来生成ddl语句 
+			create:每次加载hibernate框架时，先删除表，再建表
+			create-drop:每次加载hibernate框架时，先删除表，再建表，当sf关闭时，再删除表
+			update:每次加载hibernate框架时，验证实体类与表结构是否一致，如果不一致，更新表结构
+			validate:每次加载hibernate框架时，每次加载hibernate框架时，如果不一致，报错
+		-->
+		<property name="hibernate.hbm2ddl.auto">update</property>
 		
 		<!-- 指定映射文件路径 -->
 		<mapping resource="me/xueyao/domain/Customer.hbm.xml"/>
