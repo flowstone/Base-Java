@@ -11,7 +11,19 @@ public class HibernateUtils {
 		sf = new Configuration().configure().buildSessionFactory();
 	}
 	
+	/**
+	 * 每次获取新的session
+	 * @return
+	 */
 	public static Session openSession() {
 		return sf.openSession();
+	}
+	
+	/**
+	 * 获取当前线程里的Session的公共方法
+	 * @return
+	 */
+	public static Session getCurrentSession() {
+		return sf.getCurrentSession();
 	}
 }
