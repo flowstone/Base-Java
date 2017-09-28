@@ -41,6 +41,14 @@
 		-->
 		<property name="hibernate.hbm2ddl.auto">update</property>
 		
+		<!-- 设置事务的隔离级别 -->
+		<!-- read uncommitted:允许读脏数据										1
+			  read committed:不允许读脏数据，不可重复读和虚读会发生			2
+			  repeatable read:不允许脏读、不可重复读，虚读会发生				4
+			  serializable:不可以发生脏读、不可重复读、虚读						8
+		-->
+		<property name="hibernate.connection.isolation">4</property>
+				
 		<!-- 指定映射文件路径 -->
 		<mapping resource="me/xueyao/domain/Customer.hbm.xml"/>
 	</session-factory>
