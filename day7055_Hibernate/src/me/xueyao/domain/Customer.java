@@ -12,6 +12,16 @@ public class Customer implements Serializable {
 	private String cust_level; //客户级别
 	private String cust_address; //客户联系地址
 	private String cust_phone; //客户联系电话
+	
+	public Customer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	public Customer(Long cust_id, String cust_name) {
+		super();
+		this.cust_id = cust_id;
+		this.cust_name = cust_name;
+	}
 	public Long getCust_id() {
 		return cust_id;
 	}
