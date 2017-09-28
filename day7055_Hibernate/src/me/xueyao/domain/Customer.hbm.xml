@@ -5,7 +5,7 @@
 <hibernate-mapping>
 	<class name="me.xueyao.domain.Customer" table="cst_customer">
 		<id name="cust_id" column="cust_id">
-			<generator class="native"></generator>
+			<!-- <generator class="native"></generator> -->
 		</id>
 		<property name="cust_name" column="cust_name"></property>
 		<property name="cust_source" column="cust_source"></property>
