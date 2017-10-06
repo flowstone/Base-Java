@@ -1,11 +1,14 @@
 package me.xueyao.domain;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +25,10 @@ public class Customer implements Serializable {
 	private String cust_level; //客户级别
 	private String cust_address; //客户联系地址
 	private String cust_phone; //客户联系电话
+	//mappedByN属性:表示由多方(联系人)来维护主键,值就是多方中一方的属性名
+	@OneToMany(mappedBy="customer")
+	private Set<LinkMan> linkMans = new HashSet<LinkMan>();
+	
 	public Long getCust_id() {
 		return cust_id;
 	}
@@ -64,15 +71,20 @@ public class Customer implements Serializable {
 	public void setCust_phone(String cust_phone) {
 		this.cust_phone = cust_phone;
 	}
-	
+	public Set<LinkMan> getLinkMans() {
+		return linkMans;
+	}
+	public void setLinkMans(Set<LinkMan> linkMans) {
+		this.linkMans = linkMans;
+	}
 	@Override
 	public String toString() {
 		return "Customer [cust_id=" + cust_id + ", cust_name=" + cust_name
 				+ ", cust_source=" + cust_source + ", cust_industry="
 				+ cust_industry + ", cust_level=" + cust_level
 				+ ", cust_address=" + cust_address + ", cust_phone="
-				+ cust_phone + "]";
+				+ cust_phone + ", linkMans=" + linkMans + "]";
 	}
-
+	
 	
 }
