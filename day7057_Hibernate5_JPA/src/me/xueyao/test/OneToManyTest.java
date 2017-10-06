@@ -79,4 +79,25 @@ public class OneToManyTest {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	/**
+	 * 一对多的更新
+	 * 需求:让2号联系人属于2号客户
+	 * 
+	 */
+	@Test
+	public void test04(){
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		//先查询id为2的联系人
+		LinkMan linkMan = em.find(LinkMan.class, 2L);
+		//再查询id为2的客户
+		Customer customer = em.find(Customer.class, 2L);
+		//重新建立关系
+		linkMan.setCustomer(customer);
+		
+		em.getTransaction().commit();
+		em.close();
+	}
 }
