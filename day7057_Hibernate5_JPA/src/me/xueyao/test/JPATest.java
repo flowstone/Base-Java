@@ -13,6 +13,10 @@ import org.junit.Test;
  * @author XueYao
  *
  */
+/**
+ * @author XueYao
+ *
+ */
 public class JPATest {
 	
 	/**
@@ -36,7 +40,43 @@ public class JPATest {
 		//释放资源
 		em.close();
 		
+	}
+	
+	
+	/**
+	 * 查询一个
+	 */
+	@Test
+	public void test02() {
+		//获取JPA中实体管理器
+		EntityManager em = JPAUtils.getEntityManager();
+		//开启事务
+		em.getTransaction().begin();
+		
+		Customer customer = em.find(Customer.class, 1L);
+		System.out.println(customer);
+		
+		//提交事务
+		em.getTransaction().commit();
+		//释放资源
+		em.close();
+	}
+	
+	/**
+	 * 查询一个:缓存问题
+	 */
+	@Test
+	public void test02Cache() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		Customer customer1 = em.find(Customer.class, 1L);
+		Customer customer2 = em.find(Customer.class, 1L);
+		
+		System.out.println(customer1 == customer2);
 		
 		
+		em.getTransaction().commit();
+		
+		em.close();
 	}
 }
