@@ -58,4 +58,22 @@ public class ManyToManyTest {
 		em.getTransaction().commit();
 		em.close();
 	}
+
+	
+	/**
+	 * 测试删除:直接删除用户
+	 * 结果:先删除中间表中与该用户相关的信息,再删除用户 
+	 */
+	@Test
+	public void test02() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		SysUser user = em.find(SysUser.class, 1L);
+		em.remove(user);
+		
+		em.getTransaction().commit();
+		
+		em.close();
+	}
 }
