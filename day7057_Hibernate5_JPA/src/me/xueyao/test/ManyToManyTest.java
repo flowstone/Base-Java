@@ -1,7 +1,11 @@
 package me.xueyao.test;
 
+import java.util.Set;
+
 import javax.persistence.EntityManager;
 
+import me.xueyao.domain.Customer;
+import me.xueyao.domain.LinkMan;
 import me.xueyao.domain.SysRole;
 import me.xueyao.domain.SysUser;
 import me.xueyao.utils.JPAUtils;
@@ -92,5 +96,66 @@ public class ManyToManyTest {
 		em.getTransaction().commit();
 		em.close();
 		
+	}
+	
+	/**
+	 * 多对多的更新
+	 * 需求:把用户1中角色1换成角色3
+	 */
+	@Test
+	public void test04(){
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		//先查询id为1的用户
+		SysUser user = em.find(SysUser.class, 1L);
+		//再查询id为1的角色
+		SysRole role1 = em.find(SysRole.class, 1L);
+		//再查询id为3的角色
+		SysRole role3 = em.find(SysRole.class, 3L);
+		//先移除角色
+		user.getRoles().remove(role1);
+		//在添加角色3
+		user.getRoles().add(role3);
+		
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	/**
+	 * 查询客户,也要客户对应的联系人查询出来
+	 */
+	@Test
+	public void test05() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		Customer customer = em.find(Customer.class, 1L);
+		Set<LinkMan> linkMans = customer.getLinkMans();
+		for (LinkMan linkMan : linkMans) {
+			System.out.println(linkMan);
+		}
+		em.getTransaction().commit();
+		
+		em.close();
+	}
+	
+	
+	/**
+	 * 查询联系人,也要把联系人所属的客户查询出来
+	 * 
+	 */
+	@Test
+	public void test06() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		//查询联系人时,会立即加载客户
+		LinkMan linkMan = em.find(LinkMan.class, 2L);
+		Customer customer = linkMan.getCustomer();
+		System.out.println(customer.getCust_name());
+		em.getTransaction().commit();
+		
+		
+		em.close();
 	}
 }
