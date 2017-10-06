@@ -1,7 +1,10 @@
 package me.xueyao.test;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
 
 import me.xueyao.domain.Customer;
 import me.xueyao.utils.JPAUtils;
@@ -77,6 +80,76 @@ public class JPATest {
 		
 		em.getTransaction().commit();
 		
+		em.close();
+	}
+	
+	/**
+	 * 查询一个:延迟加载的问题
+	 */
+	@Test
+	public void test02Lazy() {
+		EntityManager em = JPAUtils.getEntityManager();
+		
+		em.getTransaction().begin();
+		
+		Customer customer = em.getReference(Customer.class, 1L);
+		System.out.println(customer);
+		
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	/**
+	 * 查询所有:利用JPQL来查询
+	 * JPQL是Java Persistence Query Language,中文含义是ava持久化查询语言
+	 * sql中可以给表起别名,例如:select * from cst_customer c
+	 * JPQL语法规定: 要给类加别名,例如select c from Customer c, 表示查询表里有数的数据
+	 *  
+	 */
+	@Test
+	public void test03() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		Query query = em.createQuery("select c from Customer c where c.cust_name like ?");
+		query.setParameter(1, "%张%");
+		List<Customer> list = query.getResultList();
+		for (Customer c : list) {
+			System.out.println(c);
+		}
+		em.getTransaction().commit();
+		em.close();
+	}
+	
+	/**
+	 * 更新
+	 */
+	@Test
+	public void update() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		Customer customer = em.find(Customer.class, 1L);
+		customer.setCust_address("上海浦东");
+		
+		
+		em.getTransaction().commit(); //使用JPA中快照机制实现更新
+		em.close();
+	}
+	
+	
+	/**
+	 * 删除 
+	 */
+	@Test
+	public void delete() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		Customer customer = em.find(Customer.class, 2L);
+		em.remove(customer);
+		
+		
+		em.getTransaction().commit();
 		em.close();
 	}
 }
