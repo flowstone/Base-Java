@@ -76,4 +76,21 @@ public class ManyToManyTest {
 		
 		em.close();
 	}
+	
+	/**
+	 * 测试多对多级联删除:删除用户级联删除角色
+	 * 
+	 */
+	@Test
+	public void test03() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		SysUser user = em.find(SysUser.class, 1L);
+		em.remove(user);
+		
+		em.getTransaction().commit();
+		em.close();
+		
+	}
 }
