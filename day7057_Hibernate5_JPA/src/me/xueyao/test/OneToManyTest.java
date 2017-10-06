@@ -63,4 +63,20 @@ public class OneToManyTest {
 		em.getTransaction().commit();
 		em.close();
 	}
+	
+	
+	/**
+	 * 一对多级联删除:删除客户,级联删除联系人
+	 */
+	@Test
+	public void test03() {
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		
+		Customer customer = em.find(Customer.class, 1L);
+		em.remove(customer);
+		
+		em.getTransaction().commit();
+		em.close();
+	}
 }
