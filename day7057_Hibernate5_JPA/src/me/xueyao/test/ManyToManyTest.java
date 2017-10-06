@@ -51,9 +51,9 @@ public class ManyToManyTest {
 		
 		em.persist(user1);
 		em.persist(user2);
-		em.persist(role1);
-		em.persist(role2);
-		em.persist(role3);
+		//em.persist(role1);
+		//em.persist(role2);
+		//em.persist(role3);
 		
 		em.getTransaction().commit();
 		em.close();

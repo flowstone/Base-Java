@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,7 +36,7 @@ public class SysUser implements Serializable{
 	private String user_state;
 	
 	//多对多关系映射
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.PERSIST)
 	@JoinTable(name="user_role",joinColumns=@JoinColumn(name="user_id"),
 	inverseJoinColumns=@JoinColumn(name="role_id"))
 	private Set<SysRole> roles = new HashSet<SysRole>();
