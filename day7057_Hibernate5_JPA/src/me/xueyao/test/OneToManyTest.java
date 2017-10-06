@@ -40,4 +40,27 @@ public class OneToManyTest {
 		
 		em.close();
 	}
+	
+	/**
+	 * 一对多级联保存: 保存客户级联保存联系人
+	 * 在Customer实体类的OneToMany注解中加cascade = CascadeType.PERSIST
+	 */
+	@Test
+	public void save02() {
+		Customer customer = new Customer();
+		customer.setCust_name("客户2");
+		LinkMan linkMan = new LinkMan();
+		linkMan.setLkm_name("联系人2");
+		//建立客户和联系人的双向关系,不会有多余的update语句,因为我们
+		//在一方(客户)加入mappedBy,放弃了外键维护权
+		customer.getLinkMans().add(linkMan);
+		linkMan.setCustomer(customer);
+		
+		EntityManager em = JPAUtils.getEntityManager();
+		em.getTransaction().begin();
+		em.persist(customer);
+		
+		em.getTransaction().commit();
+		em.close();
+	}
 }

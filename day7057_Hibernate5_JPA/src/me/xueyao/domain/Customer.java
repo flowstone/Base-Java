@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,7 +27,7 @@ public class Customer implements Serializable {
 	private String cust_address; //客户联系地址
 	private String cust_phone; //客户联系电话
 	//mappedByN属性:表示由多方(联系人)来维护主键,值就是多方中一方的属性名
-	@OneToMany(mappedBy="customer")
+	@OneToMany(mappedBy="customer",cascade=CascadeType.PERSIST)
 	private Set<LinkMan> linkMans = new HashSet<LinkMan>();
 	
 	public Long getCust_id() {
