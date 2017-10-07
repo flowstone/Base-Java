@@ -3,11 +3,31 @@
 	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
+	<!-- 自定义常量 -->
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- namespace:限定该包下的Action的访问路径 -->
 	<package name="default" namespace="/" extends="struts-default">
-		
-	<!-- name:Action类的名字，具有唯一性，页面上通过name来访问Action类 -->
+		<!-- 当找不到对应的action时，就找默认的action -->
+		<default-action-ref name="hello"></default-action-ref>
+		<!-- name:Action类的名字，具有唯一性，页面上通过name来访问Action类 -->
 		<action name="hello" class="me.xueyao.action.HelloAction">
 			<!-- 配置结果集：name属性的值一定要与execute方法的返回值一致 -->
+			<!-- name属性的默认值是success -->
+			<result name="success">
+				/success.jsp
+			</result>
+		</action>
+	</package>
+	
+	<package name="myDefault" namespace="/test" extends="struts-default">
+		<action name="hello2" class="me.xueyao.action.Hello2Action">
+			<result name="success">
+				/success.jsp
+			</result>
+		</action>
+		<!-- 没有指定class属性，就找ActionSupport,执行execute方法 -->
+		<action name="hello1">
 			<result name="success">
 				/success.jsp
 			</result>
