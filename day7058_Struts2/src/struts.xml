@@ -26,10 +26,15 @@
 		<action name="test3" class="me.xueyao.action.Test3Action"></action>
 		
 		<!-- 通过method属性指定执行哪个方法 -->
+		<!-- 
 		<action name="add" class="me.xueyao.action.DeptAction" method="add"></action>
 		<action name="list" class="me.xueyao.action.DeptAction" method="list"></action>
 		<action name="update" class="me.xueyao.action.DeptAction" method="update"></action>
 		<action name="delete" class="me.xueyao.action.DeptAction" method="delete"></action>
+		 -->
+		 
+		 <!-- 通配符的使用 -->
+		 <action name="*" class="me.xueyao.action.DeptAction" method="{1}"></action>
 	</package>
 	
 	<package name="myDefault" namespace="/test" extends="struts-default">
