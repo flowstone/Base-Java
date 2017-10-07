@@ -34,7 +34,11 @@
 		 -->
 		 
 		 <!-- 通配符的使用 -->
+		 <!-- 
 		 <action name="*" class="me.xueyao.action.DeptAction" method="{1}"></action>
+		  -->
+		 <!-- 两个通配符的使用 -->
+		 <action name="*_*" class="me.xueyao.action.{1}Action" method="{2}"></action>
 	</package>
 	
 	<package name="myDefault" namespace="/test" extends="struts-default">
