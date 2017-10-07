@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+	<!-- 自定义常量 -->
+	<!-- 开启开发者模式 -->
+	<constant name="struts.devMode" value="true"></constant>
+	<!-- namespace:限定该包下的Action的访问路径 -->
+	<package name="customer" namespace="/customer" extends="struts-default">
+
+		 <!-- 两个通配符的使用 -->
+		 <action name="*_*" class="me.xueyao.action.{1}Action" method="{2}">
+		 	<result name="success">
+		 		/jsp/customer/list.jsp
+		 	</result>
+		 </action>
+	</package>
+	
+</struts>
+	
