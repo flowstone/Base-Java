@@ -75,16 +75,16 @@
 												</TR>
 												<c:forEach items="${customers}" var="customer">
 												<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD>${customer.custName }</TD>
-													<TD>${customer.custLevel }</TD>
-													<TD>${customer.custSource }</TD>
-													<TD>${customer.custIndustry }</TD>
-													<TD>${customer.custAddress }</TD>
-													<TD>${customer.custPhone }</TD>
+													<TD>${customer.cust_name }</TD>
+													<TD>${customer.cust_level }</TD>
+													<TD>${customer.cust_source }</TD>
+													<TD>${customer.cust_industry }</TD>
+													<TD>${customer.cust_address }</TD>
+													<TD>${customer.cust_phone }</TD>
 													<TD>
-													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=editCustomerUI&custId=${customer.custId}">修改</a>
+													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=editCustomerUI&custId=${customer.cust_id}">修改</a>
 													&nbsp;&nbsp;
-													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=removeCustomer&custId=${customer.custId}">删除</a>
+													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=removeCustomer&custId=${customer.cust_id}">删除</a>
 													</TD>
 												</TR>	
 												</c:forEach>
