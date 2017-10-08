@@ -24,6 +24,7 @@
 		</action>
 		<action name="login1" class="me.xueyao.test.Login1Action"></action>
 		<action name="login2" class="me.xueyao.test.Login2Action"></action>
+		<action name="login3" class="me.xueyao.test.Login3Action"></action>
     </package>
 
 </struts>

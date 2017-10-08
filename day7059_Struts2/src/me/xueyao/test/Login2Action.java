@@ -11,7 +11,7 @@ public class Login2Action extends ActionSupport{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private User user;
+	private User user; //对象属性接收参数，名字要和页面上对象名一致
 	
 	@Override
 	public String execute() throws Exception {
