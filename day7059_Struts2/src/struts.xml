@@ -22,6 +22,7 @@
 				test1.jsp
 			</result>
 		</action>
+		<action name="login1" class="me.xueyao.test.Login1Action"></action>
     </package>
 
 </struts>
