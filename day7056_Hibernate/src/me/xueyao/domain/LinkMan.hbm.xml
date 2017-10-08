@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="me.xueyao.domain.LinkMan" table="cst_linkman">
+		<id name="lkm_id" >
+			<generator class="native"></generator>
+		</id>
+		<property name="lkm_name" ></property>
+		<property name="lkm_gender" ></property>
+		<property name="lkm_phone" ></property>
+		<property name="lkm_mobile" ></property>
+		<property name="lkm_email"></property>
+		<property name="lkm_position" ></property>
+		<property name="lkm_memo" ></property>
+		<!-- 
+			多对一的映射
+			many-to-one标签：用于建立多对一的关系映射配置
+				属性：
+					name:指定实体类中属性的名字
+					class:该属性所对应的全路径名
+					column:表中外键列的名字
+		 -->
+		<many-to-one name="customer" class="me.xueyao.domain.Customer" 
+		column="lkm_customer_id"></many-to-one>
+	</class>
+</hibernate-mapping>

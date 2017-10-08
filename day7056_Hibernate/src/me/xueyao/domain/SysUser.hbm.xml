@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="me.xueyao.domain.SysUser" table="sys_user">
+		<id name="user_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="user_code"></property>
+		<property name="user_name"></property>
+		<property name="user_password"></property>
+		<property name="user_state"></property>
+		<!-- 
+			多对多配置 
+			set标签：指定映射的集合属性
+				属性：
+					name: 指定集合属性的名称
+					table: 指定集合元素所对应 的表。必须写
+			key标签： 用来映射外键字段的
+				属性： 
+					column: 指定的是当前映射文件所对应的实体在中间表的外键列的名字
+			many-to-many标签：用于指定当前映射文件所对应的实体类与集合元素所对应的实体类是多对多的关系
+				属性：
+					class：指定集合元素所对应的实体类的名字
+					column属性： 集合元素对应的实体的中间表中的列名
+		 -->
+		<set name="role" table="user_role">
+			<key column="user_id"></key>
+			<many-to-many class="me.xueyao.domain.SysRole" column="role_id"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>
