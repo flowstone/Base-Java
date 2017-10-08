@@ -10,7 +10,7 @@
 	<package name="customer" namespace="/customer" extends="struts-default">
 
 		 <!-- 两个通配符的使用 -->
-		 <action name="*_*" class="me.xueyao.action.{1}Action" method="{2}">
+		 <action name="customer_findAll" class="me.xueyao.action.CustomerAction" method="findAll">
 		 	<result name="success">
 		 		/jsp/customer/list.jsp
 		 	</result>
