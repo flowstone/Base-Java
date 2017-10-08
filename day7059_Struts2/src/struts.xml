@@ -57,7 +57,12 @@
 		
 		
 		<action name="test4" class="me.xueyao.test.Test4Action">
-			<result type="chain" name="success">
+		<!-- 
+			redirectAction,表示重写向到另一个action，地址栏会变化，请求中的数据也会丢失
+			
+		 -->
+<!-- 			<result type="chain" name="success"> -->
+			<result type="redirectAction" name="success">
 				test6
 			</result>
 		</action>
