@@ -17,6 +17,11 @@
 				test1.jsp
 			</result>
 		</action>
+		<action name="test3" class="me.xueyao.test.Test3Action">
+			<result name="success">
+				test1.jsp
+			</result>
+		</action>
     </package>
 
 </struts>
