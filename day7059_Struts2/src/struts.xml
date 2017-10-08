@@ -44,6 +44,24 @@
 				/fail.jsp
 			</result>
 		</action>
+		
+		<action name="test5" class="me.xueyao.test.Test5Action">
+			<!-- type属性指定结果集的类型  dispatcher 转发 ， redirect 重定向
+				chain  转发到另一个action，地址栏不会发生变化，数据不会丢失
+				redirectAction,表示重定向到另一个action，地址栏会变化
+			 -->
+			<result name="success" type="redirect">
+				/test5.jsp
+			</result>
+		</action>
+		
+		
+		<action name="test4" class="me.xueyao.test.Test4Action">
+			<result type="chain" name="success">
+				test6
+			</result>
+		</action>
+		<action name="test6" class="me.xueyao.test.Test6Action"></action>
     </package>
 
 </struts>
