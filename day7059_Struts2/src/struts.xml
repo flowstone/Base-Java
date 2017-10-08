@@ -7,6 +7,12 @@
     <constant name="struts.devMode" value="true" />
 
     <package name="default" namespace="/" extends="struts-default">
+    	<!-- 配置全局结果 集 -->
+    	<global-results>
+    		<result	 name="error">
+    			/error.jsp
+    		</result>
+    	</global-results>
 		<action name="test1" class="me.xueyao.test.Test1Action">
 			<result name="success">
 				test1.jsp
@@ -28,6 +34,16 @@
 		<action name="login4" class="me.xueyao.test.Login4Action"></action>
 		<action name="login5" class="me.xueyao.test.Login5Action"></action>
 		<action name="login6" class="me.xueyao.test.Login6Action"></action>
+		
+		
+		<action name="hello" class="me.xueyao.test.HelloAction">
+			<result name="success">
+				/success.jsp
+			</result>
+			<result name="fail">
+				/fail.jsp
+			</result>
+		</action>
     </package>
 
 </struts>
