@@ -25,5 +25,14 @@ public class CustomerServiceImpl implements CustomerService {
 		session.getTransaction().commit();
 		return list;
 	}
+	
+	@Override
+	public void save(Customer customer) {
+		Session session = HibernateUtils.getCurrentSession();
+		session.beginTransaction();
+		customerDao.save(customer);
+		session.getTransaction().commit();
+		
+	}
 
 }

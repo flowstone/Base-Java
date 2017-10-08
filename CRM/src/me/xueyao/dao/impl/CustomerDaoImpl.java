@@ -17,4 +17,11 @@ public class CustomerDaoImpl implements CustomerDao {
 		return list;
 	}
 
+	@Override
+	public void save(Customer customer) {
+		Session session = HibernateUtils.getCurrentSession();
+		session.save(customer);
+		
+	}
+
 }

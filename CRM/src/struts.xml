@@ -15,6 +15,11 @@
 		 		/jsp/customer/list.jsp
 		 	</result>
 		 </action>
+		 <action name="customer_save" class="me.xueyao.action.CustomerAction" method="save">
+		 	<result name="success" type="redirectAction">
+		 		customer_findAll
+		 	</result>
+		 </action>
 	</package>
 	
 </struts>

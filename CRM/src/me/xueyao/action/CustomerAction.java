@@ -21,10 +21,20 @@ public class CustomerAction extends ActionSupport{
 	
 	private CustomerService customerService = new CustomerServiceImpl();
 	
+	private Customer customer = new Customer();
+	/**
+	 * 查询客户列表
+	 * @return
+	 */
 	public String findAll() {
 		List<Customer> customers = customerService.findAllCustomer();
 		HttpServletRequest request = ServletActionContext.getRequest();
 		request.setAttribute("customers", customers);
+		return SUCCESS;
+	}
+	
+	public String save() {
+		customerService.save(customer);
 		return SUCCESS;
 	}
 

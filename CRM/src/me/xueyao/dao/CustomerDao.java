@@ -12,4 +12,9 @@ public interface CustomerDao {
 	 */
 	List<Customer> findAllCustomer();
 
+	/**新增客户
+	 * @param customer
+	 */
+	void save(Customer customer);
+
 }
