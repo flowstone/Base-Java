@@ -76,7 +76,10 @@
 												<c:forEach items="${customers}" var="customer">
 												<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD>${customer.cust_name }</TD>
-													<TD>${customer.cust_level }</TD>
+													<TD>
+														${customer.cust_level }
+
+													</TD>
 													<TD>${customer.cust_source }</TD>
 													<TD>${customer.cust_industry }</TD>
 													<TD>${customer.cust_address }</TD>

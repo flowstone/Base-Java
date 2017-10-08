@@ -4,15 +4,16 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.struts2.ServletActionContext;
-
 import me.xueyao.domain.Customer;
 import me.xueyao.service.CustomerService;
 import me.xueyao.service.impl.CustomerServiceImpl;
 
-import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.ServletActionContext;
 
-public class CustomerAction extends ActionSupport{
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.ModelDriven;
+
+public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
 
 	/**
 	 * 
@@ -36,6 +37,11 @@ public class CustomerAction extends ActionSupport{
 	public String save() {
 		customerService.save(customer);
 		return SUCCESS;
+	}
+
+	@Override
+	public Customer getModel() {
+		return customer;
 	}
 
 }
