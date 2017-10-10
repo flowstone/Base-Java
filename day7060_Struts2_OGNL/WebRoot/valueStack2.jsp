@@ -29,5 +29,13 @@
 	<s:iterator value="#{1:'苹果',2:'菠萝',3:'哈密瓜' }" var="fruit">
 		<s:property value="#fruit.key"/>:<s:property value="#fruit.value"/>
 	</s:iterator>
+	
+	<hr>
+	<p>%的用法</p>
+	%的用法1：告诉执行环境，不要把字符串当成ognl,而是要原样输出<br/>
+	<s:property value="%{'hello'}"/>或<br/>
+	<s:property value="'hello'"/> <br/>
+	%的用法2：告诉执行环境，把字符串看成ognl表达式去从值栈里取寻找值<br/>
+	<s:textfield value="%{username}"></s:textfield>
 </body>
 </html>

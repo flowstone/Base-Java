@@ -12,6 +12,7 @@ public class ValueStack2Action extends ActionSupport {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	private String username = "Simon";
 	
 	@Override
 	public String execute() throws Exception {
@@ -28,6 +29,10 @@ public class ValueStack2Action extends ActionSupport {
 		application.put("username","石头");
 		return SUCCESS;
 		
+	}
+
+	public String getUsername() {
+		return username;
 	}
 
 	
