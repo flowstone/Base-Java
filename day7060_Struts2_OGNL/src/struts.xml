@@ -20,7 +20,11 @@
 				/valueStack.jsp
 			</result>
 		</action>
-		
+		<action name="valueStack1" class="me.xueyao.test.ValueStack1Action">
+			<result name="success">
+				/valueStack1.jsp
+			</result>
+		</action>
     </package>
 
 </struts>
