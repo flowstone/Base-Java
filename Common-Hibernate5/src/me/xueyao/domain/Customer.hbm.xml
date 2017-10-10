@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<!-- name属性: 指定实体类的全路径名 
+		table属性: 指定对应的表的名字,如果类名和表名一致,可以省略不写table属性
+		catalog属性: 指定数据库名,不用写
+	 -->
+	<class name="me.xueyao.domain.Customer" table="cst_customer">
+		<!-- id标签: 指定 实体类中哪个属性与表中的主键列对应
+			name属性:　指定实体类中属性的名字
+			column属性: 指定表中对应列的名字,如果属性名与列名一致,可以省略column属性
+			generator标签: 指定主键的生成策略
+				class属性: 指定具体的生成策略,native表示根据底层的数据底来选择,如果是mysql,就自动增长,
+						如果是oracle,就采用序列来维护主键 
+			
+		 -->
+		<id name="cust_id" column="cust_id">
+			<generator class="native"></generator>
+		</id>
+		<!-- 
+			property标签: 指定除了主键属性以外的其它属性
+			name属性: 指定属性名
+			column属性: 指定表中对应的列名,如果属性名与列名一致,可以省略column属性
+			type属性: 指定数据类型,例如type="java.lang.String",一般不写
+		 -->
+		<property name="cust_name" column="cust_name"></property>
+		<property name="cust_source" column="cust_source"></property>
+		<property name="cust_industry" column="cust_industry"></property>
+		<property name="cust_level" column="cust_level"></property>
+		<property name="cust_address" column="cust_address"></property>
+		<property name="cust_phone" column="cust_phone"></property>
+	</class>
+</hibernate-mapping>
