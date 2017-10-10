@@ -15,9 +15,9 @@
     			/error.jsp
     		</result>
     	</global-results>
-		<action name="test1" class="me.xueyao.test.Test1Action">
+		<action name="valueStack" class="me.xueyao.test.ValueStackAction">
 			<result name="success">
-				test1.jsp
+				/valueStack.jsp
 			</result>
 		</action>
 		
