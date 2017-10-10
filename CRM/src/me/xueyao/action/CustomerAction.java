@@ -25,19 +25,22 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	private CustomerService customerService = new CustomerServiceImpl();
 	
 	private Customer customer = new Customer();
+	
+	private List<Customer> customers; //在对象栈中，一定要提供get方法
 	/**
 	 * 查询客户列表
 	 * @return
 	 */
 	public String findAll() {
-		List<Customer> customers = customerService.findAllCustomer();
+		//方式二：自动存放
+		customers = customerService.findAllCustomer();
 //		HttpServletRequest request = ServletActionContext.getRequest();
 //		request.setAttribute("customers", customers);
 		//方式一：手动存放
 		//先获取值栈对象
-		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		//ValueStack valueStack = ActionContext.getContext().getValueStack();
 		//查询到集合数据存放到值栈里(对象栈)
-		valueStack.set("customers", customers);
+		//valueStack.set("customers", customers);
 		return SUCCESS;
 	}
 	
@@ -51,4 +54,9 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 		return customer;
 	}
 
+	public List<Customer> getCustomers() {
+		return customers;
+	}
+
+	
 }
