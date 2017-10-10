@@ -35,6 +35,11 @@
 				/valueStack3.jsp?username=${username}
 			</result>
 		</action>
+		<action name="valueStack4" class="me.xueyao.test.ValueStack4Action">
+			<result name="success">
+				/valueStack4.jsp
+			</result>
+		</action>
     </package>
 
 </struts>
