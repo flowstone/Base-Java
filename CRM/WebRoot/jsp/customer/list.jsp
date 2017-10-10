@@ -1,5 +1,6 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="/struts-tags" prefix="s" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -73,7 +74,7 @@
 													<TD>联系电话</TD>
 													<TD>操作</TD>
 												</TR>
-												<c:forEach items="${customers}" var="customer">
+												<%-- <c:forEach items="${customers}" var="customer">
 												<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
 													<TD>${customer.cust_name }</TD>
 													<TD>
@@ -90,7 +91,41 @@
 													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=removeCustomer&custId=${customer.cust_id}">删除</a>
 													</TD>
 												</TR>	
-												</c:forEach>
+												</c:forEach> --%>
+											<%-- 	<s:iterator value="customers" var="customer">
+													<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+													<TD><s:property value="#customer.cust_name"/></TD>
+													<TD>
+														<s:property value="#customer.cust_level"/>		
+													</TD>
+													<TD><s:property value="#customer.cust_source" /></TD>
+													<TD><s:property value="#customer.cust_industry" /></TD>
+													<TD><s:property value="#customer.cust_address" /></TD>
+													<TD><s:property value="#customer.cust_phone" /></TD>
+													<TD>
+													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=editCustomerUI&custId=<s:property value="#customer.cust_id" />">修改</a>
+													&nbsp;&nbsp;
+													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=removeCustomer&custId=<s:property value="#customer.cust_id"/>">删除</a>
+													</TD>
+													</TR>
+												</s:iterator> --%>
+												<s:iterator value="customers">
+													<TR style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
+													<TD><s:property value="cust_name"/></TD>
+													<TD>
+														<s:property value="cust_level"/>		
+													</TD>
+													<TD><s:property value="cust_source" /></TD>
+													<TD><s:property value="cust_industry" /></TD>
+													<TD><s:property value="cust_address" /></TD>
+													<TD><s:property value="cust_phone" /></TD>
+													<TD>
+													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=editCustomerUI&custId=<s:property value="cust_id" />">修改</a>
+													&nbsp;&nbsp;
+													<a href="${pageContext.request.contextPath }/customer/CustomerServlet?method=removeCustomer&custId=<s:property value="cust_id"/>">删除</a>
+													</TD>
+													</TR>
+												</s:iterator>
 											</TBODY>
 										</TABLE>
 									</TD>

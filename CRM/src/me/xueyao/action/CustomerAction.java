@@ -10,8 +10,10 @@ import me.xueyao.service.impl.CustomerServiceImpl;
 
 import org.apache.struts2.ServletActionContext;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
+import com.opensymphony.xwork2.util.ValueStack;
 
 public class CustomerAction extends ActionSupport implements ModelDriven<Customer>{
 
@@ -29,8 +31,13 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 	 */
 	public String findAll() {
 		List<Customer> customers = customerService.findAllCustomer();
-		HttpServletRequest request = ServletActionContext.getRequest();
-		request.setAttribute("customers", customers);
+//		HttpServletRequest request = ServletActionContext.getRequest();
+//		request.setAttribute("customers", customers);
+		//方式一：手动存放
+		//先获取值栈对象
+		ValueStack valueStack = ActionContext.getContext().getValueStack();
+		//查询到集合数据存放到值栈里(对象栈)
+		valueStack.set("customers", customers);
 		return SUCCESS;
 	}
 	
