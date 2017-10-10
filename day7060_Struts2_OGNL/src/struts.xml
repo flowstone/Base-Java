@@ -25,6 +25,11 @@
 				/valueStack1.jsp
 			</result>
 		</action>
+				<action name="valueStack2" class="me.xueyao.test.ValueStack2Action">
+			<result name="success">
+				/valueStack2.jsp
+			</result>
+		</action>
     </package>
 
 </struts>
