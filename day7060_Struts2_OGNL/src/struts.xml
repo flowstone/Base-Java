@@ -25,9 +25,14 @@
 				/valueStack1.jsp
 			</result>
 		</action>
-				<action name="valueStack2" class="me.xueyao.test.ValueStack2Action">
+		<action name="valueStack2" class="me.xueyao.test.ValueStack2Action">
 			<result name="success">
 				/valueStack2.jsp
+			</result>
+		</action>
+		<action name="valueStack3" class="me.xueyao.test.ValueStack3Action">
+			<result name="success" type="redirect">
+				/valueStack3.jsp?username=${username}
 			</result>
 		</action>
     </package>
