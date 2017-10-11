@@ -6,15 +6,38 @@
 <struts>
     <constant name="struts.devMode" value="true" />
     <package name="default" namespace="/" extends="struts-default">
-        <!-- 配置全局结果 集 -->
-        <global-results>
-            <result name="error">
-                /error.jsp
-            </result>
-        </global-results>
-        <action name="test" class="me.xueyao.test.TestAction">
+        
+        <!-- 声明全局拦截器 -->
+        <interceptors>
+            <interceptor name="test1Interceptor" class="me.xueyao.interceptor.Test1Interceptor"></interceptor>
+            <interceptor name="test2Interceptor" class="me.xueyao.interceptor.Test2Interceptor"></interceptor>
+            <interceptor name="test3Interceptor" class="me.xueyao.interceptor.Test3Interceptor"></interceptor>
+            <!-- 自定义拦截器栈 -->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="test1Interceptor"></interceptor-ref>
+                <interceptor-ref name="test2Interceptor"></interceptor-ref>
+                <interceptor-ref name="test3Interceptor"></interceptor-ref>
+                <!-- 一定要引入默认的拦截器栈 -->
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+        <!-- 指定该包下所有的Action都经过myStack -->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+        
+        <action name="test1" class="me.xueyao.test.Test1Action">
+<!--             <interceptor-ref name="test1Interceptor"></interceptor-ref> -->
+<!--             <interceptor-ref name="test2Interceptor"></interceptor-ref> -->
+<!--             <interceptor-ref name="test3Interceptor"></interceptor-ref> -->
+<!--         一定要引入默认的拦截器栈 -->
+<!--             <interceptor-ref name="defaultStack"></interceptor-ref> -->
             <result name="success">
-                /test.jsp
+                /test1.jsp
+            </result>
+        </action>
+        
+        <action name="test2" class="me.xueyao.test.Test2Action">
+            <result name="success">
+                /test1.jsp
             </result>
         </action>
     </package>
