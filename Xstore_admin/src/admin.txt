@@ -1,4 +1,0 @@
-/addGood.jsp
-/index.jsp
-/admin
-/
