@@ -4,9 +4,14 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>This is Fail</title>
+<title>This is Book list page</title>
 </head>
 <body>
-    <h1>fail</h1>
+    <h1>这是图书列表页面</h1>
+    <ul>
+        <li>坏蛋是怎样炼成的</li>
+        <li>钢铁是怎样炼成的</li>
+        <li>脱发是怎样炼成的</li>
+    </ul>
 </body>
 </html>

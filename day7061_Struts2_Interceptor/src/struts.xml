@@ -4,6 +4,7 @@
 	"http://struts.apache.org/dtds/struts-2.3.dtd">
 
 <struts>
+
     <constant name="struts.devMode" value="true" />
     <package name="default" namespace="/" extends="struts-default">
         
@@ -15,11 +16,18 @@
                 <!-- 配置的方法名，不是action的名字 -->
                 <param name="excludeMethods">execute</param>
             </interceptor>
+            <interceptor name="loginInterceptor" class="me.xueyao.interceptor.LoginInterceptor">
+            
+                <!-- 不要拦截登录请求 -->
+                <param name="excludeMethods">login</param>
+            </interceptor>
             <!-- 自定义拦截器栈 -->
             <interceptor-stack name="myStack">
                 <interceptor-ref name="test1Interceptor"></interceptor-ref>
                 <interceptor-ref name="test2Interceptor"></interceptor-ref>
                 <interceptor-ref name="test3Interceptor"></interceptor-ref>
+                <interceptor-ref name="loginInterceptor"></interceptor-ref>
+                
                 <!-- 一定要引入默认的拦截器栈 -->
                 <interceptor-ref name="defaultStack"></interceptor-ref>
             </interceptor-stack>
@@ -27,6 +35,12 @@
         <!-- 指定该包下所有的Action都经过myStack -->
         <default-interceptor-ref name="myStack"></default-interceptor-ref>
         
+         <!-- 全部结果集   bug:只能放在指定位置，否则报错-->
+        <global-results>
+            <result name="no_login">
+                /login.jsp
+            </result>
+        </global-results>
         <action name="test1" class="me.xueyao.action.Test1Action">
         <!-- 局部拦截器 -->
 <!--             <interceptor-ref name="test1Interceptor"></interceptor-ref> -->
@@ -48,5 +62,21 @@
             </result>
         </action>
         
+        <action name="login" class="me.xueyao.action.LoginAction" method="login">
+            <result name="success">
+                /index.jsp
+            </result>
+            <result name="fail">
+                /fail.jsp
+            </result>
+        </action>
+        
+        <action name="listBook" class="me.xueyao.action.ListBookAction" method="listBook">
+            <result name="success">
+                /listBook.jsp
+            </result>
+        </action>
+        
+       
     </package>
 </struts>

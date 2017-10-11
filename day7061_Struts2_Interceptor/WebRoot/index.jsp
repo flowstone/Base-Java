@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>This is Fail</title>
+<title>Query Book List</title>
 </head>
 <body>
-    <h1>fail</h1>
+    <h1><a href="listBook.action">查询图书列表</a></h1>
 </body>
 </html>
