@@ -12,10 +12,10 @@
                 /error.jsp
             </result>
         </global-results>
-        <action name="test" class="me.xueyao.test.TestAction">
-            <result name="success">
-                /test.jsp
-            </result>
-        </action>
+<!--         <action name="test" class="me.xueyao.test.TestAction"> -->
+<!--             <result name="success"> -->
+<!--                 /test.jsp -->
+<!--             </result> -->
+<!--         </action> -->
     </package>
 </struts>
