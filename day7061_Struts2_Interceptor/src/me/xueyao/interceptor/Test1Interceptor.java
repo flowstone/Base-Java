@@ -40,6 +40,7 @@ public class Test1Interceptor implements Interceptor{
         String result = invocation.invoke();
         System.out.println("响应经过测试拦截器1...");
         return result;
+        //return "fail";
     }
 
 }

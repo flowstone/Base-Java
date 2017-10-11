@@ -11,7 +11,10 @@
         <interceptors>
             <interceptor name="test1Interceptor" class="me.xueyao.interceptor.Test1Interceptor"></interceptor>
             <interceptor name="test2Interceptor" class="me.xueyao.interceptor.Test2Interceptor"></interceptor>
-            <interceptor name="test3Interceptor" class="me.xueyao.interceptor.Test3Interceptor"></interceptor>
+            <interceptor name="test3Interceptor" class="me.xueyao.interceptor.Test3Interceptor">
+                <!-- 配置的方法名，不是action的名字 -->
+                <param name="excludeMethods">execute</param>
+            </interceptor>
             <!-- 自定义拦截器栈 -->
             <interceptor-stack name="myStack">
                 <interceptor-ref name="test1Interceptor"></interceptor-ref>
@@ -34,6 +37,9 @@
             <result name="success">
                 /test1.jsp
             </result>
+            <result name="fail">
+                /fail.jsp
+            </result>
         </action>
         
         <action name="test2" class="me.xueyao.action.Test2Action">
@@ -41,5 +47,6 @@
                 /test1.jsp
             </result>
         </action>
+        
     </package>
 </struts>
