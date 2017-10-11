@@ -19,6 +19,7 @@ public class Test3Interceptor extends MethodFilterInterceptor{
     protected String doIntercept(ActionInvocation invocation) throws Exception {
         System.out.println("请求经过测试拦截器3...");
         String result = invocation.invoke();
+        System.out.println("响应经过测试拦截器3...");
         return result;
     }
 

@@ -14,6 +14,7 @@ public class Test2Interceptor extends AbstractInterceptor{
     public String intercept(ActionInvocation invocation) throws Exception {
         System.out.println("请求经过测试拦截器2....");
         String result = invocation.invoke();
+        System.out.println("响应经过测试拦截器2...");
         return result;
     }
 

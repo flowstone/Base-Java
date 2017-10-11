@@ -24,7 +24,7 @@
         <!-- 指定该包下所有的Action都经过myStack -->
         <default-interceptor-ref name="myStack"></default-interceptor-ref>
         
-        <action name="test1" class="me.xueyao.test.Test1Action">
+        <action name="test1" class="me.xueyao.action.Test1Action">
         <!-- 局部拦截器 -->
 <!--             <interceptor-ref name="test1Interceptor"></interceptor-ref> -->
 <!--             <interceptor-ref name="test2Interceptor"></interceptor-ref> -->
@@ -36,7 +36,7 @@
             </result>
         </action>
         
-        <action name="test2" class="me.xueyao.test.Test2Action">
+        <action name="test2" class="me.xueyao.action.Test2Action">
             <result name="success">
                 /test1.jsp
             </result>

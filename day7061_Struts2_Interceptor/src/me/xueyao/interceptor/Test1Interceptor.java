@@ -38,6 +38,7 @@ public class Test1Interceptor implements Interceptor{
         System.out.println("请求经过测试拦截器1...");
         //执行下一步,result其实是Action中方法的返回值
         String result = invocation.invoke();
+        System.out.println("响应经过测试拦截器1...");
         return result;
     }
 
