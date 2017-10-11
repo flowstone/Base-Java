@@ -25,6 +25,7 @@
         <default-interceptor-ref name="myStack"></default-interceptor-ref>
         
         <action name="test1" class="me.xueyao.test.Test1Action">
+        <!-- 局部拦截器 -->
 <!--             <interceptor-ref name="test1Interceptor"></interceptor-ref> -->
 <!--             <interceptor-ref name="test2Interceptor"></interceptor-ref> -->
 <!--             <interceptor-ref name="test3Interceptor"></interceptor-ref> -->
