@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- scope属性代表Bean的作用范围，singleton单例(默认值) 
+            prototype:多例，每次生成不同的对象
+            request:存放在request域中
+            session:存放在session域中
+            globalsession：应用在porlet环境下使用。创建全局session，适用于集群环境
+    -->    
+<!--     <bean id="userDao" class="me.xueyao.dao.impl.UserDaoImpl" scope="singleton"></bean> -->
+    
+<!--     <bean id="userDao" class ="me.xueyao.dao.impl.UserDaoImpl" scope="prototype"></bean> -->
+    
+    <!-- 
+        init-method :当bean被 载入到容器的时候调用init-method属性指定的方法
+     -->
+<!--      <bean id="userDao" class="me.xueyao.dao.impl.UserDaoImpl" init-method="init"></bean> -->
+    <!-- destroy-method： bean从容器中删除的时候调用destroy-method属性指定的方法 -->
+    <bean id="userDao" class="me.xueyao.dao.impl.UserDaoImpl" destroy-method="destroy" ></bean>
+</beans>
