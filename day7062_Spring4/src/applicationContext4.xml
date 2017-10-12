@@ -8,4 +8,16 @@
         <constructor-arg name="name" value="拖拉机"></constructor-arg>
         <constructor-arg name="price" value="998"></constructor-arg>
     </bean>
+    
+    <!-- set方法注入 -->
+    <bean id="student" class="me.xueyao.domain.Student">
+        <property name="id" value="11"></property>
+        <property name="name" value="张三"></property>
+    </bean>
+    
+    <!--  set方法注入对象 -->
+    <bean id="people" class="me.xueyao.domain.People">
+        <property name="name" value="小明"></property>
+        <property name="car" ref="car"></property>
+    </bean>
 </beans>
