@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 构造方法注入 -->
+    <bean id="car" class="me.xueyao.domain.Car">
+        <constructor-arg name="name" value="拖拉机"></constructor-arg>
+        <constructor-arg name="price" value="998"></constructor-arg>
+    </bean>
+</beans>
