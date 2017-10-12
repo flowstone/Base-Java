@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="collectionBean" class="me.xueyao.domain.CollectionBean">
+        <property name="array">
+            <list>
+                <value>小明</value>
+                <value>小李</value>
+                <value>小红</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>苹果</value>
+                <value>梨子</value>
+                <value>香蕉</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="id" value="11"></entry>
+                <entry key="name" value="张三"></entry>
+                <entry key="age" value="20"></entry>
+            </map>
+        </property>
+        <property name="props">
+            <props>
+                <prop key="username">李四</prop>
+                <prop key="password">123456</prop>
+            </props>
+        </property>
+    </bean>
+</beans>
