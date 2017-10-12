@@ -4,5 +4,8 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
     <!-- 静态工厂方法获取对象 -->    
-    <bean id="departmentDao" class="me.xueyao.factory.Factory" factory-method="create"></bean>
+<!--     <bean id="departmentDao" class="me.xueyao.factory.DepartmentDaoFactory" factory-method="create"></bean> -->
+    <!-- 实例工厂方法获取对象 -->
+    <bean id="departmentDaoFactory" class="me.xueyao.factory.DepartmentDaoFactory"></bean>
+    <bean id="departmentDao" factory-bean="departmentDaoFactory" factory-method="create1"></bean>
 </beans>
