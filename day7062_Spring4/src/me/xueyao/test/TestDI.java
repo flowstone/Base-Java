@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import me.xueyao.domain.Car;
+import me.xueyao.domain.Car1;
+import me.xueyao.domain.CarInfo;
 import me.xueyao.domain.People;
 import me.xueyao.domain.Student;
 
@@ -37,4 +39,6 @@ public class TestDI {
         People people = (People) ac.getBean("people");
         System.out.println(people);
     }
+    
+    
 }

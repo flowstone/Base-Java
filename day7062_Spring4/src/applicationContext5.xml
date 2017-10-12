@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <!-- p命名空间注入    spring2.5提供 -->
+<!--     <bean id="car1" class="me.xueyao.domain.Car1" p:name="收割机" p:price="998"></bean> -->
+<!--     <bean id="car" class="me.xueyao.domain.Car"> -->
+        
+<!--               注入字符串：#{'字符串'} -->
+<!--               注入数字：#{数字} -->
+<!--               注入其它对象：#{对象id} -->
+        
+<!--         <property name="name" value="#{'插秧机'}"></property> -->
+<!--         <property name="price" value="#{9999}"></property> -->
+<!--     </bean> -->
+    
+  
+    
+    <bean id="carInfo" class="me.xueyao.domain.CarInfo"></bean>
+    
+    <!-- SpEL注入 -->
+    <bean id="car1" class="me.xueyao.domain.Car1">
+        <property name="name" value="#{carInfo.carName}"></property>
+        <property name="price" value="#{carInfo.carculaterPrice()}"></property>
+    </bean>
+</beans>
