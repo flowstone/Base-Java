@@ -74,16 +74,16 @@
 													<!-- <TD>所属客户</TD> -->
 													<TD>操作</TD>
 												</TR>
-												<c:forEach items="${linkmans }" var="linkman">
+												<c:forEach items="${linkMans }" var="linkman">
 												<TR
 													style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-													<TD>${linkman.lkmName }</TD>
-													<TD>${linkman.lkmGender }</TD>
-													<TD>${linkman.lkmPhone }</TD>
-													<TD>${linkman.lkmMobile }</TD>
-													<TD>${linkman.lkmEmail }</TD>
-													<TD>${linkman.lkmPosition }</TD>
-													<TD>${linkman.lkmMemo }</TD>
+													<TD>${linkman.lkm_name }</TD>
+													<TD>${linkman.lkm_gender }</TD>
+													<TD>${linkman.lkm_phone }</TD>
+													<TD>${linkman.lkm_mobile }</TD>
+													<TD>${linkman.lkm_email }</TD>
+													<TD>${linkman.lkm_position }</TD>
+													<TD>${linkman.lkm_memo }</TD>
 													<%-- <TD>${linkman.lkmCustomer.custName}</TD> --%>
 													<TD>
 													<a href="${pageContext.request.contextPath }/linkman/LinkManServlet?method=editLinkManUI&lkmId=${linkman.lkmId}">修改</a>
