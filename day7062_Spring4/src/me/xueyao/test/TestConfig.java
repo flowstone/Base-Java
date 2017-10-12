@@ -13,7 +13,7 @@ public class TestConfig {
     */
    @Test
    public void testSingleton() {
-       //读取Spring配置文件
+       //创建Spring容器
        ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext2");
        System.out.println("对象创建出来 了");
        UserDao userDao = (UserDao) ac.getBean("userDao");
