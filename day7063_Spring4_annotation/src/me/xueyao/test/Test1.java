@@ -27,5 +27,12 @@ public class Test1 {
         userDao.save();
     }
     
-  
+    //PreDestroy
+    @Test
+    public void test3() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserService  userService = (UserService) ac.getBean("userService");
+        userService.save();
+        ((ClassPathXmlApplicationContext)ac).close();
+    }
 }
