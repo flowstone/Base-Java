@@ -7,5 +7,5 @@
          http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
         
-    <context:component-scan base-package="me.xueyao.service"></context:component-scan>    
+    <context:component-scan base-package="me.xueyao"></context:component-scan>    
 </beans>

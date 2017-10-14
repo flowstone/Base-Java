@@ -4,6 +4,7 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import me.xueyao.dao.UserDao;
 import me.xueyao.service.UserService;
 
 public class Test1 {
@@ -13,8 +14,14 @@ public class Test1 {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService  userService = (UserService) ac.getBean("userService");
         userService.save();
-        
-        
     }
-
+    
+    @Test
+    public void test2() {
+        ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
+        UserDao userDao = (UserDao) ac.getBean("userDao");
+        userDao.save();
+    }
+    
+  
 }
