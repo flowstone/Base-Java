@@ -1,4 +1,5 @@
-package me.xueyao.service.impl;
+package me.xueyao.dao.impl;
+
 
 import java.sql.SQLException;
 import java.util.List;
@@ -6,7 +7,7 @@ import java.util.List;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
-import me.xueyao.dao.impl.CustomerDao;
+import me.xueyao.dao.CustomerDao;
 import me.xueyao.domain.Customer;
 
 public class CustomerDaoImpl implements CustomerDao {

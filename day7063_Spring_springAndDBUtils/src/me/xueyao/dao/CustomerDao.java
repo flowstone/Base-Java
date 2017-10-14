@@ -1,4 +1,5 @@
-package me.xueyao.dao.impl;
+package me.xueyao.dao;
+
 
 import java.util.List;
 

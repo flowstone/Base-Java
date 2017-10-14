@@ -2,7 +2,7 @@ package me.xueyao.service.impl;
 
 import java.util.List;
 
-import me.xueyao.dao.impl.CustomerDao;
+import me.xueyao.dao.CustomerDao;
 import me.xueyao.domain.Customer;
 import me.xueyao.service.CustomerService;
 

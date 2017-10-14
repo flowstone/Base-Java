@@ -8,7 +8,7 @@
         <property name="customerDao" ref="customerDao"></property>
     </bean> 
        
-    <bean id="customerDao" class="me.xueyao.service.impl.CustomerDaoImpl">
+    <bean id="customerDao" class="me.xueyao.dao.impl.CustomerDaoImpl">
         <property name="queryRunner" ref="queryRunner"></property>
     </bean>
     
