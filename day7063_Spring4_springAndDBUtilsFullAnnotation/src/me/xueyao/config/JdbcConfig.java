@@ -6,11 +6,25 @@ import javax.sql.DataSource;
 
 import org.apache.commons.dbutils.QueryRunner;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class JdbcConfig {
+    
+    @Value("${jdbc.driverClass}")
+    private String driverClass;
+    
+    @Value("${jdbc.uri}")
+    private String jdbcUrl;
+    
+    @Value("${jdbc.username}")
+    private String username;
+    
+    @Value("${jdbc.password}")
+    private String password;
+    
     /**
      * Bean注解:把方法的返回值 交给Spring容器来管理
      * @param ds
@@ -25,10 +39,10 @@ public class JdbcConfig {
     public DataSource createDatSource() {
         ComboPooledDataSource dataSource = new ComboPooledDataSource();
         try {
-            dataSource.setDriverClass("com.mysql.jdbc.Driver");
-            dataSource.setJdbcUrl("jdbc:mysql://localhost:3306/t_201709_test");
-            dataSource.setUser("root");
-            dataSource.setPassword("xueyao123456");
+            dataSource.setDriverClass(driverClass);
+            dataSource.setJdbcUrl(jdbcUrl);
+            dataSource.setUser(username);
+            dataSource.setPassword(password);
         } catch (PropertyVetoException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
