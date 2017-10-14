@@ -13,7 +13,7 @@ import org.springframework.context.support.PropertySourcesPlaceholderConfigurer;
 @PropertySource("classpath:me/xueyao/config/jdbc.properties")
 public class SpringConfig {
     
-    @Bean
+    @Bean //配置占位符解析器$
     public PropertySourcesPlaceholderConfigurer createPropertySourcesPlaceholderConfigurer() {
         return new PropertySourcesPlaceholderConfigurer();
     }
