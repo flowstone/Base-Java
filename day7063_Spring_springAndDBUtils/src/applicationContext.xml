@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    
+    <bean id="customerService" class="me.xueyao.service.impl.CustomerServiceImpl">
+        <property name="customerDao" ref="customerDao"></property>
+    </bean> 
+       
+    <bean id="customerDao" class="me.xueyao.service.impl.CustomerDaoImpl">
+        <property name="queryRunner" ref="queryRunner"></property>
+    </bean>
+    
+    <bean id="queryRunner" class="org.apache.commons.dbutils.QueryRunner">
+        <constructor-arg name="ds" ref="dataSource"></constructor-arg>
+    </bean>
+    
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+        <property name="jdbcUrl" value="jdbc:mysql://localhost:3306/t_201709_test"></property>
+        <property name="user" value="root"></property>
+        <property name="password" value="xueyao123456"></property>
+    </bean>
+</beans>
