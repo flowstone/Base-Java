@@ -1,5 +1,7 @@
 package me.xueyao.service.impl;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -16,8 +18,9 @@ public class UserServiceImpl implements UserService {
     private String name;
     
     //自动按照类型注入
-    @Autowired
-    @Qualifier("userDao2")
+    //@Autowired
+    //@Qualifier("userDao2")
+    @Resource(name="userDao2")
     private UserDao userDao;
     
     @Override
