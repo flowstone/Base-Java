@@ -14,6 +14,10 @@ public class Test1 {
         ApplicationContext ac = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService  userService = (UserService) ac.getBean("userService");
         userService.save();
+        System.out.println(userService);
+        
+        UserService userService1 = (UserService) ac.getBean("userService");
+        System.out.println(userService1);
     }
     
     @Test
