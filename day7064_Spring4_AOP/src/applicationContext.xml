@@ -17,9 +17,21 @@
    <aop:config>
         <!-- 配置切入点表达式：告诉spring框架哪些方法需要增强 -->
         <aop:pointcut expression="execution(* me.xueyao.dao.impl.UserDaoImpl.save(..))" id="pt"/>
+        <aop:pointcut expression="execution(* me.xueyao.dao.impl.UserDaoImpl.delete(..))" id="pt2"/>
+        <aop:pointcut expression="execution(* me.xueyao.dao.impl.UserDaoImpl.update(..))" id="pt3"/>
+        <aop:pointcut expression="execution(* me.xueyao.dao.impl.UserDaoImpl.list(..))" id="pt4"/>
         <aop:aspect ref="myAspect">
             <!-- 配置通知，通知分很多种，前置通知 -->
             <aop:before method="writeLog" pointcut-ref="pt"/>
+            <!-- 配置后置通知 -->
+            <aop:after-returning method="afterReturning" pointcut-ref="pt2" returning="result"/>
+            <!-- 配置环绕通知 -->
+            <aop:around method="around" pointcut-ref="pt3"/>
+            <!-- 配置最终通知 -->
+            <aop:after method="after" pointcut-ref="pt4"/>
+            <!-- 配置异常通知 -->
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pt4" throwing="ex"/>
+<!--             <aop:after-throwing method="afterThrowing" pointcut-ref="pt2" throwing="ex"/> -->
         </aop:aspect>
    </aop:config>
 </beans>

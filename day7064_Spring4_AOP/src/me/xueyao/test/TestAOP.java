@@ -19,4 +19,19 @@ public class TestAOP {
     public void test1() {
         userDao.save();
     }
+    
+    @Test
+    public void test2() {
+        userDao.delete();
+    }
+    
+    @Test
+    public void test3() {
+        userDao.update();
+    }
+    
+    @Test
+    public void test4() {
+        userDao.list();
+    }
 }
