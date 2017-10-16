@@ -11,10 +11,11 @@
         http://www.springframework.org/schema/aop/spring-aop.xsd">
         
     <!-- 配置占位符解析器 -->
-    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-        <!-- 指定外部属性文件 -->
-        <property name="location" value="classpath:jdbc.properties"></property>
-    </bean>
+<!--     <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> -->
+<!--         指定外部属性文件 -->
+<!--         <property name="location" value="classpath:jdbc.properties"></property> -->
+<!--     </bean> -->
+         <context:property-placeholder location="classpath:jdbc.properties"/>
 
     
     <bean id="accountDao" class="me.xueyao.dao.impl.AccountDaoImpl">
