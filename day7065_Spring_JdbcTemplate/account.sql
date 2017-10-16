@@ -1,0 +1,5 @@
+CREATE TABLE account(
+    id BIGINT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(10),
+    money DOUBLE
+) CHARACTER SET utf8;
