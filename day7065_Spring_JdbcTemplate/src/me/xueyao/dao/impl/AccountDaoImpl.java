@@ -1,25 +1,16 @@
 package me.xueyao.dao.impl;
 
-import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.support.JdbcDaoSupport;
 
 import me.xueyao.dao.AccountDao;
 import me.xueyao.domain.Account;
 
-public class AccountDaoImpl implements AccountDao {
-
-    private JdbcTemplate jdbcTemplate;
-    
-    
-    
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
-    }
-
+public class AccountDaoImpl extends JdbcDaoSupport implements AccountDao {
 
 
     @Override
     public void save(Account account) {
-         jdbcTemplate.update("insert into account(name,money) values(?,?)", account.getName(), account.getMoney());
+         this.getJdbcTemplate().update("insert into account(name,money) values(?,?)", account.getName(), account.getMoney());
          
     }
 

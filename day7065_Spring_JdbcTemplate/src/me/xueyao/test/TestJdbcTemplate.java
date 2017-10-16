@@ -53,7 +53,7 @@ public class TestJdbcTemplate {
     @Test
     public void test2() {
         Account account = new Account();
-        account.setName("Bile");
+        account.setName("小明");
         account.setMoney(1000.0);
         accountDao.save(account);
         
