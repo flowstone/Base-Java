@@ -21,6 +21,8 @@ public class TestJdbcTemplate {
     @Autowired
     private AccountDao accountDao;
     
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
     
     @Test
     public void test1() {
@@ -54,4 +56,29 @@ public class TestJdbcTemplate {
         accountDao.save(account);
         
     }
+    
+    /**
+     * JdbcTemplate之新增
+     */
+    @Test
+    public void test3() {
+        jdbcTemplate.update("insert into account(name,money) values(?,?)", "李四", 1000.0);
+    }
+    
+    /**
+     * JdbcTemplate之修改
+     */
+    @Test
+    public void test4() {
+        jdbcTemplate.update("update account set money=? where id=?", 5555.5, 1);
+    }
+    
+    /**
+     * JdbcTemplate之删除
+     */
+    @Test
+    public void test5() {
+        jdbcTemplate.update("delete from account where id=?", 4);
+    }
+    
 }
