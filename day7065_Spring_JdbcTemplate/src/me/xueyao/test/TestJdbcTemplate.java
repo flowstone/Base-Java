@@ -1,6 +1,7 @@
 package me.xueyao.test;
 
 import java.beans.PropertyVetoException;
+import java.util.List;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import me.xueyao.dao.AccountDao;
 import me.xueyao.domain.Account;
+import me.xueyao.rowmapper.AccountRowMapper;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:applicationContext.xml")
@@ -81,4 +83,35 @@ public class TestJdbcTemplate {
         jdbcTemplate.update("delete from account where id=?", 4);
     }
     
+    /**
+     * JdbcTemplate之查询某列的值
+     */
+    @Test
+    public void test6() {
+        Double money = jdbcTemplate.queryForObject("select money from account where id = ?", Double.class, 1);
+        System.out.println(money);
+    }
+    
+    /**
+     * JdbcTemplate之查询一个对象
+     */
+    @Test
+    public void test7() {
+        AccountRowMapper mapper = new AccountRowMapper();
+        Account account = jdbcTemplate.queryForObject("select * from account where id = ?", mapper, 1);
+        System.out.println(account);
+    }
+    
+    /**
+     * JdbcTemplate之查询一个集合
+     */
+    @Test
+    public void test8() {
+        AccountRowMapper mapper = new AccountRowMapper();
+        List<Account> accounts = jdbcTemplate.query("select * from account", mapper);
+        for (Account account : accounts) {
+            System.out.println(account);
+        }
+        
+    }
 }
