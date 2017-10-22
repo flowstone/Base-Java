@@ -47,4 +47,16 @@ public class TestSSH {
         session.close();
         sf.close();
     }
+    
+    /**
+     * 测试Spring+Hibernate整合
+     */
+    @Test
+    public void test3() {
+        Customer customer = new Customer();
+        customer.setCust_name("淘宝");
+        
+        customerService.saveCustomer(customer);
+        
+    }
 }

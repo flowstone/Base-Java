@@ -15,5 +15,13 @@
     <bean id="customerService" class="me.xueyao.ssh.service.impl.CustomerServiceImpl">
         <property name="customerDao" ref="customerDao"></property>
     </bean>
-    <bean id="customerDao" class="me.xueyao.ssh.dao.impl.CustomerDaoImpl"></bean>
+    <bean id="customerDao" class="me.xueyao.ssh.dao.impl.CustomerDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <!-- 配置SessionFactory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <!-- 指定hibernate.cfg.xml文件的路径 -->
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    </bean>
 </beans>
