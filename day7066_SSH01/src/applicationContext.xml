@@ -17,6 +17,7 @@
     </bean>
     <bean id="customerDao" class="me.xueyao.ssh.dao.impl.CustomerDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
+<!--         <property name="hibernateTemplate" ref="hibernateTemplate"></property> -->
     </bean>
     
     <!-- 配置SessionFactory -->
@@ -24,4 +25,29 @@
         <!-- 指定hibernate.cfg.xml文件的路径 -->
         <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
     </bean>
+    
+<!--     <bean id="hibernateTemplate" class="org.springframework.orm.hibernate5.HibernateTemplate"> -->
+<!--         注入sessionFactory -->
+<!--         <property name="sessionFactory" ref="sessionFactory"></property> -->
+<!--     </bean> -->
+    <!-- 配置hibernate的事务管理器 -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+        <!-- 注入sessionFactory -->
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+    
+    <!-- 配置事务的属性 -->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="find*" read-only="true"/>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    <!-- aop的配置 -->
+    <aop:config>
+        <aop:pointcut expression="execution(* me.xueyao.ssh.service.impl.*.*(..))" id="pt"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
+    </aop:config>
+    
 </beans>

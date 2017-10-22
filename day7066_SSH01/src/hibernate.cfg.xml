@@ -50,7 +50,7 @@
 <!-- 		<property name="hibernate.connection.isolation">4</property> -->
 				
 		<!-- 设置session与当前线程绑定 -->
-		<property name="hibernate.current_session_context_class">thread</property>
+<!-- 		<property name="hibernate.current_session_context_class">thread</property> -->
 		
 		<!-- 指定映射文件路径 -->
 		<mapping resource="me/xueyao/ssh/domain/Customer.hbm.xml"/>
