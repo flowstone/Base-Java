@@ -39,17 +39,17 @@
 							<TR>
 								<td>客户名称：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custName">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_name">
 								</td>
 								<td>所属行业 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custIndustry">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_industry">
 								</td>
 							</TR>							
 							<TR>	
 								<td>信息来源 ：</td>
 								<td>
-									<select name="custSource" class=textbox id=sChannel2 style="WIDTH: 180px">
+									<select name="cust_source" class=textbox id=sChannel2 style="WIDTH: 180px">
 										<option value="non">---请选择---</option>
 										<option value="6">电话营销</option>
 										<option value="7">网络营销</option>
@@ -57,7 +57,7 @@
 								</td>
 								<td>客户级别：</td>
 								<td>
-									<select name="custLevel" class=textbox id=sChannel2 style="WIDTH: 180px">
+									<select name="cust_level" class=textbox id=sChannel2 style="WIDTH: 180px">
 										<option value="non">---请选择---</option>
 										<option value="22">普通客户</option>
 										<option value="23">VIP客户</option>
@@ -67,11 +67,11 @@
 							<TR>
 								<td>联系地址 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custAddress">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_address">
 								</td>
 								<td>联系电话 ：</td>
 								<td>
-									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="custPhone">
+									<INPUT class=textbox id=sChannel2 style="WIDTH: 180px" maxLength=50 name="cust_phone">
 								</td>
 							</TR>
 							<tr>

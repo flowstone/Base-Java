@@ -8,7 +8,7 @@
     <constant name="struts.devMode" value="true" />
 
     <package name="customer" namespace="/customer" extends="struts-default">
-        <action name="customer_save" class="me.xueyao.ssh.action.CustomerAction" method="save">
+        <action name="customer_save" class="customerAction" method="save">
             <result>
                 /jsp/customer/list.jsp
             </result>    
