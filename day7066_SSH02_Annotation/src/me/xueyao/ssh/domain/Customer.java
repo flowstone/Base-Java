@@ -1,17 +1,26 @@
 package me.xueyao.ssh.domain;
 
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * 客户实体类
  * @author XueYao
  *
  */
+@Entity
+@Table(name="cst_customer")
 public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long cust_id;
 	private String cust_name;
 	private String cust_source;

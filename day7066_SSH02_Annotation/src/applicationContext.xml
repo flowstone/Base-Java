@@ -44,9 +44,10 @@
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
         </property>
-        <property name="mappingResources">
+        <!-- 注入带有注解的实体类资源 -->
+        <property name="annotatedClasses">
             <list>
-                <value>me/xueyao/ssh/domain/Customer.hbm.xml</value>
+                <value>me.xueyao.ssh.domain.Customer</value>
             </list>
         </property>
     </bean>
