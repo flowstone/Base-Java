@@ -1,0 +1,16 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>me.xueyao.maven</groupId>
+  <artifactId>mavenWeb2</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
+  <name>mavenWeb2</name>
+  <description>这是一个跳过骨架选择，使用默认web骨架的web项目</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.apache.struts</groupId>
+  		<artifactId>struts2-core</artifactId>
+  		<version>2.3.24</version>
+  	</dependency>
+  </dependencies>
+</project>
