@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop
+	http://www.springframework.org/schema/aop/spring-aop.xsd
+	http://www.springframework.org/schema/tx 
+	http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+		<!-- 引入domain配置 -->
+		<import resource="applicationContext-domain.xml" />
+
+		<!-- dao -->
+		<bean id="userDAO" class="me.xueyao.crm.dao.UserDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+
+		<bean id="customerDAO" class="me.xueyao.crm.dao.CustomerDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+
+		<!-- 数据字典 -->
+		<bean id="baseDictDAO" class="me.xueyao.crm.dao.BaseDictDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+		<!-- 联系人 -->
+		<!-- <bean id="linkManDAO" class="me.xueyao.crm.dao.LinkManDAOImpl"> <property 
+			name="sessionFactory" ref="sessionFactory"/> </bean> -->
+		<bean id="linkManDAO" class="me.xueyao.crm.dao.BaseDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+
+		<!-- 拜访记录 -->
+		<bean id="saleVisitDAO" class="me.xueyao.crm.dao.BaseDAOImpl">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+	</beans>

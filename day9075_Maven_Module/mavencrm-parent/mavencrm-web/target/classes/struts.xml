@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+   <!-- 自动加载核心配置文件开关 -->
+   <constant name="struts.configuration.xml.reload" value="true"/>
+   
+   <!-- 文件的一次上传的最大的尺寸 -->
+   <constant name="struts.multipart.maxSize" value="209715200"></constant>
+   
+	<!-- 使用简单样式 -->
+	<constant name="struts.ui.theme" value="simple"/>
+	<!-- 自定义包，编写自己action等配置 -->
+    <package name="default" namespace="/" extends="struts-default">
+    	<!-- 注册拦截器和栈 -->
+    	<interceptors>
+    		<!-- 登录拦截器 -->
+    		<interceptor name="loginInterceptor" class="me.xueyao.crm.web.interceptor.LoginInterceptor"></interceptor>
+    		<interceptor-stack name="myStack">
+    			<interceptor-ref name="loginInterceptor">
+    				<param name="excludeMethods">login,regist</param>
+    			</interceptor-ref>
+    			<interceptor-ref name="defaultStack"/>
+    		</interceptor-stack>
+    	</interceptors>
+    	<!-- 覆盖默认调用的拦截器栈 -->
+    	<default-interceptor-ref name="myStack"/>
+    	
+    	<global-results>
+    		<!-- 登录的全局结果集 -->
+    		<result name="login">/login.jsp</result>
+    	</global-results>
+    
+    	<!-- 用户操作 -->
+    	<action name="user_*" class="userAction" method="{1}">
+    		<!-- 登录页面 -->
+    		<result name="login">/login.jsp</result>
+    		<!-- 主页 -->
+    		<result type="redirect">/index.jsp</result>
+    	</action>
+    	
+    	<!-- 客户操作 -->
+    	<action name="customer_*" class="customerAction" method="{1}">
+    		<!-- 添加页面 -->
+    		<result name="addjsp">/jsp/customer/add.jsp</result>
+    		
+    		<!-- 列表页面 -->
+    		<result name="listjsp">/jsp/customer/list.jsp</result>
+    		
+    		<!-- 列表查询action -->
+    		<result name="listaction" type="redirectAction">customer_listPage</result>
+    		
+    		<!-- 覆盖、指定某个具体拦截器的参数 -->
+    		<interceptor-ref name="myStack">
+    		<!-- <interceptor-ref name="defaultStack"> -->
+    			<!-- 扩展名setAllowedExtensions -->
+    			<param name="fileUpload.allowedExtensions">.jpg,.png,.gif,.itheima</param>
+    			<!-- mime类型 setAllowedTypes-->
+    			<!-- <param name="fileUpload.allowedTypes">image/jpeg,image/gif</param> -->
+    			
+    			<!-- 单个文件的大小  setMaximumSize in bytes-->
+    			<param name="fileUpload.maximumSize">30*1024*1024</param>
+    		</interceptor-ref>
+    		<!-- input -->
+    		<result name="input">/jsp/customer/add.jsp</result>
+    		<!-- 修改页面 -->
+    		<result name="editjsp">/jsp/customer/edit.jsp</result>
+    		<result name="editinput">/jsp/customer/edit.jsp</result>
+    	</action>
+    	
+    	<!-- 数据字典 -->
+    	<action name="baseDict_*" class="baseDictAction" method="{1}">
+    		
+    	</action>
+    	
+    	<!-- 联系人 -->
+    	<action name="linkMan_*" class="linkManAction" method="{1}">
+    		<!-- 列表 -->
+    		<result name="listjsp">/jsp/linkman/list.jsp</result>
+    		<!-- 添加页面 -->
+    		<result name="addjsp">/jsp/linkman/add.jsp</result>
+    		
+    		<!-- 刷新列表 -->
+    		<result name="listaction" type="redirectAction">linkMan_listPage</result>
+    		
+    		<!-- 修改页面 -->
+    		<result name="editjsp">/jsp/linkman/edit.jsp</result>
+    	</action>
+    	
+    	<!-- 拜访记录 -->
+    	<action name="saleVisit_*" class="saleVisitAction" method="{1}">
+    		<!-- 列表 -->
+    		<result name="listjsp">/jsp/salevisit/list.jsp</result>
+    		<!-- 添加页面 -->
+    		<result name="addjsp">/jsp/salevisit/add.jsp</result>
+    		<!-- 刷新列表 -->
+    		<result name="listaction" type="redirectAction">saleVisit_listPage</result>
+    	</action>
+    </package>
+</struts>

@@ -1,0 +1,18 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>me.xueyao.maven</groupId>
+    <artifactId>mavencrm-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>mavencrm-dao</artifactId>
+  <name>mavencrm-dao</name>
+  <description>crm的持久层项目</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>me.xueyao.maven</groupId>
+  		<artifactId>mavencrm-domain</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
+</project>

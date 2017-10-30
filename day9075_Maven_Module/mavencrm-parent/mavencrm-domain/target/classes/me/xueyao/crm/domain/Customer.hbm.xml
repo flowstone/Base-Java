@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping >
+
+	<class name="me.xueyao.crm.domain.Customer" table="cst_customer" >
+		<id name="cust_id">
+			<generator class="native"></generator>
+		</id>
+		<property name="cust_name" ></property>
+		<!-- <property name="cust_source"></property>
+		<property name="cust_industry"></property>
+		<property name="cust_level"></property> -->
+		<property name="cust_phone"></property>
+		<property name="cust_mobile"></property>
+		<property name="cust_filename"></property>
+		<property name="cust_path"></property>
+		<!-- 关联属性配置 -->
+		<!-- 数据来源 -->
+		<many-to-one name="baseDictSource" class="me.xueyao.crm.domain.BaseDict" column="cust_source"/>
+		<!-- 行业 -->
+		<many-to-one name="baseDictIndustry" class="me.xueyao.crm.domain.BaseDict" column="cust_industry"/>
+		<!-- 客户级别 -->
+		<many-to-one name="baseDictLevel" class="me.xueyao.crm.domain.BaseDict" column="cust_level"/>
+		
+		<!-- 一对多 -->
+		<set name="linkMans" cascade="delete" inverse="true">
+			<!-- 自己在关系表中的外键的名字：对应值是oid -->
+			<key column="lkm_cust_id"></key>
+			<one-to-many class="me.xueyao.crm.domain.LinkMan"/>
+		</set>
+	</class>
+</hibernate-mapping>
