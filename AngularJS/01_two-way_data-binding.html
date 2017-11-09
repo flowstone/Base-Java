@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>双向数据绑定</title>
+    <script type="text/javascript" src="js/angular.js"></script>
+</head>
+<body>
+    <!--匿名应用模块-->
+    <div ng-app="">
+        <!-- 自动绑定表单元素的value的值到AngularJS内部变量中 -->
+        <input  ng-model="username" title="username"><br/>
+        <input ng-model="username" title="用户名">
+        <!--用来显示angularJS的变量的值 -->
+        <div>{{username}}</div>
+        <!--一般用于绑定非表单元素，用来显示变量-->
+        <div ng-bind="username"></div>
+    </div>
+
+</body>
+</html>

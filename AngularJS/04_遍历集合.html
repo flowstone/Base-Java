@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>遍历集合</title>
+    <script type="text/javascript" src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-app="myAppTable" ng-controller="myControllerTable">
+        <table border="1">
+            <tr>
+                <th>序号</th>
+                <th>商品编号</th>
+                <th>商品名称</th>
+                <th>商品价格</th>
+            </tr>
+            <!--循环遍历数据-->
+            <tr ng-repeat="product in products">
+                <td>{{$index}}</td>
+                <td>{{product.id}}</td>
+                <td>{{product.name}}</td>
+                <td>{{product.price}}</td>
+            </tr>
+        </table>
+    </div>
+    <script type="text/javascript">
+        angular.module("myAppTable",[])
+            .controller("myControllerTable",["$scope",function ($scope) {
+                //json数组
+                $scope.products = [
+                    {"id":1001,"name":"海尔洗衣机","price":"999"},
+                    {"id":1002,"name":"长虹电视机","price":"1999"},
+                    {"id":1002,"name":"熊猫电视机","price":"2000"}
+                ];
+            }]);
+    </script>
+</body>
+</html>

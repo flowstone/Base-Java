@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>按钮事件绑定</title>
+    <script type="text/javascript" src="js/angular.js"></script>
+</head>
+<body>
+    <div ng-app="myApplication" ng-controller="myController">
+        <input  title="username" ng-model="username">
+        <input type="submit" title="清除内容" value="清除内容" ng-click="clearMsg()">
+        <input type="submit" title="清除内容" value="清除内容">
+        <div>{{username}}</div>
+    </div>
+
+    <script type="text/javascript">
+        /*
+        * @param1:模块名
+        * @param2:扩展模块
+        * */
+        angular.module("myApplication",[])
+            /**
+             * @param1:控制器名
+             * @param2:扩展模块
+             */
+                .controller("myController",["$scope",function ($scope) {
+
+                $scope.clearMsg = function () {
+                    $scope.username = "";
+                };
+            }]);
+    </script>
+</body>
+</html>

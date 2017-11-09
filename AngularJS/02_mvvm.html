@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于模块化的MVC</title>
+    <script src="js/angular.js" type="text/javascript"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myCtrl">
+        <input title="username" ng-model="username">
+        <div>{{username}}</div>
+    </div>
+    <!--Controller-->
+    <script type="text/javascript">
+        /*
+        * 初始化应用模块
+        * @param1:应用模块的名字
+        * @param2:使用扩展模块
+        * */
+        angular.module("myApp",[])
+        /*
+            * 初始化控制器：认为控制器绑定了一堆JS
+            * @param1：控制器的名字
+            * @param2: js函数
+            * */
+            .controller("myCtrl",["$scope",function ($scope) {
+                //初始化变量
+                $scope.username = "Rose";
+            }]);
+    </script>
+</body>
+</html>
