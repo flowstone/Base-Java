@@ -40,7 +40,7 @@ public class HelloProducerTest {
         //生成10条消息
         for (int len = 0; len <= 9; len++) {
             //message:jms中消息的超级接口，也就是消息必须封装为message才能发送出去
-            TextMessage message = session.createTextMessage("今天天气真好");
+            TextMessage message = session.createTextMessage("今天天气真好"+len);
             //生产者发送消息
             producer.send(message);
         }
