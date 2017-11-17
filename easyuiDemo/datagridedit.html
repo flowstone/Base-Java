@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>行内编辑</title>
+    <!--导入jquery核心类库-->
+    <script type="text/javascript" src="easyui/jquery-1.8.3.js"></script>
+
+    <!--导入easyui类库-->
+    <link id="easyuiTheme" rel="stylesheet" href="easyui/themes/default/easyui.css">
+    <link rel="stylesheet" href="easyui/themes/icon.css">
+    <link rel="stylesheet" href="easyui/default.css">
+    <script type="text/javascript" src="easyui/jquery.easyui.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            //初始化
+            $('#grid').datagrid({
+                url:'datagrid_data.json',
+                columns:[[
+                    {field:'id',title:'编号',width:100,checkbox:true},
+                    {field:'name',title:'名称',width:100,
+                        editor:{ //编辑的设置
+                            type:"validatebox", //组件名字
+                            options:{ //组件属性
+                                required:true //必填
+                            }
+                        }
+                    },
+                    {field:'price',title:'价格',width:100,align:'right',
+                        editor:{ //编辑的设置
+                            type:"datebox", //组件名字
+                            options:{ //组件属性
+                                required:true //必填
+                            }
+                        }
+                    }
+                ]],
+                //添加工具栏
+                toolbar: [{
+                    iconCls: 'icon-edit',
+                    text:"打开编辑",
+                    handler: function(){
+                        //获取选中的一行
+                        var row = $("#grid").datagrid("getSelected");
+                        //获取选中的索引
+                        var index = $("#grid").datagrid("getRowIndex",row);
+                        //打开编辑选择行
+                        $("#grid").datagrid("beginEdit",index); //参数：选中行的索引
+
+                    }
+                },'-',{
+                    text:"结束编辑",
+                    handler: function(){
+                        //alert('结束编辑')
+                        //获取选中的一行
+                        var row = $("#grid").datagrid("getSelected");
+                        //获取选中的索引
+                        var index = $("#grid").datagrid("getRowIndex",row);
+                        //打开编辑选择行
+                        $("#grid").datagrid("endEdit",index); //参数：选中行的索引
+
+                    }
+                },'-',{
+                    text:"取消编辑",
+                    handler: function(){
+                        //alert('取消编辑')
+                        //获取选中的一行
+                        var row = $("#grid").datagrid("getSelected");
+                        //获取选中的索引
+                        var index = $("#grid").datagrid("getRowIndex",row);
+                        //打开编辑选择行
+                        $("#grid").datagrid("cancelEdit",index); //参数：选中行的索引
+
+                    }
+                }],
+                /*
+                * @param1: 结束编辑的行的索引
+                * @param2: 结束编辑后，一行的数据json
+                * @param3: 结束编辑后，改变的数据json
+                * */
+                onAfterEdit:function (index, row, changes) {
+                    console.log(row);
+                    console.log(changes);
+                }
+
+            });
+        });
+    </script>
+</head>
+<body>
+    <table id="grid"></table>
+</body>
+</html>
