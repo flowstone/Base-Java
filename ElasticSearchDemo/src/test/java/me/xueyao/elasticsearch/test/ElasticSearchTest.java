@@ -86,6 +86,51 @@ public class ElasticSearchTest {
     }
 
     /**
+     * 建立映射,中文分词器
+     * @throws Exception
+     */
+    @Test
+    public void testCreateMappingIK() throws Exception {
+        //创建连接搜索服务器对象
+        //默认的服务的商品是9300
+        Client client = TransportClient
+                .builder()
+                .build()
+                .addTransportAddress(
+                        new InetSocketTransportAddress(InetAddress.getByName("127.0.0.1"), 9300)
+                );
+        //创建映射属性json ：XContentBuilder工具类，用来组装json对象
+        XContentBuilder builder = XContentFactory.jsonBuilder()
+                .startObject()
+                .startObject("properties")
+                .startObject("id")
+                .field("type", "integer")
+                .field("store", "yes")
+                .endObject()
+                .startObject("title")
+                .field("type", "string")
+                .field("store", "yes")
+                .field("analyzer","ik")
+                .endObject()
+                .startObject("content")
+                .field("type", "string")
+                .field("store", "yes")
+                .field("analyzer","ik")
+                .endObject()
+                .endObject()
+                .endObject();
+        //创建映射关系
+        //目标：要对哪个索引(表)的哪个类型指定映射规则(将来要分词)
+        PutMappingRequest mappingRequest = Requests.putMappingRequest("idx_blog1")
+                //指定映射是文档类型，随便写，以后写实体类的类型字符串。表示一类数据
+                .type("article")
+                .source(builder);
+        //执行建立映射
+        client.admin().indices().putMapping(mappingRequest).get();
+        client.close();
+        System.out.println("ok......");
+    }
+    /**
      * 文档的创建
      * @throws Exception
      */
