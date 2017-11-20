@@ -100,7 +100,7 @@ public class LuceneUtils {
      * @return IndexSearcher对象
      * @throws Exception  异常
      */
-    private static IndexSearcher getIndexSearcher() throws Exception {
+    public static IndexSearcher getIndexSearcher() throws Exception {
         return new IndexSearcher(getIndexReader());
     }
 

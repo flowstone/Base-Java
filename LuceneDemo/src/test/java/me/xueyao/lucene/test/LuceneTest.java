@@ -68,12 +68,12 @@ public class LuceneTest {
     public void createIndexByIkTest() throws IOException {
         Document document = new Document();
 
-        document.add(new StringField("id","001", Field.Store.YES));
-        document.add(new TextField("title","明天", Field.Store.YES));
+        document.add(new StringField("id","003", Field.Store.YES));
+        document.add(new TextField("title","我是好人2", Field.Store.YES));
         document.add(new StringField("author","小明", Field.Store.YES));
         document.add(new StoredField("mail","xueyao.me@gmail.com"));
-        document.add(new TextField("content","如果没有明天，你现在最想做什么事情", Field.Store.YES));
-        document.add((new TextField("remark","我是备注", Field.Store.NO)));
+        document.add(new TextField("content","如果没有明天，你现在最想做什么事情，我是好人2", Field.Store.YES));
+        document.add((new TextField("remark","我是备注2", Field.Store.NO)));
         Directory directory = FSDirectory.open(new File("indexDir"));
 
         IndexWriterConfig indexWriterConfig = new IndexWriterConfig(Version.LATEST, new IKAnalyzer());
