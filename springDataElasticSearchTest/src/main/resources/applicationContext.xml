@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:elasticsearch="http://www.springframework.org/schema/data/elasticsearch"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/data/elasticsearch
+http://www.springframework.org/schema/data/elasticsearch/spring-elasticsearch-1.0.xsd">
+
+    <!-- bean组件扫描 -->
+    <context:component-scan base-package="me.xueyao.sde.service"/>
+    <!-- SpringDataSearch 扫描dao包，自动创建实现 -->
+    <elasticsearch:repositories base-package="me.xueyao.sde.dao"/>
+    <!-- elasticsearch客户端连接配置,集群节点有多个，则可以使用逗号分割 -->
+    <elasticsearch:transport-client id="client" cluster-nodes="localhost:9300" />
+    <!-- SpringDataElasticsearch的DAO必须依赖于elasticsearchTemplate -->
+    <bean id="elasticsearchTemplate" class="org.springframework.data.elasticsearch.core.ElasticsearchTemplate">
+        <!-- 构造注入client -->
+        <constructor-arg name="client" ref="client"/>
+    </bean>
+</beans>
