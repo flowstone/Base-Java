@@ -2,9 +2,51 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="UserMapper">
+<mapper namespace="me.xueyao.mapper.UserMapper">
     <select id="queryUserById" resultType="me.xueyao.pojo.User">
-        select * from tb_user where id = #{id}
+        select *,user_name as username from tb_user where id = #{id}
     </select>
+    <select id="queryUserAll" resultType="me.xueyao.pojo.User">
+        SELECT *,user_name as username FROM tb_user
+    </select>
+    <insert id="insertUser" parameterType="me.xueyao.pojo.User">
+        INSERT INTO tb_user (
+        user_name,
+        password,
+        name,
+        age,
+        sex,
+        birthday,
+        created,
+        updated
+        ) VALUES
+        (
+        #{userName},
+        #{password},
+        #{name},
+        #{age},
+        #{sex},
+        #{birthday},
+        now(),
+        now()
+        );
+    </insert>
+    <update id="updateUser" parameterType="me.xueyao.pojo.User">
+        UPDATE tb_user
+        SET
+        user_name = #{userName},
+        password = #{password},
+        name = #{name},
+        age = #{age},
+        sex = #{age},
+        birthday = #{birthday},
+        updated = now()
+        WHERE
+        (id = #{id});
+
+    </update>
+    <delete id="deleteUserById" parameterType="java.lang.Long">
+        delete from tb_user where id = #{id}
+    </delete>
 
 </mapper>
