@@ -13,8 +13,18 @@
         <!--别名扫描，对大小写不敏感-->
         <package name="me.xueyao.pojo" />
     </typeAliases>
-    <environments default="development">
+    <environments default="test">
         <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+
+        <environment id="test">
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}"/>
