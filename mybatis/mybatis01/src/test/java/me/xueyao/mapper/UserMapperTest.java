@@ -26,7 +26,7 @@ public class UserMapperTest {
         String resource = "mybatis-config.xml";
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream,"test");
-        SqlSession sqlSession = sqlSessionFactory.openSession();
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
         this.userMapper = sqlSession.getMapper(UserMapper.class);
     }
@@ -50,11 +50,11 @@ public class UserMapperTest {
     @Test
     public void testInsertUser() {
         User user = new User();
-        user.setUserName("xiaoming");
+        user.setUserName("xiaohong");
         user.setPassword("123456");
-        user.setName("小明");
+        user.setName("小红");
         user.setAge(18);
-        user.setSex(1);
+        user.setSex(2);
         user.setBirthday(new Date());
         this.userMapper.insertUser(user);
 

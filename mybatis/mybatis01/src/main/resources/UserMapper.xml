@@ -9,7 +9,7 @@
     <select id="queryUserAll" resultType="User">
         SELECT * FROM tb_user
     </select>
-    <insert id="insertUser" parameterType="User">
+    <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         INSERT INTO tb_user (
         user_name,
         password,
