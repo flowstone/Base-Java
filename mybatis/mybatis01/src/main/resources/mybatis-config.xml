@@ -9,7 +9,9 @@
     </settings>
     <!--别名-->
     <typeAliases>
-        <typeAlias type="me.xueyao.pojo.User" alias="User"/>
+        <!--<typeAlias type="me.xueyao.pojo.User" alias="User"/>-->
+        <!--别名扫描，对大小写不敏感-->
+        <package name="me.xueyao.pojo" />
     </typeAliases>
     <environments default="development">
         <environment id="development">
