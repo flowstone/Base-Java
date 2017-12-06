@@ -6,4 +6,5 @@
     <select id="queryUserById" resultType="me.xueyao.pojo.User">
         select * from tb_user where id = #{id}
     </select>
+
 </mapper>

@@ -15,5 +15,6 @@
 
     <mappers>
         <mapper resource="UserMapper.xml" />
+        <mapper resource="UserDaoMapper.xml"/>
     </mappers>
 </configuration>
