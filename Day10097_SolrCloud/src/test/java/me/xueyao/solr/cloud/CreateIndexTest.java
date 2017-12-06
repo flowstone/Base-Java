@@ -21,10 +21,10 @@ public class CreateIndexTest {
     public void testWrite() throws IOException, SolrServerException {
 
         CloudSolrServer server = new CloudSolrServer("192.168.56.101:2181,192.168.56.102:2181,192.168.56.103:2181");
-        server.setDefaultCollection("collection1");
+        server.setDefaultCollection("core1");
         SolrInputDocument document = new SolrInputDocument();
-        document.addField("id","1002");
-        document.addField("title","华硕电脑，你值得拥有");
+        document.addField("id","1001");
+        document.addField("title","今天天气真好");
 
         server.add(document);
         server.commit();

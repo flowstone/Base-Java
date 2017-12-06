@@ -19,8 +19,8 @@ public class DeleteIndexTest {
     @Test
     public void testDeleteByID() throws IOException, SolrServerException {
         CloudSolrServer server = new CloudSolrServer("192.168.56.101:2181,192.168.56.102:2181,192.168.56.103:2181");
-        server.setDefaultCollection("collection1");
-        server.deleteById("1002");
+        server.setDefaultCollection("core1");
+        server.deleteById("1001");
 
         server.commit();
     }
