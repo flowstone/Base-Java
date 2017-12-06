@@ -3,13 +3,13 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.xueyao.mapper.UserMapper">
-    <select id="queryUserById" resultType="me.xueyao.pojo.User">
+    <select id="queryUserById" resultType="User">
         select * from tb_user where id = #{id}
     </select>
-    <select id="queryUserAll" resultType="me.xueyao.pojo.User">
+    <select id="queryUserAll" resultType="User">
         SELECT * FROM tb_user
     </select>
-    <insert id="insertUser" parameterType="me.xueyao.pojo.User">
+    <insert id="insertUser" parameterType="User">
         INSERT INTO tb_user (
         user_name,
         password,
@@ -31,7 +31,7 @@
         now()
         );
     </insert>
-    <update id="updateUser" parameterType="me.xueyao.pojo.User">
+    <update id="updateUser" parameterType="User">
         UPDATE tb_user
         SET
         user_name = #{userName},
@@ -45,7 +45,7 @@
         (id = #{id});
 
     </update>
-    <delete id="deleteUserById" parameterType="java.lang.Long">
+    <delete id="deleteUserById" parameterType="Long">
         delete from tb_user where id = #{id}
     </delete>
 
