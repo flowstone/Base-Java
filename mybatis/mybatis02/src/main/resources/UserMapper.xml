@@ -79,7 +79,37 @@
                     AND user_name = 'zhangsan';
                 </otherwise>
             </choose>
-                 
-
     </select>
+
+    <select id="queryUserListLikeUserNameAndAge" resultType="User">
+        SELECT * FROM tb_user
+        <where>
+            <if test="userName!=null and userName.trim()!=''">
+                AND user_name LIKE '%' #{userName} '%'
+            </if>
+            <if test="age!=null">
+                AND age = #{age}
+            </if>
+        </where>
+    </select>
+
+    <update id="updateUserSelective" parameterType="User">
+        UPDATE tb_user
+        <set>
+            <if test="userName!=null and userName.trim()!=''">user_name = #{userName},</if>
+            <if test="password!=null and password.trim()!=''">password = #{password},</if>
+            <if test="name!=null and name.trim()!=''">name = #{name},</if>
+            <if test="age!=null">age = #{age},</if>
+            <if test="sex!=null">sex = #{sex}</if>
+        </set>
+        WHERE (id = #{id})
+    </update>
+
+    <select id="queryUserListByIds" resultType="User">
+        SELECT * FROM tb_user WHERE id IN
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </select>
+
 </mapper>

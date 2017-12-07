@@ -94,4 +94,39 @@ public class UserMapperTest {
         }
     }
 
+    @Test
+    public void testQueryUserListLikeUserNameAndAge() {
+        List<User> userList = this.userMapper.queryUserListLikeUserNameAndAge("xiaoming", 18);
+        for (User user : userList) {
+            System.out.println(user);
+
+        }
+    }
+
+
+    @Test
+    public void testUpdateUserSelective() {
+        User user = new User();
+        user.setSex(8);
+        user.setUserName("xiaohua");
+        user.setName("小华");
+        user.setPassword("123456");
+        user.setAge(18);
+        user.setSex(1);
+
+        this.userMapper.updateUserSelective(user);
+
+
+    }
+
+
+    @Test
+    public void testQueryUserListByIds() {
+        List<User> userList = this.userMapper.queryUserListByIds(new Long[]{1L, 3L, 4L});
+        for (User user : userList) {
+            System.out.println(user);
+
+        }
+    }
+
 }
