@@ -19,12 +19,14 @@ import java.util.Map;
  */
 public class UserMapperTest {
     private  UserMapper userMapper;
+    SqlSession sqlSession = null;
+    SqlSessionFactory sqlSessionFactory = null;
     @Before
     public void setUp() throws Exception {
         String resource = "mybatis-config.xml";
         InputStream resourceAsStream = Resources.getResourceAsStream(resource);
-        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
-        SqlSession sqlSession = sqlSessionFactory.openSession(true);
+        sqlSessionFactory = new SqlSessionFactoryBuilder().build(resourceAsStream);
+        sqlSession = sqlSessionFactory.openSession(true);
 
         this.userMapper = sqlSession.getMapper(UserMapper.class);
     }
@@ -129,4 +131,30 @@ public class UserMapperTest {
         }
     }
 
+    @Test
+    public void testCache() {
+        User user = this.userMapper.queryUserById(1L);
+        System.out.println(user);
+        //强制清除缓存
+        sqlSession.clearCache();
+        System.out.println("===========完美分割线=========");
+        User user1 = this.userMapper.queryUserById(1L);
+        System.out.println(user1);
+
+    }
+
+    @Test
+    public void testCache2() {
+        User user = this.userMapper.queryUserById(1L);
+        System.out.println(user);
+        sqlSession.close();
+        System.out.println("====分割线====");
+
+        SqlSession sqlSession = sqlSessionFactory.openSession();
+        this.userMapper= sqlSession.getMapper(UserMapper.class);
+        User user1 = this.userMapper.queryUserById(1L);
+        System.out.println(user1);
+
+
+    }
 }
