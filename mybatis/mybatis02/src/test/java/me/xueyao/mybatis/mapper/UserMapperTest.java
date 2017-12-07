@@ -78,4 +78,12 @@ public class UserMapperTest {
         System.out.println(user);
     }
 
+    @Test
+    public void testQueryUserListUserName() {
+        List<User> userList = this.userMapper.queryUserListLikeUserName(null);
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
+
 }

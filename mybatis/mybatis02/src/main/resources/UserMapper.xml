@@ -58,4 +58,11 @@
     <select id="queryUserById" resultMap="userMap">
         SELECT <include refid="CommonSQL.commonSql"/> FROM tb_user where id = #{id}
     </select>
+
+    <select id="queryUserListLikeUserName" resultType="User">
+        SELECT * from tb_user WHERE sex = 1
+        <if test="userName!=null and userName.trim()!=''">
+         and  user_name   LIKE '%' #{userName} '%'
+        </if>
+    </select>
 </mapper>
