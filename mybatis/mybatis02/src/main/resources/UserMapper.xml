@@ -14,6 +14,31 @@
             birthday,
             created,
             updated
-        FROM tb_user where id = #{id} ;
+        FROM tb_user where id = #{id}
+    </select>
+
+    <select id="queryUsersByTableName" resultType="User">
+        SELECT
+            id,
+            user_name,
+            password,
+            name,
+            age,
+            sex,
+            birthday,
+            created,
+            updated
+        FROM ${tableName}
+    </select>
+
+    <select id="login" resultType="User" parameterType="String">
+        SELECT * FROM tb_user WHERE user_name = #{userName} AND password = #{password};
+    </select>
+    <!--
+        简单对象：#{key} |  ${key}
+        POJO:  #{key.属性名}  |  ${key.属性名}
+    -->
+    <select id="loginMap" resultType="User" parameterType="String">
+        SELECT * FROM tb_user WHERE user_name = #{userName} AND password = #{password};
     </select>
 </mapper>

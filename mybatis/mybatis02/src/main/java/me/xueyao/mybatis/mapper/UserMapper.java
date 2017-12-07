@@ -1,6 +1,11 @@
 package me.xueyao.mybatis.mapper;
 
 import me.xueyao.mybatis.pojo.User;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author XueYao
@@ -13,4 +18,26 @@ public interface UserMapper {
      * @return 用户对象
      */
     User queryUserById(Long id);
+
+    /**
+     * 根据表名查询用户
+     * @param tableName 表名
+     * @return 返回用户结果集
+     */
+    List<User> queryUsersByTableName(@Param("tableName") String tableName);
+
+    /**
+     * 登录
+     * @param username 用户名
+     * @param password 密码
+     * @return  用户对象
+     */
+    User login(@Param("userName") String username, @Param("password") String password);
+
+    /**
+     * HashMap 登录
+     * @param user
+     * @return
+     */
+    User loginMap(Map<String, Object> user);
 }

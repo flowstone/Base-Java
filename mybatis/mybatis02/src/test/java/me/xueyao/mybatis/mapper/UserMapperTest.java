@@ -9,6 +9,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.io.InputStream;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @author XueYao
@@ -27,9 +30,37 @@ public class UserMapperTest {
     }
 
     @Test
-    public void queryUserById() throws Exception {
+    public void testQueryUserById() throws Exception {
         User user = this.userMapper.queryUserById(1L);
         System.out.println(user);
+    }
+
+    /**
+     * 查询表里的所有用户
+     */
+    @Test
+    public void testQueryUsersByTableName() {
+        List<User> userList = this.userMapper.queryUsersByTableName("tb_user");
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
+
+
+    @Test
+    public void testLogin() {
+        User login = this.userMapper.login("xiaoming", "123456");
+        System.out.println(login);
+    }
+
+    @Test
+    public void testLoginMap() {
+        Map<String, Object> map = new HashMap<>();
+        map.put("userName", "xiaoming");
+        map.put("password", "123456");
+        User user = this.userMapper.loginMap(map);
+        System.out.println(user);
+
     }
 
 }
