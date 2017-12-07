@@ -24,8 +24,11 @@ public class UserMapperTest {
     @Before
     public void setUp() throws IOException {
         String resource = "mybatis-config.xml";
+        //获取输入流
         InputStream inputStream = Resources.getResourceAsStream(resource);
+        //创建sqlSessionFactory对象
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream,"test");
+        //获取sqlSession对象，openSession传入参数true，则说明事务自动提交
         SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
         this.userMapper = sqlSession.getMapper(UserMapper.class);

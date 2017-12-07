@@ -12,32 +12,32 @@ public interface UserMapper {
 
     /**
      * 查询用户
-     * @param id
-     * @return
+     * @param id 用户id
+     * @return 用户对象
      */
     User queryUserById(Long id);
 
     /**
      * 查询所有用户
-     * @return
+     * @return 用户对象集合
      */
     List<User> queryUserAll();
 
     /**
      * 添加用户
-     * @param user
+     * @param user 用户对象
      */
     void insertUser(User user);
 
     /**
      * 更新用户
-     * @param user
+     * @param user 用户对象
      */
     void updateUser(User user);
 
     /**
      * 删除用户
-     * @param id
+     * @param id 用户id
      */
     void deleteUserById(Long id);
 }

@@ -15,7 +15,9 @@
     </typeAliases>
     <environments default="test">
         <environment id="development">
+            <!--事务管理器-->
             <transactionManager type="JDBC"/>
+            <!--数据源-->
             <dataSource type="POOLED">
                 <property name="driver" value="${driver}"/>
                 <property name="url" value="${url}"/>
@@ -36,6 +38,7 @@
     </environments>
 
     <mappers>
+        <!--载入映射文件-->
         <mapper resource="UserMapper.xml" />
         <mapper resource="UserDaoMapper.xml" />
     </mappers>

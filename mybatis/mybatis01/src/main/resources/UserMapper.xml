@@ -2,13 +2,23 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--命名空间：UserMapper接口的全路径名-->
 <mapper namespace="me.xueyao.mapper.UserMapper">
+    <!--id：查询的方法名，应该和接口中的抽象方法名一致，resultType：返回值类型，应该是POJO的全路径名，
+        此处设置了typeAliases类型别名，可以省略全路径
+    -->
     <select id="queryUserById" resultType="User">
         select * from tb_user where id = #{id}
     </select>
     <select id="queryUserAll" resultType="User">
         SELECT * FROM tb_user
     </select>
+    <!--
+        parameterType:参数类型，可以省略，应该和UserMapper接口中的参数类型一致
+        useGeneratedKeys：是否回写主键，可选
+        keyColumn: 属性对应数据表中的列名
+        keyProperty:属性对应POJO表中的属性名
+    -->
     <insert id="insertUser" parameterType="User" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
         INSERT INTO tb_user (
         user_name,
@@ -45,6 +55,9 @@
         (id = #{id});
 
     </update>
+    <!--
+        parameterType:参数是包装类型，可以省略全路径名，因为Mybatis内置了常用类型的别名
+    -->
     <delete id="deleteUserById" parameterType="Long">
         delete from tb_user where id = #{id}
     </delete>

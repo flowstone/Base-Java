@@ -27,7 +27,9 @@ public class MybatisTest {
             User user = sqlSession.selectOne("UserMapper.queryUserById", 1L);
             System.out.println(user);
         }finally {
+            //判断是否为空
             if (sqlSession!=null) {
+                //释放资源
                 sqlSession.close();
             }
         }
