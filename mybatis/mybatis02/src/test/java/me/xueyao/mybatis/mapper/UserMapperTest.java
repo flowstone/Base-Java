@@ -63,4 +63,17 @@ public class UserMapperTest {
 
     }
 
+
+    @Test
+    public void testQueryUsersLikeUserName() {
+        User user = this.userMapper.queryUsersLikeUserName("xiao");
+        System.out.println(user);
+    }
+
+    @Test
+    public void testQueryUserByID() {
+        User user = this.userMapper.queryUserById(8L);
+        System.out.println(user);
+    }
+
 }

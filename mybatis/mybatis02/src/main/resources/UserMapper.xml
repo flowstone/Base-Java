@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="me.xueyao.mybatis.mapper.UserMapper">
+    <!--
     <select id="queryUserById" resultType="User" >
         SELECT
             id,
@@ -16,7 +17,7 @@
             updated
         FROM tb_user where id = #{id}
     </select>
-
+    -->
     <select id="queryUsersByTableName" resultType="User">
         SELECT
             id,
@@ -40,5 +41,31 @@
     -->
     <select id="loginMap" resultType="User" parameterType="String">
         SELECT * FROM tb_user WHERE user_name = #{userName} AND password = #{password};
+    </select>
+
+    <!--<select id="queryUsersLikeUserName" resultType="User">
+        SELECT * FROM tb_user WHERE user_name like '%${userName}%'
+    </select>-->
+    
+    <select id="queryUsersLikeUserName" resultType="User">
+        SELECT * FROM tb_user WHERE user_name LIKE '%' #{userName} '%'
+    </select>
+    
+    <resultMap id="userMap" type="User" autoMapping="true">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName" />
+    </resultMap>
+    <select id="queryUserById" resultMap="userMap">
+        SELECT
+            id,
+            user_name,
+            password,
+            name,
+            age,
+            sex,
+            birthday,
+            created,
+            updated
+        FROM tb_user where id = #{id}
     </select>
 </mapper>

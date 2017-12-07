@@ -40,4 +40,11 @@ public interface UserMapper {
      * @return
      */
     User loginMap(Map<String, Object> user);
+
+    /**
+     * 根据用户名模糊查询
+     * @param username 用户名
+     * @return 用户对象
+     */
+    User queryUsersLikeUserName(@Param("userName") String username);
 }
