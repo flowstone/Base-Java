@@ -86,4 +86,12 @@ public class UserMapperTest {
         }
     }
 
+    @Test
+    public void testQueryUserListLikeUserNameOrAge() {
+        List<User> userList = this.userMapper.queryUserListLikeUserNameOrAge("xiaoming", 18);
+        for (User user : userList) {
+            System.out.println(user);
+        }
+    }
+
 }

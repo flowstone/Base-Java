@@ -65,4 +65,21 @@
          and  user_name   LIKE '%' #{userName} '%'
         </if>
     </select>
+
+    <select id="queryUserListLikeUserNameOrAge" resultType="User">
+        SELECT  * FROM tb_user WHERE sex = 1
+            <choose>
+                <when test="userName!=null and userName.trim()!=''">
+                    AND user_name LIKE '%' #{userName} '%'
+                </when>
+                <when test="age!=null">
+                    AND age = #{age}
+                </when>
+                <otherwise>
+                    AND user_name = 'zhangsan';
+                </otherwise>
+            </choose>
+                 
+
+    </select>
 </mapper>

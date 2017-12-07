@@ -54,4 +54,12 @@ public interface UserMapper {
      * @return 用户结果集
      */
     List<User> queryUserListLikeUserName(@Param("userName") String username);
+
+    /**
+     * 查询男性用户，如果输入了用户名则按照用户名模糊查找，否则如果输入了年龄则按照年龄查找，否则查找用户名为“zhangsan”的用户。
+     * @param username 用户名
+     * @param age 年龄
+     * @return 用户结果集
+     */
+    List<User> queryUserListLikeUserNameOrAge(@Param("userName") String username, @Param("age") Integer age);
 }
