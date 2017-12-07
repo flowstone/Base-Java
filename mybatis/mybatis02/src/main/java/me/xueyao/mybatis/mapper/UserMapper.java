@@ -46,5 +46,5 @@ public interface UserMapper {
      * @param username 用户名
      * @return 用户对象
      */
-    User queryUsersLikeUserName(@Param("userName") String username);
+    List<User> queryUsersLikeUserName(@Param("userName") String username);
 }

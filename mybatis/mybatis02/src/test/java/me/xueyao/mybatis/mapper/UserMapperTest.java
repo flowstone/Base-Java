@@ -66,8 +66,10 @@ public class UserMapperTest {
 
     @Test
     public void testQueryUsersLikeUserName() {
-        User user = this.userMapper.queryUsersLikeUserName("xiao");
-        System.out.println(user);
+        List<User> userList = this.userMapper.queryUsersLikeUserName("zhang");
+        for (User user : userList) {
+            System.out.println(user);
+        }
     }
 
     @Test

@@ -56,16 +56,6 @@
         <result column="user_name" property="userName" />
     </resultMap>
     <select id="queryUserById" resultMap="userMap">
-        SELECT
-            id,
-            user_name,
-            password,
-            name,
-            age,
-            sex,
-            birthday,
-            created,
-            updated
-        FROM tb_user where id = #{id}
+        SELECT <include refid="CommonSQL.commonSql"/> FROM tb_user where id = #{id}
     </select>
 </mapper>
