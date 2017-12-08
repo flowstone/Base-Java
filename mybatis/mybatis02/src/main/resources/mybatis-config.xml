@@ -32,6 +32,7 @@
     <!--载入映射文件-->
     <mappers>
         <mapper resource="UserMapper.xml"/>
+        <mapper resource="OrderMapper.xml"/>
         <!--引入sql片段-->
         <mapper resource="CommonSQL.xml" />
     </mappers>
