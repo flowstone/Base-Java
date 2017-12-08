@@ -15,4 +15,11 @@ public interface OrderMapper {
      * @return 订单结果对象
      */
     Order queryOrderWithUser(@Param("number") String number);
+
+    /**
+     * 查询订单，并查询出订单人信息并且查询订单详情
+     * @param number 订单号
+     * @return 订单对象
+     */
+    Order queryOrderWithUserDetail(@Param("number") String number);
 }

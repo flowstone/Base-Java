@@ -2,6 +2,7 @@ package me.xueyao.mybatis.pojo;
 
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 订单表
@@ -17,6 +18,16 @@ public class Order implements Serializable{
     private String orderNumber;
 
     private  User user;
+
+    private List<Orderdetail> orderdetailList;
+
+    public List<Orderdetail> getOrderdetailList() {
+        return orderdetailList;
+    }
+
+    public void setOrderdetailList(List<Orderdetail> orderdetailList) {
+        this.orderdetailList = orderdetailList;
+    }
 
     public User getUser() {
         return user;
@@ -50,6 +61,7 @@ public class Order implements Serializable{
         this.orderNumber = orderNumber;
     }
 
+
     @Override
     public String toString() {
         return "Order{" +
@@ -57,6 +69,7 @@ public class Order implements Serializable{
                 ", userId=" + userId +
                 ", orderNumber='" + orderNumber + '\'' +
                 ", user=" + user +
+                ", orderdetailList=" + orderdetailList +
                 '}';
     }
 }

@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @date 2017-12-08
  */
 public class OrderMapperTest {
-    OrderMapper orderMapper;
+    private OrderMapper orderMapper = null;
     @Before
     public void setUp() throws Exception {
         String resource = "mybatis-config.xml";
@@ -32,6 +32,11 @@ public class OrderMapperTest {
     public void testQueryOrderWithUser() throws Exception {
         Order order = this.orderMapper.queryOrderWithUser("20140921001");
         System.out.println(order);
+    }
+
+    @Test
+    public void testQueryOrderWithUserDetail() {
+        System.out.println(this.orderMapper.queryOrderWithUserDetail("20140921001"));
     }
 
 }
