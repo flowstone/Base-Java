@@ -10,7 +10,17 @@ public class Orderdetail implements Serializable{
     private Double totalPrice;
     
     private Integer status;
-    
+
+    private Item item;
+
+    public Item getItem() {
+        return item;
+    }
+
+    public void setItem(Item item) {
+        this.item = item;
+    }
+
     public Double getTotalPrice() {
         return totalPrice;
     }
@@ -42,6 +52,7 @@ public class Orderdetail implements Serializable{
                 "id=" + id +
                 ", totalPrice=" + totalPrice +
                 ", status=" + status +
+                ", item=" + item +
                 '}';
     }
 }

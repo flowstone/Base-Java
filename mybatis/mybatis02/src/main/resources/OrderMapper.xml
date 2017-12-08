@@ -30,4 +30,24 @@
             INNER JOIN tb_orderdetail od ON od.order_id = o.id
         WHERE o.order_number=#{number};
     </select>
+
+    <resultMap id="orderUserDetailItemMap" type="Order" autoMapping="true">
+        <id column="id" property="id"/>
+        <association property="user" javaType="User" autoMapping="true">
+            <id column="user_id" property="id" />
+        </association>
+        <collection property="orderdetailList" javaType="list" ofType="OrderDetail" autoMapping="true">
+            <id column="detail_id" property="id"/>
+            <association property="item" javaType="Item" autoMapping="true">
+                <id column="item_id" property="id"/>
+            </association>
+        </collection>
+    </resultMap>
+    <select id="queryOrderWithUserDetailItem" resultMap="orderUserDetailItemMap">
+        SELECT * from tb_order o
+            INNER JOIN tb_user u ON o.user_id = u.id
+            INNER JOIN tb_orderdetail od ON od.order_id = o.id
+            INNER JOIN tb_item i ON i.id = od.item_id
+        WHERE o.order_number=#{number};
+    </select>
 </mapper>

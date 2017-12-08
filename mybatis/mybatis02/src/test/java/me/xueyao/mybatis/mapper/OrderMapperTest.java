@@ -39,4 +39,9 @@ public class OrderMapperTest {
         System.out.println(this.orderMapper.queryOrderWithUserDetail("20140921001"));
     }
 
+    @Test
+    public void testQueryOrderWithUserDetailItem() {
+        System.out.println(this.orderMapper.queryOrderWithUserDetailItem("20140921001"));
+    }
+
 }

@@ -21,6 +21,8 @@ public class Order implements Serializable{
 
     private List<Orderdetail> orderdetailList;
 
+
+
     public List<Orderdetail> getOrderdetailList() {
         return orderdetailList;
     }
