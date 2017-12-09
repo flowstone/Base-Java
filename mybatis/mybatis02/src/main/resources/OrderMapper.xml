@@ -49,5 +49,19 @@
             INNER JOIN tb_orderdetail od ON od.order_id = o.id
             INNER JOIN tb_item i ON i.id = od.item_id
         WHERE o.order_number=#{number};
+
+    </select>
+
+    <resultMap id="orderUserLazyMap" type="Order" autoMapping="true">
+        <id column="id" property="id"/>
+        <association property="user" javaType="User" select="queryUser" column="user_id">
+        </association>
+    </resultMap>
+    
+    <select id="queryOrderLazy" resultMap="orderUserLazyMap" >
+        SELECT * FROM tb_order WHERE order_number = #{number}
+    </select>
+    <select id="queryUser" resultType="User">
+        SELECT * FROM tb_user WHERE id= #{id}
     </select>
 </mapper>

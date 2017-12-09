@@ -29,4 +29,11 @@ public interface OrderMapper {
      * @return 订单对象
      */
     Order queryOrderWithUserDetailItem(@Param("number") String number);
+
+    /**
+     * 查询订单，启用延迟加载
+     * @param number 订单号
+     * @return 订单对象
+     */
+    Order queryOrderLazy(@Param("number") String number);
 }

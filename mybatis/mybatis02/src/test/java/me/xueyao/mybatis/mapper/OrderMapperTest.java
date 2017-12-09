@@ -44,4 +44,10 @@ public class OrderMapperTest {
         System.out.println(this.orderMapper.queryOrderWithUserDetailItem("20140921001"));
     }
 
+    @Test
+    public void testQueryOrderLazy() {
+        Order order = this.orderMapper.queryOrderLazy("20140921001");
+        System.out.println(order.getOrderNumber());
+        System.out.println(order.getUser());
+    }
 }
