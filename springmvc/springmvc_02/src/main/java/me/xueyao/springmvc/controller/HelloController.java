@@ -7,11 +7,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -180,5 +183,16 @@ public class HelloController {
         return "hello";
     }
 
+    @RequestMapping(value = "/show030")
+    public String test030(Model model, @RequestParam("file")MultipartFile file) throws IOException {
+        if (null != file) {
+            file.transferTo(new File("D:\\TEMP\\"+file.getOriginalFilename()));
+        }
+        /*
+         * 此处如果没有加/,则重定向地址会是http://localhost:8080/hello/success.html
+         * 此处加上/，则重定向地址会是http://localhost:8080/success.html
+        */
+        return "redirect:/success.html";
+    }
 
 }

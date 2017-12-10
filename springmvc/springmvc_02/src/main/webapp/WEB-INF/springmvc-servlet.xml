@@ -13,6 +13,11 @@
     <!--配置注解扫描-->
     <context:component-scan base-package="me.xueyao.springmvc.controller"/>
 
+    <!--定义文件上传解析器-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="5242889"/>
+        <property name="defaultEncoding" value="utf-8"/>
+    </bean>
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
