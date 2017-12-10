@@ -1,6 +1,7 @@
 package me.xueyao.springmvc.controller;
 
 import me.xueyao.springmvc.pojo.User;
+import me.xueyao.springmvc.pojo.UserVO;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -11,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * @author XueYao
@@ -132,6 +134,12 @@ public class HelloController {
     @RequestMapping(value = "/show025")
     public String test025(User user,@RequestParam("name") String name, Model model) {
         model.addAttribute("msg", user.toString() + "<br/>" + name);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/show026")
+    public String test026(Model model, UserVO userVO) {
+        model.addAttribute("msg", userVO.getUsers().toString());
         return "hello";
     }
 
