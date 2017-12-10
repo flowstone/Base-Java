@@ -1,8 +1,14 @@
 package me.xueyao.springmvc.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * @author XueYao
@@ -49,5 +55,24 @@ public class HelloController {
         mv.setViewName("hello");
         mv.addObject("msg", "DeleteMapping");
         return mv;
+    }
+
+    @RequestMapping(value = "show017")
+    public ModelAndView test017(HttpServletRequest request, HttpServletResponse response, HttpSession session) {
+        ModelAndView mv = new ModelAndView("hello");
+        StringBuilder sb = new StringBuilder();
+        sb.append("request:" + request + "<br/>");
+        sb.append("response:" + response + "<br/>");
+        sb.append("session:" + session + "<br/>");
+        mv.addObject("msg", "springmvc接收参数与数据绑定：内置参数：" + sb.toString());
+        return mv;
+    }
+
+    @RequestMapping(value = "show018")
+    public String test018(Model model, ModelMap modelMap) {
+        model.addAttribute("msg", "SpringMVC接收参数与数据绑定：特有内置参数model");
+        modelMap.addAttribute("msg", "SpringMVC接收参数与数据绑定：特有内置参数ModelMap");
+
+        return "hello";
     }
 }
