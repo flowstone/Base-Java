@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -142,5 +143,21 @@ public class HelloController {
         model.addAttribute("msg", userVO.getUsers().toString());
         return "hello";
     }
+
+    @RequestMapping(value = "/show027")
+    public String test027(Model model) {
+        ArrayList<User> userList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            User user = new User();
+            user.setId(100+i);
+            user.setUsername("xiaoming"+i);
+            user.setName("小明"+i);
+            user.setAge(10+i);
+            userList.add(user);
+        }
+        model.addAttribute("userList", userList);
+        return "users";
+    }
+
 
 }
