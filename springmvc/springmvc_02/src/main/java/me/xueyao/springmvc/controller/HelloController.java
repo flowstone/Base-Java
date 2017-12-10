@@ -141,6 +141,12 @@ public class HelloController {
         return "hello";
     }
 
+    /**
+     * 集合的绑定
+     * @param model
+     * @param userVO
+     * @return
+     */
     @RequestMapping(value = "/show026")
     public String test026(Model model, UserVO userVO) {
         model.addAttribute("msg", userVO.getUsers().toString());
@@ -162,6 +168,10 @@ public class HelloController {
         return "users";
     }
 
+    /**
+     * POJO对象序列化JSON对象
+     * @return
+     */
     @RequestMapping(value = "/show028")
     @ResponseBody
     public List<User> test028() {
@@ -177,12 +187,25 @@ public class HelloController {
         return userList;
     }
 
+    /**
+     * JSON对象反序列化成POJO对象
+     * @param user
+     * @param model
+     * @return
+     */
     @RequestMapping(value = "/show029")
     public String test029(@RequestBody User user, Model model) {
         model.addAttribute("msg", user.toString());
         return "hello";
     }
 
+    /**
+     * 文件上传
+     * @param model
+     * @param file
+     * @return
+     * @throws IOException
+     */
     @RequestMapping(value = "/show030")
     public String test030(Model model, @RequestParam("file")MultipartFile file) throws IOException {
         if (null != file) {
@@ -193,6 +216,33 @@ public class HelloController {
          * 此处加上/，则重定向地址会是http://localhost:8080/success.html
         */
         return "redirect:/success.html";
+    }
+
+
+    /**
+     * 重定向
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/show031")
+    public String test031(Model model) {
+        return "redirect:show033.do?id=001&type=redirect";
+    }
+
+    /**
+     * 转发
+     * @param model
+     * @return
+     */
+    @RequestMapping(value = "/show032")
+    public String test032(Model model) {
+        return "forward:show033.do?id=002&type=forward";
+    }
+
+    @RequestMapping(value = "/show033")
+    public String test033(Model model, @RequestParam("type") String type) {
+        model.addAttribute("msg", "重定向(redirect)还是转发(forward)" + type);
+        return "hello";
     }
 
 }
