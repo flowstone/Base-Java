@@ -159,5 +159,26 @@ public class HelloController {
         return "users";
     }
 
+    @RequestMapping(value = "/show028")
+    @ResponseBody
+    public List<User> test028() {
+        ArrayList<User> userList = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            User user = new User();
+            user.setId(101+i);
+            user.setUsername("xiaoming"+i);
+            user.setName("小明"+i);
+            user.setAge(10+i);
+            userList.add(user);
+        }
+        return userList;
+    }
+
+    @RequestMapping(value = "/show029")
+    public String test029(@RequestBody User user, Model model) {
+        model.addAttribute("msg", user.toString());
+        return "hello";
+    }
+
 
 }
