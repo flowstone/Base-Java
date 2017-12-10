@@ -1,5 +1,6 @@
 package me.xueyao.springmvc.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -14,6 +15,7 @@ import javax.servlet.http.HttpSession;
  * @author XueYao
  * @date 2017-12-10
  */
+@RequestMapping("hello")
 @Controller
 public class HelloController {
 
@@ -99,5 +101,32 @@ public class HelloController {
         model.addAttribute("msg", "StringMVC接收参数与数据绑定：接收普通 参数：" + id);
         return "hello";
     }
+
+    @RequestMapping(value = "/show023")
+    public String test023(@CookieValue("JSESSIONID") String jsessionId, Model model) {
+        model.addAttribute("msg", "StringMVC的CookieValue:" + jsessionId);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/show024")
+    @ResponseStatus(value = HttpStatus.OK)
+    public void test024(@RequestParam("name") String name, @RequestParam("age") Integer age,
+                        @RequestParam("isMarry") Boolean isMarry, @RequestParam("income") Double income,
+                        @RequestParam("interests") String [] interests) {
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("name:"+name+"\n");
+        stringBuilder.append("age:"+age+"\n");
+        stringBuilder.append("isMarry:" + isMarry+"\n");
+        stringBuilder.append("income：" + income+"\n");
+        stringBuilder.append("interests:[");
+        for (String interest : interests) {
+            stringBuilder.append(interest+" ");
+        }
+        stringBuilder.append("]");
+        System.out.println(stringBuilder.toString());
+
+    }
+
 
 }
