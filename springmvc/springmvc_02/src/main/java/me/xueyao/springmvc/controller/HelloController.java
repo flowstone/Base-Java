@@ -1,5 +1,6 @@
 package me.xueyao.springmvc.controller;
 
+import me.xueyao.springmvc.pojo.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -128,5 +129,10 @@ public class HelloController {
 
     }
 
+    @RequestMapping(value = "/show025")
+    public String test025(User user,@RequestParam("name") String name, Model model) {
+        model.addAttribute("msg", user.toString() + "<br/>" + name);
+        return "hello";
+    }
 
 }
