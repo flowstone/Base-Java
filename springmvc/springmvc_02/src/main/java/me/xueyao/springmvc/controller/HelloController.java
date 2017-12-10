@@ -75,4 +75,29 @@ public class HelloController {
 
         return "hello";
     }
+
+    @RequestMapping(value = "/show019/{name}")
+    public String test019(Model model, @PathVariable("name") String name) {
+        model.addAttribute("msg", "SpringMVC接收参数与数据绑定：占位符" + name);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/show020")
+    public String test020(Model model, @RequestParam("id") Long id) {
+        model.addAttribute("msg", "StringMVC接收参数与数据绑定：接收普通参数:" + id);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/show021")
+    public String test021(Model model, @RequestParam(value = "id",required = false) Long id) {
+        model.addAttribute("msg", "StringMVC接收参数与数据绑定：接收普通参数：" + id);
+        return "hello";
+    }
+
+    @RequestMapping(value = "/show022")
+    public String test022(Model model, @RequestParam(value = "id",required = true, defaultValue = "abc") String id){
+        model.addAttribute("msg", "StringMVC接收参数与数据绑定：接收普通 参数：" + id);
+        return "hello";
+    }
+
 }
