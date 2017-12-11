@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="me.xueyao.usermanage.mapper.UserMapper">
+    <select id="queryUserById" resultType="User">
+          SELECT id,user_name,name,age,sex,birthday,created,updated
+          FROM tb_user WHERE id = #{id}
+    </select>
+
+    <resultMap id="listUser" type="User">
+        <id column="id" property="id"/>
+
+    </resultMap>
+    <select id="queryUsers" resultMap="listUser">
+        SELECT * FROM tb_user
+    </select>
+</mapper>
