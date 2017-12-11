@@ -8,16 +8,37 @@
         http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--注解驱动-->
-    <mvc:annotation-driven />
+    <mvc:annotation-driven >
+        <!--消息解析器-->
+        <mvc:message-converters>
+            <bean class="org.springframework.http.converter.StringHttpMessageConverter">
+                <constructor-arg index="0" value="UTF-8" />
+            </bean>
+        </mvc:message-converters>
+    </mvc:annotation-driven>
 
     <!--配置注解扫描-->
     <context:component-scan base-package="me.xueyao.springmvc.controller"/>
 
     <!--定义文件上传解析器-->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-        <property name="maxUploadSize" value="5242889"/>
+        <!--<property name="maxUploadSize" value="5242889"/>-->
+        <property name="maxUploadSize" value="52"/>
         <property name="defaultEncoding" value="utf-8"/>
     </bean>
+
+    <!--自定义异常解析器-->
+    <bean class="me.xueyao.springmvc.exception.MyExceptionResolver" />
+
+    <!--自定义拦截器-->
+    <!--<mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="me.xueyao.springmvc.interceptors.MyInterceptors1"/>
+        </mvc:interceptor>
+    </mvc:interceptors>-->
+
+
     <!--配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
