@@ -245,4 +245,11 @@ public class HelloController {
         return "hello";
     }
 
+    @RequestMapping(value = "/show034")
+    public String test034(Model model) {
+        System.out.println("handler方法正在执行");
+        model.addAttribute("msg", "Handler方法正在执行");
+        return "hello";
+    }
+
 }

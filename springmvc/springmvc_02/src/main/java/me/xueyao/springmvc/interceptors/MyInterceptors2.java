@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
  * @author XueYao
  * @date 2017-12-10
  */
-public class MyInterceptors1 implements HandlerInterceptor {
+public class MyInterceptors2 implements HandlerInterceptor {
     /**
      * 前置方法,在Handler方法执行之前执行，顺序执行，
      *
@@ -22,7 +22,7 @@ public class MyInterceptors1 implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("myInterceptors1,前置方法正在执行");
+        System.out.println("myInterceptors2,前置方法正在执行");
         return true;
     }
 
@@ -36,7 +36,7 @@ public class MyInterceptors1 implements HandlerInterceptor {
      */
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("myInterceptors1,后置方法正在执行");
+        System.out.println("myInterceptors2,后置方法正在执行");
     }
 
     /**
@@ -49,6 +49,6 @@ public class MyInterceptors1 implements HandlerInterceptor {
      */
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("myInterceptors1,结束方法正在执行");
+        System.out.println("myInterceptors2,结束方法正在执行");
     }
 }
