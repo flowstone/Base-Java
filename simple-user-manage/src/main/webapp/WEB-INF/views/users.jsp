@@ -31,8 +31,12 @@
 	    </thead>
 	</table>
 	</div>
+
 <div id="userAdd" class="easyui-window" title="新增会员" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/user/page/user-add'" style="width:500px;height:400px;padding:10px;">
         The window content.
+</div>
+<div id="userEdit" class="easyui-window" title="编辑会员" data-options="modal:true,closed:true,iconCls:'icon-edit',href:'/user/page/user-edit'" style="width:500px;height:400px;padding:10px;">
+	The window content.
 </div>
 <script type="text/javascript">
 function formatDate(val,row){
@@ -72,7 +76,14 @@ var toolbar = [{
     text:'编辑',
     iconCls:'icon-edit',
     handler:function(){
-    	$.messager.alert('提示','该功能由学员自己实现!');
+    	//$.messager.alert('提示','该功能由学员自己实现!');
+        var rows= $('#userList').datagrid("getSelections");
+        if (rows.length !== 1) {
+            $.messager.alert("提示", "只能选择一条记录");
+            return;
+        }
+        $('#userEdit').window('open');
+
     }
 },{
     text:'删除',

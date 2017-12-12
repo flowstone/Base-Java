@@ -46,6 +46,11 @@ public class UserController {
         return pageName;
     }
 
+    /**
+     * 添加用户
+     * @param user
+     * @return
+     */
     @RequestMapping(value = "save")
     @ResponseBody
     public Map<String, Object> addUser(User user) {
