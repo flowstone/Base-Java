@@ -5,15 +5,15 @@
 	    <table cellpadding="5">
 	        <tr>
 	            <td>用户名:</td>
-	            <td><input class="easyui-textbox" type="text" name="userName" data-options="required:true" style="width: 280px;"></input></td>
+	            <td><input class="easyui-textbox" type="text" name="userName" data-options="required:true" style="width: 280px;"/></td>
 	        </tr>
 	        <tr>
 	            <td>密码:</td>
-	            <td><input class="easyui-textbox" type="password" name="password" data-options="required:true" style="width: 280px;"></input></td>
+	            <td><input class="easyui-textbox" type="password" name="password" data-options="required:true" style="width: 280px;"/></td>
 	        </tr>
 	        <tr>
 	            <td>姓名:</td>
-	            <td><input class="easyui-textbox" name="name" data-options="validType:'length[0,150]',required:true" style="width: 280px;"></input></td>
+	            <td><input class="easyui-textbox" name="name" data-options="validType:'length[0,150]',required:true" style="width: 280px;"/></td>
 	        </tr>
 	        <tr>
 	            <td>年龄:</td>
@@ -46,7 +46,7 @@
 			$.messager.alert('提示','表单还未填写完成!');
 			return ;
 		}
-		$.post("/user/save.action",$("#content").serialize(), function(data){
+		$.post("/user/save",$("#content").serialize(), function(data){
 			if(data.status == 200){
 				$.messager.alert('提示','新增会员成功!');
 				$('#userAdd').window('close');

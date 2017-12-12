@@ -31,7 +31,7 @@
 	    </thead>
 	</table>
 	</div>
-<div id="userAdd" class="easyui-window" title="新增会员" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/user/page/add'" style="width:800px;height:600px;padding:10px;">
+<div id="userAdd" class="easyui-window" title="新增会员" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/user/page/user-add'" style="width:500px;height:400px;padding:10px;">
         The window content.
 </div>
 <script type="text/javascript">

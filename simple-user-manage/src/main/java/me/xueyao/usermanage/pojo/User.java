@@ -33,7 +33,8 @@ public class User implements Serializable{
     private Integer sex;
 
     // 出生日期
-    @DateTimeFormat(pattern="yyyy-MM-dd")
+    //@DateTimeFormat(pattern="yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date birthday;
 
     // 创建时间
