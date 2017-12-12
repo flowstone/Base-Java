@@ -15,4 +15,8 @@
     <select id="queryUsers" resultMap="listUser">
         SELECT * FROM tb_user
     </select>
+    <select id="queryUsersByPage" resultType="User">
+        SELECT id,user_name,name,age,sex,birthday,created,updated
+        FROM tb_user LIMIT #{start} , #{pageSize}
+    </select>
 </mapper>

@@ -1,6 +1,7 @@
 package me.xueyao.usermanage.mapper;
 
 import me.xueyao.usermanage.pojo.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -13,4 +14,6 @@ public interface UserMapper {
     User queryUserById(Long id);
 
     List<User> queryUsers();
+
+    List<User> queryUsersByPage(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
 }
