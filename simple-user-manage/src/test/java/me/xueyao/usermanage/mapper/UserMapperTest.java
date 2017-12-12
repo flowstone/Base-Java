@@ -2,8 +2,10 @@ package me.xueyao.usermanage.mapper;
 
 import javafx.application.Application;
 import me.xueyao.usermanage.pojo.User;
+import me.xueyao.usermanage.service.UserService;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -38,4 +40,5 @@ public class UserMapperTest {
             System.out.println(user);
         }
     }
+
 }

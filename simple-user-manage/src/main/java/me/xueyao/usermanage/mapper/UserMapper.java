@@ -16,4 +16,8 @@ public interface UserMapper {
     List<User> queryUsers();
 
     List<User> queryUsersByPage(@Param("start") Integer start, @Param("pageSize") Integer pageSize);
+
+    List<User> queryUserAll();
+
+    int addUser(User user);
 }

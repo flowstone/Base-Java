@@ -19,4 +19,35 @@
         SELECT id,user_name,name,age,sex,birthday,created,updated
         FROM tb_user LIMIT #{start} , #{pageSize}
     </select>
+    <resultMap id="queryUserAllMap" type="User">
+        <id column="id" property="id"/>
+    </resultMap>
+    <select id="queryUserAll" resultMap="queryUserAllMap">
+        SELECT id,user_name,name,age,sex,birthday,created,updated
+        FROM tb_user
+    </select>
+    
+    <insert id="addUser" useGeneratedKeys="true" keyColumn="id" keyProperty="id">
+        INSERT INTO tb_user (
+            user_name,
+            password,
+            name,
+            age,
+            sex,
+            birthday,
+            created,
+            updated
+        )
+        VALUES
+            (
+                #{userName},
+                #{password},
+                #{name},
+                #{age},
+                #{sex},
+                #{birthday},
+                NOW(),
+                NOW()
+            );
+    </insert>
 </mapper>
