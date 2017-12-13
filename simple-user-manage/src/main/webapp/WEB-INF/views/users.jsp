@@ -111,9 +111,11 @@ var toolbar = [{
     text:'导出',
     iconCls:'icon-remove',
     handler:function(){
-    	var optins = $("#userList").datagrid("getPager").data("pagination").options;
-    	var page = optins.pageNumber;
-    	var rows = optins.pageSize;
+
+    	var options = $("#userList").datagrid("getPager").data("pagination").options;
+    	var page = options.pageNumber;
+    	var rows = options.pageSize;
+    	//console.log(page,rows);
     	$("<form>").attr({
     		"action":"/user/export/excel",
     		"method":"POST"

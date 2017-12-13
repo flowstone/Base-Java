@@ -6,6 +6,7 @@ import me.xueyao.usermanage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -73,6 +74,11 @@ public class UserController {
         return  map;
     }
 
+    /**
+     * 删除用户
+     * @param ids
+     * @return
+     */
     @RequestMapping("delete")
     @ResponseBody
     public Map<String, Object> deleteUser(@RequestParam("ids") String[] ids) {
@@ -89,6 +95,14 @@ public class UserController {
             e.printStackTrace();
         }
         return map;
+    }
+
+    @RequestMapping("export/excel")
+    public String exportExcel(Model model, @RequestParam("page") Integer pageNum, @RequestParam("rows") Integer pageSize) {
+        EasyUIResult easyUIResult = this.userService.queryEasyUIResult(pageNum, pageSize);
+        model.addAttribute("userList", easyUIResult);
+        return "userExcel";
+
     }
 
 }

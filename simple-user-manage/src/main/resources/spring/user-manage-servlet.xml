@@ -17,9 +17,16 @@
     <!--处理静态资源拦截问题-->
     <mvc:default-servlet-handler/>
 
+    <!--定义Excel视图对象，并且指定视图名称-->
+    <bean class="me.xueyao.usermanage.view.UserExcelView" name="excelView"/>
+
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--定义视图解析器-->
+    <bean class="org.springframework.web.servlet.view.BeanNameViewResolver" >
+        <property name="order" value="1"/>
     </bean>
 </beans>
