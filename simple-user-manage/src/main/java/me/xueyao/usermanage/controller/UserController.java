@@ -4,12 +4,14 @@ import me.xueyao.usermanage.pojo.EasyUIResult;
 import me.xueyao.usermanage.pojo.User;
 import me.xueyao.usermanage.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.ServletContext;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -70,4 +72,23 @@ public class UserController {
 
         return  map;
     }
+
+    @RequestMapping("delete")
+    @ResponseBody
+    public Map<String, Object> deleteUser(@RequestParam("ids") String[] ids) {
+        Map<String, Object> map = new HashMap<>();
+        Boolean infoStatus = this.userService.deleteUser(ids);
+        try {
+            if (infoStatus) {
+                map.put("status", "200");
+            } else {
+                map.put("status", "500");
+            }
+        } catch (Exception e) {
+            map.put("status", 500);
+            e.printStackTrace();
+        }
+        return map;
+    }
+
 }

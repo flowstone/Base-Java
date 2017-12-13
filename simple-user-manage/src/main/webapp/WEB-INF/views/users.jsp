@@ -82,6 +82,7 @@ var toolbar = [{
             $.messager.alert("提示", "只能选择一条记录");
             return;
         }
+        //$('#content').form("load",rows[0]);
         $('#userEdit').window('open');
 
     }

@@ -50,4 +50,11 @@
                 NOW()
             );
     </insert>
+
+    <delete id="deleteUser" >
+        DELETE  FROM tb_user WHERE id IN
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
 </mapper>

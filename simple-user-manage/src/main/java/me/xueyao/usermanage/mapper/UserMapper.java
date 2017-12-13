@@ -20,4 +20,6 @@ public interface UserMapper {
     List<User> queryUserAll();
 
     int addUser(User user);
+
+    int deleteUser(@Param("ids") String[] ids);
 }
