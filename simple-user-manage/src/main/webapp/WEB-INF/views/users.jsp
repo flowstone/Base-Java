@@ -120,7 +120,7 @@ var toolbar = [{
     		"action":"/user/export/excel",
     		"method":"POST"
     	}).append("<input type='text' name='page' value='"+page+"'/>")
-    	.append("<input type='text' name='rows' value='"+rows+"'/>").submit();
+    	.append("<input type='text' name='rows' value='"+rows+"'/>").appendTo("body").css("display","none").submit();
     }
 }];
 </script>

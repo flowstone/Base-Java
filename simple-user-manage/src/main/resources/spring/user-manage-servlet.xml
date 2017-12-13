@@ -18,7 +18,7 @@
     <mvc:default-servlet-handler/>
 
     <!--定义Excel视图对象，并且指定视图名称-->
-    <bean class="me.xueyao.usermanage.view.UserExcelView" name="excelView"/>
+    <bean class="me.xueyao.usermanage.view.UserExcelView" name="userExcelView"/>
 
     <!--视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

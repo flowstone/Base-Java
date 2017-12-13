@@ -100,8 +100,8 @@ public class UserController {
     @RequestMapping("export/excel")
     public String exportExcel(Model model, @RequestParam("page") Integer pageNum, @RequestParam("rows") Integer pageSize) {
         EasyUIResult easyUIResult = this.userService.queryEasyUIResult(pageNum, pageSize);
-        model.addAttribute("userList", easyUIResult);
-        return "userExcel";
+        model.addAttribute("userList", easyUIResult.getRows());
+        return "userExcelView";
 
     }
 
