@@ -77,13 +77,18 @@ var toolbar = [{
     iconCls:'icon-edit',
     handler:function(){
     	//$.messager.alert('提示','该功能由学员自己实现!');
-        var rows= $('#userList').datagrid("getSelections");
+        var rows = $('#userList').datagrid("getSelections");
         if (rows.length !== 1) {
-            $.messager.alert("提示", "只能选择一条记录");
+            $.messager.alert("提示", "只能选择一条记录", "info");
             return;
         }
-        //$('#content').form("load",rows[0]);
-        $('#userEdit').window('open');
+        $('#userEdit').window({
+			onLoad:function() {
+
+                rows[0].birthday = new Date(rows[0].birthday).format("yyyy-MM-dd");
+                $('#editForm').form('load', rows[0]);
+			}
+		}).window('open');
 
     }
 },{
@@ -91,14 +96,14 @@ var toolbar = [{
     iconCls:'icon-cancel',
     handler:function(){
     	var ids = getSelectionsIds();
-    	if(ids.length == 0){
+    	if(ids.length === 0){
     		$.messager.alert('提示','未选中用户!');
     		return ;
     	}
     	$.messager.confirm('确认','确定删除ID为 '+ids+' 的会员吗？',function(r){
     	    if (r){
             	$.post("/user/delete",{'ids':ids}, function(data){
-        			if(data.status == 200){
+        			if(data.status === 200){
         				$.messager.alert('提示','删除会员成功!',undefined,function(){
         					$("#userList").datagrid("reload");
         				});
@@ -107,7 +112,7 @@ var toolbar = [{
     	    }
     	});
     }
-},'-',{
+},{
     text:'导出',
     iconCls:'icon-remove',
     handler:function(){

@@ -26,11 +26,13 @@ public class UserController {
 
     @Autowired
     private UserService userService;
+/*
 
     @RequestMapping("users")
     public String toUser() {
         return "users";
     }
+*/
 
     @RequestMapping("list")
     @ResponseBody
