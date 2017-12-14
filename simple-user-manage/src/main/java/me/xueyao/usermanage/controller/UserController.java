@@ -76,6 +76,24 @@ public class UserController {
         return  map;
     }
 
+    @RequestMapping(value = "update")
+    @ResponseBody
+    public Map<String, Object> updateUser(User user) {
+        Map<String, Object> map = new HashMap<>();
+        Boolean updateStatus = this.userService.updateUser(user);
+        try {
+            if (updateStatus) {
+                map.put("status", "200");
+            } else {
+                map.put("status", "500");
+            }
+        } catch (Exception e) {
+            map.put("status", "500");
+        }
+
+        return map;
+    }
+
     /**
      * 删除用户
      * @param ids
@@ -99,6 +117,13 @@ public class UserController {
         return map;
     }
 
+    /**
+     * 导出Excel表格
+     * @param model
+     * @param pageNum 当前页
+     * @param pageSize
+     * @return
+     */
     @RequestMapping("export/excel")
     public String exportExcel(Model model, @RequestParam("page") Integer pageNum, @RequestParam("rows") Integer pageSize) {
         EasyUIResult easyUIResult = this.userService.queryEasyUIResult(pageNum, pageSize);

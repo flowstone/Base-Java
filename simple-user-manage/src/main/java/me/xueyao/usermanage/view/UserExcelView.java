@@ -1,12 +1,12 @@
 package me.xueyao.usermanage.view;
 
 import me.xueyao.usermanage.pojo.User;
+import me.xueyao.usermanage.utils.Constants;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.joda.time.DateTime;
-import org.springframework.core.Constants;
 import org.springframework.web.servlet.view.document.AbstractExcelView;
 import org.springframework.web.servlet.view.document.AbstractXlsView;
 
@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 import java.util.Map;
+
+import static me.xueyao.usermanage.utils.Constants.*;
 
 /**
  * @author XueYao
@@ -53,9 +55,9 @@ public class UserExcelView extends AbstractXlsView {
                 sexStr = "未知";
             }
             row.createCell(4).setCellValue(sexStr);
-            row.createCell(5).setCellValue(new DateTime(user.getBirthday()).toString());
-            row.createCell(6).setCellValue(new DateTime(user.getCreated()).toString());
-            row.createCell(7).setCellValue(new DateTime(user.getUpdated()).toString());
+            row.createCell(5).setCellValue(new DateTime(user.getBirthday()).toString(Constants.DATE));
+            row.createCell(6).setCellValue(new DateTime(user.getCreated()).toString(Constants.DATE_TIME));
+            row.createCell(7).setCellValue(new DateTime(user.getUpdated()).toString(Constants.DATE_TIME));
             rowNum++;
         }
         response.setHeader("Content-Disposition", "attachment;filename=" + new String("会员列表.xls".getBytes(),"ISO-8859-1"));

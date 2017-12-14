@@ -22,4 +22,6 @@ public interface UserMapper {
     int addUser(User user);
 
     int deleteUser(@Param("ids") String[] ids);
+
+    int updateUser(User user);
 }

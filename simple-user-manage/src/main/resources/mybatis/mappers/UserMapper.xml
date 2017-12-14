@@ -57,4 +57,9 @@
             #{id}
         </foreach>
     </delete>
+
+    <update id="updateUser" parameterType="User">
+        UPDATE tb_user SET user_name = #{userName}, name = #{name}, age = #{age}, sex = #{sex},
+            birthday = #{birthday} WHERE (id = #{id})
+    </update>
 </mapper>

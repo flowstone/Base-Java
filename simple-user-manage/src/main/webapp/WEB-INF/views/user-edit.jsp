@@ -3,6 +3,9 @@
 <div style="padding:10px 10px 10px 10px">
 	<form id="editForm" method="post">
 	    <table cellpadding="5">
+			<tr>
+				<td><input type="hidden" name="id"></td>
+			</tr>
 	        <tr>
 	            <td>用户名:</td>
 	            <td><input class="easyui-textbox" type="text" name="userName" data-options="required:true" style="width: 280px;"/></td>
@@ -38,22 +41,23 @@
 </div>
 <script type="text/javascript">
 	function submitForm(){
-		if(!$('#content').form('validate')){
+		if(!$('#editForm').form('validate')){
 			$.messager.alert('提示','表单还未填写完成!');
 			return ;
 		}
-		$.post("/user/save",$("#content").serialize(), function(data){
-			if(data.status == 200){
-				$.messager.alert('提示','新增会员成功!');
-				$('#userAdd').window('close');
+		$.post("/user/update",$("#editForm").serialize(), function(data){
+			if(data.status === '200'){
+				$.messager.alert('提示','更新会员成功!');
+				$('#userEdit').window('close');
+				//更新后刷新页面
 				$("#userList").datagrid("reload");
 				clearForm();
 			}else{
-				$.messager.alert('提示','新增会员失败!');
+				$.messager.alert('提示','更新会员失败!');
 			}
 		});
 	}
 	function clearForm(){
-		$('#content').form('reset');
+		$('#editForm').form('reset');
 	}
 </script>
