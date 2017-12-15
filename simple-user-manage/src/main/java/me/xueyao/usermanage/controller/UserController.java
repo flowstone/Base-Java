@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.ServletContext;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -101,7 +102,7 @@ public class UserController {
      */
     @RequestMapping("delete")
     @ResponseBody
-    public Map<String, Object> deleteUser(@RequestParam("ids") String[] ids) {
+    public Map<String, Object> deleteUser(@RequestParam("ids") List<Object> ids) {
         Map<String, Object> map = new HashMap<>();
         Boolean infoStatus = this.userService.deleteUser(ids);
         try {

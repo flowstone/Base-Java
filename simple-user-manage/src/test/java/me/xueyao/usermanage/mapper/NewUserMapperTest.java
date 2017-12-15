@@ -113,6 +113,9 @@ public class NewUserMapperTest {
         fail("Not yet implemented");
     }
 
+    /**
+     * 排序
+     */
     @Test
     public void testSelectByExample() {
         Example example = new Example(User.class);

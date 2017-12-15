@@ -8,4 +8,6 @@ import me.xueyao.usermanage.pojo.User;
  * @date 2017-12-15
  */
 public interface NewUserMapper extends Mapper<User> {
+
+
 }
