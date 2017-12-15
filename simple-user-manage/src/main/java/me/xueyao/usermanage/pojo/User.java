@@ -3,6 +3,7 @@ package me.xueyao.usermanage.pojo;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
@@ -10,13 +11,17 @@ import java.util.Date;
  * @author XueYao
  * @date 2017-12-11
  */
+@Table(name = "tb_user")
 public class User implements Serializable{
 
 
     private static final long serialVersionUID = 4367524668644717565L;
+    @GeneratedValue(generator = "JDBC")
+    @Id
     private Long id;
 
     // 用户名
+    @Column(name = "user_name")
     private String userName;
 
     // 密码
@@ -42,6 +47,16 @@ public class User implements Serializable{
 
     // 更新时间
     private Date updated;
+
+    @Transient
+    private  String remark;
+
+    public String getRemark() {
+        return remark;
+    }
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
 
     public Long getId() {
         return id;
