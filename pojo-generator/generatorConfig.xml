@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<context id="testTables" targetRuntime="MyBatis3">
+		<!-- JavaBean 实现 序列化 接口 -->
+		<plugin type="org.mybatis.generator.plugins.SerializablePlugin">
+		</plugin>
+		<!-- genenat entity时,生成toString -->
+		<plugin type="org.mybatis.generator.plugins.ToStringPlugin" />
+
+		<commentGenerator
+			type="org.mybatis.generator.plugins.comment.MyCommentGenerator">
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/babashop" userId="root"
+			password="xueyao123456">
+		</jdbcConnection>
+
+		<!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 
+			和 NUMERIC 类型解析为java.math.BigDecimal -->
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- targetProject:生成PO类的位置 -->
+		<javaModelGenerator targetPackage="me.xueyao.babashop.pojo"
+			targetProject=".\src">
+			<!-- enableSubPackages:是否让schema作为包的后缀 -->
+			<property name="enableSubPackages" value="false" />
+			<!-- 从数据库返回的值被清理前后的空格 -->
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<!-- 指定数据库表 -->
+		<!-- 用户模块表 -->
+		<table schema="" tableName="bbs_buyer" domainObjectName="Buyer">
+			<columnOverride column="is_del" javaType="Integer" />
+		</table>
+
+		<!-- 商品模块表 -->
+		<table schema="" tableName="bbs_product" domainObjectName="Product">
+			<!-- 商品介绍 大字段映射 -->
+			<columnOverride column="description" javaType="String"
+				jdbcType="VARCHAR" />
+			<!-- 包装清单 大字段映射 -->
+			<columnOverride column="package_list" javaType="String"
+				jdbcType="VARCHAR" />
+			<!-- 商品图片 大字段映射 -->
+			<columnOverride column="img_url" javaType="String"
+				jdbcType="VARCHAR" />
+
+			<columnOverride column="is_new" javaType="Integer" />
+			<columnOverride column="is_hot" javaType="Integer" />
+			<columnOverride column="is_commend" javaType="Integer" />
+			<columnOverride column="is_show" javaType="Integer" />
+			<columnOverride column="is_del" javaType="Integer" />
+
+		</table>
+		<table schema="" tableName="bbs_brand" domainObjectName="Brand">
+			<columnOverride column="is_display" javaType="Integer" />
+		</table>
+		<table schema="" tableName="bbs_Color" domainObjectName="Color" />
+		<table schema="" tableName="bbs_sku" domainObjectName="Sku" />
+
+		<!-- 订单模块表 -->
+		<table schema="" tableName="bbs_order" domainObjectName="Order">
+			<!-- 支付方式 0:到付 1:在线 2:邮局 3:公司转帐 -->
+			<columnOverride column="payment_way" javaType="Integer" />
+			<!-- 货到付款方式.1现金,2POS刷卡 -->
+			<columnOverride column="payment_cash" javaType="Integer" />
+			<!-- 送货时间 -->
+			<columnOverride column="delivery" javaType="Integer" />
+			<!-- 支付状态 :0到付1待付款,2已付款,3待退款,4退款成功,5退款失败 -->
+			<columnOverride column="is_paiy" javaType="Integer" />
+			<!-- 订单状态 0:提交订单 1:仓库配货 2:商品出库 3:等待收货 4:完成 5待退货 6已退货 -->
+			<columnOverride column="state" javaType="Integer" />
+			<!-- 订单状态 默认Boolean -->
+			<columnOverride column="order_state" javaType="Integer" />
+
+			<columnOverride column="is_confirm" javaType="Integer" />
+		</table>
+		<table schema="" tableName="bbs_detail" domainObjectName="Detail" />
+	</context>
+</generatorConfiguration>
